@@ -1,0 +1,38 @@
+---
+layout: page
+title: iOS Security
+tagline: Core Foundation
+---
+{% include JB/setup %}
+
+    
+## Core Foundation 
+
+<a href="{{ BASE_PATH }}/lessons/2011/12/29/CFNetwork">CFNetwork GET Request</a>
+
+<a href="{{ BASE_PATH }}/core-samples/lessons/2012/01/01/post_request_with_headers">CFNetwork POST and callback functions</a>
+
+<a href="{{ BASE_PATH }}/core-samples/lessons/2012/01/15/accessing_tls_information">Validating SSL/TLS certificates</a>
+
+<a href="{{ BASE_PATH }}/core-samples/lessons/2014/01/01/common_crypto">AES Encryption using Common Crypto</a>
+
+<a href="{{ BASE_PATH }}/core-samples/lessons/2013/05/01/hashing_algorithms_in_core_foundation">Hashing Algorithms in Core Foundation</a>
+
+<a href="{{ BASE_PATH }}/core-samples/lessons/2013/10/01/secure_wipe_memory">Secure Wipe Memory</a>
+
+<a href="{{ BASE_PATH }}/core-samples/lessons/2012/05/01/KeychainServices">Keychain Services: Storing and retrieving passwords</a>
+
+<a href="{{ BASE_PATH }}/core-samples/lessons/2013/01/01/CFSocket">Low level socket programming in POSIX and Core Foundation</a>
+
+## Cocoa/Objective-C
+
+<a href="{{ BASE_PATH }}/core-samples/lessons/2013/12/12/secure_coding_in_iOS">Secure Programming on iOS</a>
+
+## Objective-C++
+
+<a href="{{ BASE_PATH }}/core-samples/lessons/2013/03/01/atomic">C++ Atomic Programming</a>
+
+
+
+
+[![Contact](http://www.dev-metal.com/wp-content/uploads/2014/01/stackoverflow-80x80.jpg)](https://stackoverflow.com/users/466997/nsdestroyer)
