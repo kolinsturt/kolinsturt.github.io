@@ -1,9 +1,9 @@
 ---
 layout: page
-title: Collin Stürt
+title: Kolin Stürt
 description: Security articles for iOS, macOS, Android and Linux.
 
-tags : [Android, Collin, Stuart, Collin Stuart, iOS, Core Foundation, Security, C++, OS X, macOS, XCode, Reverse Engineering, Secure Coding, Secure Programming, Objective-C, Hacking, Application Hardening, Privacy]
+tags : [Android, Kolin, Sturt, Kolin Sturt, iOS, Core Foundation, Security, C++, OS X, macOS, XCode, Reverse Engineering, Secure Coding, Secure Programming, Objective-C, Hacking, Application Hardening, Privacy]
 ---
 {% include JB/setup %}
 
