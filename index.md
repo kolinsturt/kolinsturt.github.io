@@ -7,9 +7,6 @@ tags : [Android, Kolin, Sturt, Kolin Sturt, iOS, Core Foundation, Security, C++,
 ---
 {% include JB/setup %}
 
-<a href="https://tutsplus.com/authors/collin-stuart" target="_blank"><img src="https://cms-assets.tutsplus.com/uploads/users/15/posts/24999/image/logo.png" alt="Tuts Plus" width="170"/></a>
-<a href="https://www.raywenderlich.com/u/nsdestr0yer" target="_blank"><img src="https://c0.piktochart.com/v2/uploads/c1eeda4b-642a-4fdf-a9ea-62a281e47023/ff72fe361eb8383a8631bde7fbefce4a517b0e34_original.png" alt="Ray Wenderlich" width="170"/></a>
-
 <a href="{{ BASE_PATH }}/lessons/2016/01/01/beginning_android_forensics">Android Forensics</a>
 
 <a href="{{ BASE_PATH }}/lessons/2016/12/01/reverse_engineering_android_apps">Reverse Engineering Android Apps</a>
