@@ -7,7 +7,7 @@ tags : [Android, Kolin, Sturt, Kolin Sturt, iOS, Core Foundation, Security, C++,
 ---
 {% include JB/setup %}
 
-<a href="{{ BASE_PATH }}/lessons/2016/01/01/beginning_android_forensics">Android Forensics</a>
+<a href="{{ BASE_PATH }}/lessons/2016/01/01/beginning_ios_forensics">iOS Forensics</a>
 
 <a href="{{ BASE_PATH }}/lessons/2016/12/01/reverse_engineering_android_apps">Reverse Engineering Android Apps</a>
 
