@@ -18,7 +18,7 @@ Beyond copying, backing up and preserving the current state of the device, the n
 
 # Jailbreaking
 
-Jailbreaking allows you to get around the sandbox and kernel patch protection. Most importantly, it gives you root access to the file system as well as the oportunity to enable SSH on the device.
+Jailbreaking allows you to get around the sandbox and kernel patch protection. Most importantly, it gives you root access to the file system as well as the opportunity to enable SSH on the device.
 
 There are many tools to root a device, such as:
 
@@ -26,9 +26,9 @@ There are many tools to root a device, such as:
 * [liberios](http://newosxbook.com/liberios/)
 * [electra](https://coolstar.org/electra/)
 
-Rooting a device usually involves exploiting a security vulnerability on the OS which would circumvent code signing and other security measures. Code signing prevents you from modifying or executing custom code on the device. An IPA image, for example, is signed by a private key and the main challenge is getting unsigned binaries to run. [Cydia Impactor](https://www.cydiaimpactor.com/) is used to get around these requirments to install jailbreaks. 
+Rooting a device usually involves exploiting a security vulnerability on the OS which would circumvent code signing and other security measures. Code signing prevents you from modifying or executing custom code on the device. An IPA image, for example, is signed by a private key and the main challenge is getting unsigned binaries to run. [Cydia Impactor](https://www.cydiaimpactor.com/) is used to get around these requirements to install jailbreaks. 
 
-Instead of trying to escalte priviledge and get root, newer iOS 12 techniques involve a rootless jailbreak. This doesn't need to grant access to the root (/) so it's much safer from a foresnics standpoint. There's less modifications to the evidence.
+Instead of trying to escalate privileges to get root, newer iOS 12 techniques involve a rootless jailbreak. This doesn't need to grant access to the root (/) so it's much safer from a forensics standpoint. There's less modifications to the evidence.
 
 Here's some more resources:
 * [Rootless Jailbreak JB3](https://github.com/jakeajames/rootlessJB3)
@@ -40,11 +40,11 @@ Here's some more resources:
 
 A physical acquisition is a bit-by-bit dump of the storage. A logical acquisition on the other hand does not do a bit-by-bit copy. It’s similar to the process of copying a file or folder from one location to another. A logical acquisition is usually the technique used if you can get the lockdown file (a pairing record) from the user's computer. This doesn't work if the device has been started for the first time without the user unlocking it at least once. (Why it's a good idea to power down your device in high-risk situations.)
 
-Starting in iOS 11.3, locked devices need to have had a lightning connector or USB accessory used while unlocked at least once a week., otherwise the connection becomes unusable. This feature is called USB Restricted Mode. It means that you must act promptly when given a secured device otherwise the lockdown records will expire after a week. On 11.4.1 it gets worse. The timing window was changed to one hour. This change is in responce to Grayshift’s GrayKey, which has been the leading device to break into locked devices via the USB connector.
+Starting in iOS 11.3, locked devices need to have had a lightning connector or USB accessory used while unlocked at least once a week., otherwise the connection becomes unusable. This feature is called USB Restricted Mode. It means that you must act promptly when given a secured device otherwise the lockdown records will expire after a week. On 11.4.1 it gets worse. The timing window was changed to one hour. This change is in response to [Grayshift’s GrayKey](https://graykey.grayshift.com/), which has been the leading device to break into locked devices via the USB connector.
 
 However, it seems there's some workarounds. Connecting certain accessories such as display adaptors or Apple's Lightning to USB 3 Camera Adapter changes this window to a week.
 
-Apple introduced the Secure Enclave starting with the iPhone 5s devices. Prior to these devices, you can do a physical aquisition of the user’s encrypted data partition as long as you could extract the encryption key. For devices with the SEcure Enclave, you'll need to perform the higher level system imaging acquisition.
+Apple introduced the Secure Enclave starting with the iPhone 5s devices. Prior to these devices, you can do a physical acquisition of the user’s encrypted data partition as long as you could extract the encryption key. For devices with the Secure Enclave, you'll need to perform the higher level system imaging acquisition.
 
 * Once the phone is jailbroken, you can use a simple too like [iExplorer](https://macroplant.com/iexplorer) on the device.
 * You can SSH into the device:
@@ -73,7 +73,7 @@ Once you have access to the device, you can begin with important areas of data:
 * SMS: **/private/var/mobile/Library/SMS**
 * Call History: **/private/var/Library/CallHistory**
 * GPS Locations: **private/var/Library/Caches/locationd/consolidated.db**
-* The keyboard cache contains new words the user has typed. This can help determin content of messages. The cache is located at **/private/var/mobile/Library/Keyboard**.
+* The keyboard cache contains new words the user has typed. This can help determine content of messages. The cache is located at **/private/var/mobile/Library/Keyboard**.
 * Keychain items are located at **/private/var/Keychains**. You can use [Keychain-Dumper](https://github.com/ptoomey3/Keychain-Dumper) to assist in extracting contents.
 * Safari Cache: **/private/var/mobile/Library/Caches/Safari**
 * Cookies: **/private/var/mobile/LibrarySafari/cookies.binarycookies**
