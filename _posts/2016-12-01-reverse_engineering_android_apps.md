@@ -149,7 +149,7 @@ The messages are encrypted. See the [Decrypt WeChat Database article](https://ar
 
 # Reverse Engineering
 
-After a logical or physical aquisition of a device is made, you'll want to look at user data stored inside each app. Sometimes apps use obfuscated or eccentric ways of storing the user's data so the focus shifts to understanding the prticular app and how it works internally.
+After a logical or physical aquisition of a device is made, you'll want to look at user data stored inside each app. Sometimes apps use obfuscated or eccentric ways of storing the user's data so the focus shifts to understanding the particular app and how it works internally.
 
 There's been lots of discussion about reverse engineering for apps written in Java. Recently Kotlin has become popular as an alternative to Android app development. The good news is that Kotlin is a JVM language. When you build your app, Android Studio produces an APK file. This is really just a zip file, and has a structure similar to **jar** Java archives. Inside the archive are resources along with a DEX file. DEX stands for Dalvik Executable. 
 
