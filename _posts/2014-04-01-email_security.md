@@ -7,7 +7,7 @@ tags : [Apple, Email, encryption, iPhone, security, privacy]
 ---
 {% include JB/setup %}
 
-## Apple Email Security and Privacy
+## Email Security on Mobile Devices
 
 It's good news that there are a lot of privacy related chat applications out there that offer end to end encryption - from open source XMPP applications such as [ChatSecure](https://chatsecure.org) and [Signal](https://signal.org/). In regards to email privacy, email is dated with all the other secure means of communicating. It still requires a lot of effort to secure email.
 
