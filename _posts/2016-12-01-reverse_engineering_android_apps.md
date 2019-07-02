@@ -9,16 +9,7 @@ tags : [Android, aapt, DEX, Drozer, Dex2Jar, jd_gui, smali, baksmali]
 
 # Beginning Android Forensics
 
-This is a brief article that introduces the concepts of forensics and reverse engineering on Android. It’s not meant to be a full guide but rather a place with some links. The goal is to present the general idea and overall process that you can take away and apply to your unique situation.
-
-You may get lucky when presented with an unsecured device where you have full access. But the most important practice for any device is to copy and work with the data without altering the original device in any way. Evidence that is tampered with will be inadmissible in court.
-
-Beyond copying, backing up and preserving the current state of the device, the next main challenge in forensics recovery is dealing with a secured device. Almost all solutions involve rooting the device to gain access. There is a tradeoff between acquiring access and altering part of the device that secures it. 
-
-
-# Rooting and Unlocking the Bootloader
-
-There are many tools to root a device, such as [OneClickRoot](https://www.oneclickroot.com/), [KingoRoot](https://www.kingoapp.com/) and [SuperUserDownload](https://superuserdownload.com/).
+The main challenge in forensics recovery is dealing with a secured device. For Android, almost all solutions involve rooting the device to gain access. There are many tools to root a device, such as [OneClickRoot](https://www.oneclickroot.com/), [KingoRoot](https://www.kingoapp.com/) and [SuperUserDownload](https://superuserdownload.com/).
 
 Rooting a device usually involves flashing a partition on the device, such as a custom recovery image. Some examples are <https://twrp.me/about/> or [ClockworkMod Recovery](https://www.clockworkmod.com/). 
 
