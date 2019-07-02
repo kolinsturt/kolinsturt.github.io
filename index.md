@@ -15,6 +15,8 @@ tags : [Android, Kolin, Sturt, Kolin Sturt, iOS, Core Foundation, Security, C++,
 
 <a href="{{ BASE_PATH }}/lessons/2016/06/01/intercepting_network_traffic_ios">Intercepting Network Traffic on iOS</a>
 
+<a href="{{ BASE_PATH }}/lessons/2018/06/01/privacy_activists_investigators">Privacy Tips for Investigators</a>
+
 <a href="{{ BASE_PATH }}/lessons/2014/04/01/email_security">Email Security on Apple devices</a>
 
 <a href="{{ BASE_PATH }}/lessons/2014/06/01/asn1">ASN.1 and DER</a>
