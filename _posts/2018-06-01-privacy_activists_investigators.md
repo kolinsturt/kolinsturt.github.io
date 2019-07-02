@@ -7,8 +7,6 @@ tags : [Signal App, VeraCrypt, TorBrowser, Tails OS, HTTPSEverywhere, Riseup.net
 ---
 {% include JB/setup %}
 
-[![Contact](https://cdn2.iconfinder.com/data/icons/free-basic-icon-set-2/300/8-128.png)](https://tutsplus.com/authors/collin-stuart)
-
 ## Privacy for Activists and Investigators
 
 This guide will discuss how to communicate, coordinate, and expose information as securely as
