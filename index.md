@@ -21,7 +21,7 @@ tags : [Android, Kolin, Sturt, Kolin Sturt, iOS, Core Foundation, Security, C++,
 
 <a href="{{ BASE_PATH }}/lessons/2014/06/01/asn1">ASN.1 and DER</a>
     
-## Core Foundation 
+## C / Core Foundation 
 
 <a href="{{ BASE_PATH }}/lessons/2014/01/01/common_crypto">AES Encryption using Common Crypto</a>
 
@@ -39,7 +39,7 @@ tags : [Android, Kolin, Sturt, Kolin Sturt, iOS, Core Foundation, Security, C++,
 
 <a href="{{ BASE_PATH }}/lessons/2013/01/01/CFSocket">Low Level Socket Programming in POSIX and Core Foundation</a>
 
-## Cocoa/Objective-C
+## Objective-C
 
 <a href="{{ BASE_PATH }}/lessons/2013/03/03/buffer_overflow">Buffer Overflows and Format String Attacks</a>
 
@@ -57,7 +57,7 @@ tags : [Android, Kolin, Sturt, Kolin Sturt, iOS, Core Foundation, Security, C++,
 
 <a href="{{ BASE_PATH }}/lessons/2015/11/04/keychain_entropy">iOS 9 Keychain Item Entropy</a>
 
-## Objective-C++
+## C++
 
 <a href="{{ BASE_PATH }}/lessons/2011/11/15/aes_encryption_using_openssl">AES Encryption in OpenSSL</a>
 
