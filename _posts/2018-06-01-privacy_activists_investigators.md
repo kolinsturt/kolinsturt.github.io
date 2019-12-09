@@ -86,7 +86,7 @@ means that you have to trust that they haven't altered the software to include b
 allow third parties to spy on the communications (https://signal.org/blog/there-is-no-whatsapp-backdoor). I've worked on the Signal app so feel free to message me questions. 
 
 #### [Telegram](https://telegram.org)
-Telegram is very popular. You might even be using it. It allows you to redact a message you've sent,
+Telegram is very popular. It allows you to redact a message you've sent,
 even off the other person's device. This is a false sense of security because there's no way of
 determining if the other user has already seen the message. It's possible to put the device into airplane
 mode and read a message before it's redacted. Telegram also provides “screenshot security”. It disables
