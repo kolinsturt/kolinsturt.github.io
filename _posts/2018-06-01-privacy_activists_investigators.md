@@ -10,9 +10,9 @@ tags : [Signal App, VeraCrypt, TorBrowser, Tails OS, HTTPSEverywhere, Riseup.net
 ## Privacy for Activists and Investigators
 
 This guide will discuss how to communicate, coordinate, and expose information as securely as
-possible. You'll read about desktop computer security first, followed by mobile security.
+possible. You'll read about computer security first, followed by mobile security.
 
-## Desktop Computers
+## Laptops and Desktops
 
 ### Internet Browsing
 #### [TorBrowser](https://www.torproject.org/projects/torbrowser.html.en)
@@ -35,18 +35,16 @@ Even when you're using an https version of a site, the internet service provider
 work or home) can intercept your communications (called an interception proxy). To safeguard against
 this, use a VPN (Virtual Private Network). VPNs will conceal (encrypt) and forward all traffic from
 you over to the VPN company. Anyone trying to snoop on your traffic will not be able to see what you
-are doing. A good VPN option is [Riseup.net](https://riseup.net/en/vpn), or [VpnBook](https://vpnbook.com).
+are doing. A good VPN option is [Riseup.net](https://riseup.net/en/vpn), or [LiquidVPN](https://www.liquidvpn.com/).
 
 Using a VPN is good for when you need to send and receive sensitive information at work or while
 connected through your internet provider. VPN would be good to use at an airport WIFI where the
 traffic is regularly monitored. It's also a good solution to thwart government censorship.
 The drawback to VPNs are that the VPN provider can see your traffic. Some VPN providers don't keep
 any records or logs whatsoever and are set up in countries that have the strongest privacy laws.
-[Riseup.net](https://riseup.net) is one such company. A good paid solution is [LiquidVPN](https://www.liquidvpn.com/), and a decent
-free solution is VPNBook. You should choose a VPN provider depending on the sensitivity of the work
+[Riseup.net](https://riseup.net/en/vpn) is one such company and their VPN service is free. A good paid solution is [LiquidVPN](https://www.liquidvpn.com/). You should choose a VPN provider depending on the sensitivity of the work
 you're doing. If you want to hide traffic from whomever operates the WIFI hotspot you're connecting
-to, VPNBook is fine. If you're worried about law enforcement obtaining a warrant from the VPN
-company and checking logs, Riseup.net would be the solution. [Autistici](https://www.autistici.org) is an
+to, LiquidVPN is fine. While both companies state they do not keep logs, if you're worried about law enforcement obtaining a warrant from the VPN company and checking logs, Riseup would be a good choice. [Autistici](https://www.autistici.org) is an
 alternative to the Riseup.net platform.
 
 #### [TailsOS](https://tails.boum.org)
@@ -59,6 +57,7 @@ once you shutdown the system. It's designed for sensitive situations where a for
 computer won’t reveal anything that you've done using the TailsOS.
 Storage
 
+### Encrypting Your Data
 While it's great to cover your tracks using the methods above, you'll need to save your work
 somewhere. You should encrypt your investigative files so that if they're ever found, it would be
 infeasible to read them without knowing your password (don't choose an easy to guess password). The
