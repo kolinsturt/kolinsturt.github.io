@@ -99,6 +99,7 @@ open standards (ECDSA) for the encryption that contain no weaknesses discovered 
 * Part of their source code is open to review while the rest is proprietary. Signal's code is open-sourced.
 (Code that is open-sourced is available for the public to review and audit). Besides Signal, Telegram is
 still more secure in comparison to any other chat app.
+* Telegram is heavily used by Hong Kong protesters to protect monitoring by authorities. It had a vulnerability that let authorities match protesters' real names to their profiles in anonymous groups. It was fixed in a software update so you should use the most recent version of Telegram - https://coconuts.co/hongkong/news/telegram-closes-privacy-loophole-to-protect-hong-kong-protesters/.
 
 ### Storage
 Securing your communications is great, but forensic traces still exist on your mobile device. Here are
