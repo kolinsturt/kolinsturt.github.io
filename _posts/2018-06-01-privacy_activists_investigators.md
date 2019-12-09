@@ -68,7 +68,7 @@ any size you want, and you can send sensitive content over the internet via Vera
 parties know the passcode. (This is similar to sending someone a password protected zip-file).
 VeraCrypt also offers a feature to create a hidden volume, which is good in situations where you're
 forced to reveal your passcode under duress. You could reveal the encrypted archive that contains
-“normal” information without revealing the hidden archive - [https://veracrypt.codeplex.com/wikipage?title=Hidden%20Volume]
+“normal” information without revealing the hidden archive - [https://veracrypt.codeplex.com/wikipage?title=Hidden%20Volume](https://veracrypt.codeplex.com/wikipage?title=Hidden%20Volume)
 
 ## Mobile Security
 ### Communications
@@ -83,7 +83,7 @@ public review. The security community recommends Signal because it offers the st
 The downside is that it's not as popular as some other chat platforms such as WhatsApp. WhatsApp
 uses the Signal technology, but WhatsApp is a for-profit company and the app is proprietary. That
 means that you have to trust that they haven't altered the software to include backdoors that would
-allow third parties to spy on the communications [https://signal.org/blog/there-is-no-whatsapp-backdoor]. I've worked on the Signal app so feel free to message me questions. 
+allow third parties to spy on the communications [https://signal.org/blog/there-is-no-whatsapp-backdoor](https://signal.org/blog/there-is-no-whatsapp-backdoor). I've worked on the Signal app so feel free to message me questions. 
 
 #### [Telegram](https://telegram.org)
 Telegram is very popular. It allows you to redact a message you've sent,
@@ -99,7 +99,7 @@ open standards (ECDSA) for the encryption that contain no weaknesses discovered 
 * Part of their source code is open to review while the rest is proprietary. Signal's code is open-sourced.
 (Code that is open-sourced is available for the public to review and audit). Besides Signal, Telegram is
 still more secure in comparison to any other chat app.
-* Telegram is heavily used by Hong Kong protesters to protect monitoring by authorities. It had a vulnerability that let authorities match protesters' real names to their profiles in anonymous groups. It was fixed in a software update so you should use the most recent version of Telegram - [https://coconuts.co/hongkong/news/telegram-closes-privacy-loophole-to-protect-hong-kong-protesters/].
+* Telegram is heavily used by Hong Kong protesters to protect monitoring by authorities. It had a vulnerability that let authorities match protesters' real names to their profiles in anonymous groups. It was fixed in a software update so you should use the most recent version of Telegram - [https://coconuts.co/hongkong/news/telegram-closes-privacy-loophole-to-protect-hong-kong-protesters/](https://coconuts.co/hongkong/news/telegram-closes-privacy-loophole-to-protect-hong-kong-protesters/).
 
 ### Storage
 Securing your communications is great, but forensic traces still exist on your mobile device. Here are
@@ -107,7 +107,7 @@ some tips to secure your data at rest:
 1. On Android, enable [Full Disk Encryption](https://www.howtogeek.com/141953/how-to-encrypt-your-android-phone-and-why-you-might-want-to)
 2. Update your operating system to the latest version. Hackers and security researchers find weaknesses
 in mobile operating systems. Good researchers report the vulnerabilities and they're fixed during
-software updates. (eg [https://support.apple.com/en-ca/HT207923]). Not all security researches are
+software updates. (eg [https://support.apple.com/en-ca/HT207923](https://support.apple.com/en-ca/HT207923)). Not all security researches are
 ethical, so undisclosed vulnerabilities still exist. (We saw this with the WikiLeaks “Vault 7” release).
 Because of the researchers, newer versions of the operating system are more hardened than their
 previous versions. Forensics software used by law enforcement - [ElcomSoft](https://www.elcomsoft.com)
