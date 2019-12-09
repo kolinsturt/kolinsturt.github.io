@@ -83,7 +83,7 @@ public review. The security community recommends Signal because it offers the st
 The downside is that it's not as popular as some other chat platforms such as WhatsApp. WhatsApp
 uses the Signal technology, but WhatsApp is a for-profit company and the app is proprietary. That
 means that you have to trust that they haven't altered the software to include backdoors that would
-allow third parties to spy on the communications [https://signal.org/blog/there-is-no-whatsapp-backdoor](https://signal.org/blog/there-is-no-whatsapp-backdoor). I've worked on the Signal app so feel free to message me questions. 
+allow third parties to spy on the communications ([https://signal.org/blog/there-is-no-whatsapp-backdoor](https://signal.org/blog/there-is-no-whatsapp-backdoor)). I've worked on the Signal app so feel free to message me questions. 
 
 #### [Telegram](https://telegram.org)
 Telegram is very popular. It allows you to redact a message you've sent,
