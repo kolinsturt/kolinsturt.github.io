@@ -66,9 +66,7 @@ Open Sourced means that the full code for the program is open to the public so t
 can audit it to make sure there are no weaknesses or back doors. VeraCrypt creates encrypted folders of
 any size you want, and you can send sensitive content over the internet via VeraCrypt provided both
 parties know the passcode. (This is similar to sending someone a password protected zip-file).
-VeraCrypt also offers a feature to create a hidden volume, which is good in situations where you're
-forced to reveal your passcode under duress. You could reveal the encrypted archive that contains
-“normal” information without revealing the hidden archive - [https://veracrypt.codeplex.com/wikipage?title=Hidden%20Volume](https://veracrypt.codeplex.com/wikipage?title=Hidden%20Volume)
+VeraCrypt also offers a feature to create a [hidden volume](https://veracrypt.codeplex.com/wikipage?title=Hidden%20Volume), which is good in situations where you're forced to reveal your passcode under duress. You could reveal the encrypted archive that contains “normal” information without revealing the hidden archive.
 
 ## Mobile Security
 ### Communications
@@ -80,9 +78,7 @@ desktop computers. Messages get encrypted so that only the sender and receiver c
 end-to-end encryption). You can also choose to have messages disappear after a specific time once
 viewed. No one yet has broken the encryption of this app and the full code for the app is open for
 public review. The security community recommends Signal because it offers the strongest protection.
-The downside is that it's not as popular as some other chat platforms such as WhatsApp. WhatsApp
-uses the Signal technology, but WhatsApp is a for-profit company and the app is proprietary. That
-means that you have to trust that they haven't altered the software to include backdoors that would
+It's not as popular as WhatsApp. WhatsApp uses the Signal technology, but WhatsApp is a for-profit company and the app is proprietary. That means that you have to trust that they haven't altered the software to include backdoors that would
 allow third parties to spy on the communications ([https://signal.org/blog/there-is-no-whatsapp-backdoor](https://signal.org/blog/there-is-no-whatsapp-backdoor)). I've worked on the Signal app so feel free to message me questions. 
 
 #### [Telegram](https://telegram.org)
