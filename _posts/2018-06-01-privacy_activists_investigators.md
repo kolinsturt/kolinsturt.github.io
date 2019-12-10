@@ -150,9 +150,9 @@ unlock the device, so it's best to use a strong passcode in this case.
 
 Often infiltrators are there to try to get you to break the law. An obvious sign of an infiltrator will be when someone is urging you to be destructive or violent. They may try to joke with you about an illegal activity in hopes of capturing incriminating evidence. Even if you think you're among trusted friends, it’s best not to joke about these things because you don’t know if someone is recording you. (It’s best to assume you are always being recorded). I’ve seen hypothetical posts on social media that are emotional and written in haste. For example “burn them down to the ground!”. While you might not mean it, it may be used against you in the future. Anything you put on the internet, from a comment to a photo that you liked, is very hard to redact. Someone can put all the little pieces together to form a bigger picture and turn it against you later.
 
-You can still be honest about an upcoming event without divulging all the details until it’s necessary. To quote Robert Greene, “Always say less than necessary”. That why, you’re not tipping off an infiltrator, nor admitting specific details.
+You can still be honest about an upcoming event without divulging all the details until it’s necessary. To quote Robert Greene, “Always say less than necessary”. That way, you’re not tipping off an infiltrator, nor admitting specific details.
 
-Keep in mind that when you create pages or posts online and only intend of sending a few key people the link, others will still immediately know you’ve posted about them with technologies like [Google Alerts](https://www.google.ca/alerts). Instead, post it privately such as a document on [Riseup's Share](https://share.riseup.net).
+Keep in mind that when you create pages or posts online and only intend on sending a few key people the link, others will still immediately know you’ve posted about them with technologies like [Google Alerts](https://www.google.ca/alerts). Instead, post it privately such as a document on [Riseup's Share](https://share.riseup.net).
 
 
 
