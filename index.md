@@ -21,7 +21,7 @@ tags : [Android, Kolin, Sturt, Kolin Sturt, iOS, Core Foundation, Security, C++,
 
 <a href="{{ BASE_PATH }}/lessons/2014/06/01/asn1">ASN.1 and DER</a>
     
-## C / Core Foundation 
+## C 
 
 <a href="{{ BASE_PATH }}/lessons/2014/01/01/common_crypto">AES Encryption using Common Crypto</a>
 
