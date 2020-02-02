@@ -114,7 +114,7 @@ software, provided there is a strong passcode on the device.
 Email, as well as most social network messaging were not designed with security in mind. It's almost
 impossible to be anonymous if you're using social media. Your posts, likes, interests, and who you
 communicate with get linked together to form a bigger picture. Consider using a separate account for
-sensitive activity. If you must use email, there's a way to encrypt it by setting up [GPG](https://gpgtools.org), but it requires work for both communicating parties to set it up. [Riseup.net](https://riseup.net) offers
+sensitive activity. If you must use email, there's a way to encrypt it by setting up [GPG](https://gpgtools.org), but it requires work for both communicating parties to set it up. [Riseup.net](https://riseup.net) and [ProtonMail](https://protonmail.com) offer
 solid encrypted storage, but remember than any emails you send out to individuals are in the clear and
 saved on multiple servers. It's better to stick to secure chat apps such as Signal and Telegram for
 sensitive communications.
@@ -152,7 +152,7 @@ Often infiltrators are there to try to get you to break the law. An obvious sign
 
 You can still be honest about an upcoming event without divulging all the details until it’s necessary. To quote Robert Greene, “Always say less than necessary”. That way, you’re not tipping off an infiltrator, nor admitting specific details.
 
-Keep in mind that when you create pages or posts online and only intend on sending a few key people the link, others will still immediately know you’ve posted about them with technologies like [Google Alerts](https://www.google.ca/alerts). Instead, post it privately such as a document on [Riseup's Share](https://share.riseup.net).
+Keep in mind that when you create pages or posts online and only intend on sending a few key people the link, others will still immediately know you’ve posted about them with technologies like [Google Alerts](https://www.google.ca/alerts).
 
 
 
@@ -178,7 +178,7 @@ If you are arrested, an officer can search you. You must be provided promptly wi
 
 It's helpful to memorize the number of a lawyer or important people in your life that you may need to call.
 
-Police can only attempt to search your phone on arrest, however, you do not have to give them your password to unlock the device. They may use forensic tools on it anyway but it’s not always successful. Currently the iOS 12 update (USB Restricted Mode) had stopped much of the police force's ability to unlock the phone with their [GrayKey](https://graykey.grayshift.com/) devices. It’s a cat and mouse game. A new workaround is available and it’s only a matter of time before all the forces get the update, but by then Apple may have patched it again.
+Police can only attempt to search your phone on arrest, however, you do not have to give them your password to unlock the device. They may use forensic tools on it anyway but it’s not always successful. Currently the iOS 13 update had stopped much of the police force's ability to unlock the phone with their [GrayKey](https://graykey.grayshift.com/) devices. It’s a cat and mouse game. A new workaround is available and it’s only a matter of time before all the forces get the update, but by then Apple may have patched it again.
 
 In regards to the private messaging app Signal, you can add a lock screen on app open. If someone obtains your phone unlocked or does a data dump of the device, the signal database will still be encrypted. (I helped work on this part of the Signal App so feel free to ask me any questions about it's implementation)
 
