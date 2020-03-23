@@ -7,6 +7,8 @@ tags : [Android, Kolin, Sturt, Kolin Sturt, iOS, Core Foundation, Security, C++,
 ---
 {% include JB/setup %}
 
+<a href="{{ BASE_PATH }}/lessons/2020/02/01/remote_collaboration.md">! Working Securely During COVID-19 !</a>
+
 <a href="{{ BASE_PATH }}/lessons/2016/01/01/beginning_ios_forensics">iOS Forensics</a>
 
 <a href="{{ BASE_PATH }}/lessons/2016/12/01/reverse_engineering_android_apps">Android Forensics and Reverse Engineering</a>
