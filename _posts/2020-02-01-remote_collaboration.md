@@ -64,4 +64,4 @@ Banks and governments have forced many companies to undo security. For example, 
 ### Where To Go From Here
 That's it for now. For more information about security and privacy, see the suggestions in my <a href="https://kolinsturt.github.io/lessons/2018/06/01/privacy_activists_investigators">Privacy Tips for Investigators</a> article.
 
-If you have any questions, feel free to contact me with any of the contact information at the top of this page. Last but not least, stay stay in isolation during this new and unknown time. 
+If you have any questions, feel free to contact me through any of the contact options at the top of this page. Last but not least, stay stay in isolation during this new and unknown time. 
