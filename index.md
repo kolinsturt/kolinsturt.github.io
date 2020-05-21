@@ -6,6 +6,7 @@ description: Security articles for iOS, macOS, Android and Linux.
 tags : [Android, Kolin, Sturt, Kolin Sturt, iOS, Core Foundation, Security, C++, OS X, macOS, XCode, Reverse Engineering, Secure Coding, Secure Programming, Objective-C, Hacking, Application Hardening, Privacy]
 ---
 {% include JB/setup %}
+{% raw %}{% seo %}{% endraw %}
 
 <a href="{{ BASE_PATH }}/lessons/2020/02/01/remote_collaboration">! Working Securely During COVID-19 !</a>
 
