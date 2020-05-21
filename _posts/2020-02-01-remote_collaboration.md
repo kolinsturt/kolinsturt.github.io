@@ -2,10 +2,12 @@
 layout: post
 category : lessons
 tagline: "Working Remotely During COVID19"
-description: Secure Apps to Work Remotely During COVID19.
+title: Secure Apps for Working Remotely During COVID19
+description: Secure Apps to Work Remotely During COVID19
 tags : [Signal App, Open Source, Open Sourced, open-source, Privacy, Security, Riseup.net, COVID19, COVID-19]
 ---
 {% include JB/setup %}
+{% raw %}{% endraw %}
 
 ## Secure Apps to Continue Working Remotely During COVID19
 
