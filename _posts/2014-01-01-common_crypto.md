@@ -2,7 +2,9 @@
 layout: post
 category : lessons
 tagline: "Using the CommonCrypto library in CoreFoundation"
-description: Performing encryption using the Common Crypto framework by Kolin Stürt
+title: Encryption on iOS using Common Crypto
+description: Encryption using the Common Crypto framework
+author: Kolin Stürt
 tags : [CommonCrypto, ios, Core Foundation, tutorial]
 ---
 {% include JB/setup %}
