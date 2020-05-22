@@ -2,7 +2,9 @@
 layout: post
 category : lessons
 tagline: "Boost.Asio https on iOS"
-description: My experience implementing the Boost Asio library for HTTPS on iOS. By Kolin Stürt
+title: Boost Asio, HTTPS and iOS
+description: My experience implementing the Boost Asio library for HTTPS on iOS
+author: Kolin Stürt
 tags : [C++, Boost.Asio, https, http, SSL, TLS]
 ---
 {% include JB/setup %}
