@@ -1,8 +1,10 @@
 ---
 layout: post
 category : lessons
-tagline: "NSSecureCoding"
-description: Implementing NSSecureCoding - Kolin Stürt.
+tagline: "NSSecureCoding on iOS"
+title: NSSecureCoding findings
+author: Kolin Stürt
+description: Implementing NSSecureCoding on iOS
 tags : [NSSecureCoding, decodeObjectOfClass, NSKeyedArchiver, NSKeyedUnarchiver, supportsSecureCoding, requiresSecureCoding, iOS]
 ---
 {% include JB/setup %}
