@@ -2,8 +2,10 @@
 layout: post
 category : lessons
 tagline: "Securely wiping the contents of memory"
-description: Securely wiping the contents of memory on the Apple platform. By Kolin Stürt
-tags : [Core Foundation, secure erase, wipe, shred, ios, MAC OS X, tutorial]
+title: Secure wipe memory
+description: Securely wiping the contents of memory on iOS and macOS
+author: Kolin Stürt
+tags : [Core Foundation, secure erase, wipe, shred, ios, Objective-C, tutorial]
 ---
 {% include JB/setup %}
 
