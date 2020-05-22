@@ -2,8 +2,10 @@
 layout: post
 category : lessons
 tagline: "OpenSSL AES Encryption"
-description: Implementing AES encryption using OpenSSL by Kolin Stürt
-tags : [C++, OpenSSL, AES, Encryption, CBC]
+title: AES encryption using OpenSSL
+description: Implementing AES encryption in OpenSSL
+author: Kolin Stürt
+tags : [C++, OpenSSL, AES, Encryption, CBC, PBKDF2]
 ---
 {% include JB/setup %}
 
