@@ -1,8 +1,10 @@
 ---
 layout: post
 category : lessons
+title: Intercepting network traffic on iOS
 tagline: "Intercepting network traffic on iOS"
-description: mitm with mitmproxy on iOS - Kolin Stürt.
+author: Kolin Stürt
+description: mitm with mitmproxy on iOS
 tags : [iOS, mitmproxy, mitm, macOS, pf, security, XCode]
 ---
 {% include JB/setup %}
