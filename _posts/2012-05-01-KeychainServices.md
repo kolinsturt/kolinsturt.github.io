@@ -2,7 +2,9 @@
 layout: post
 category : lessons
 tagline: "Keychain Services in Core Foundation"
-description: Using Apple's keychain services API by Kolin Stürt
+title: iOS keychain in Core Foundation
+description: Using Apple's keychain services API
+author: Kolin Stürt
 tags : [Keychain Services, SecItem, ios, Core Foundation, tutorial]
 ---
 {% include JB/setup %}
