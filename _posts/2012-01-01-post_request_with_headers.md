@@ -2,7 +2,7 @@
 layout: post
 category : lessons
 tagline: "HTTPS CFNetwork POST Request"
-title: HTTPS requests in CFNetwork
+title: HTTPS POST requests in CFNetwork
 description: Performing low level HTTPS POST requests in Core Foundation
 author: Kolin Stürt
 tags : [iOS, Networking, CFNetwork, Core Foundation, HTTPS, SSL, TLS]
