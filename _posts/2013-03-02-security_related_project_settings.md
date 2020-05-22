@@ -2,7 +2,9 @@
 layout: post
 category : lessons
 tagline: "XCode project settings"
-description: Security related XCode project settings by Kolin Stürt
+title: XCode project settings for security
+description: App hardening - security related XCode project settings
+author: Kolin Stürt
 tags : [iOS, Foundation, Core Foundation, Secure Programming]
 ---
 {% include JB/setup %}
