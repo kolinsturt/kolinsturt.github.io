@@ -2,7 +2,9 @@
 layout: post
 category : lessons
 tagline: "Hacking iOS apps"
-description: Decrypting, reverse engineering and patching - Kolin Stürt.
+title: iOS hacking and reverse engineering
+author: Kolin Stürt
+description: Decrypting, reverse engineering and patching
 tags : [iOS, hacking, patching, hooking, reverse engineering, security, XCode]
 ---
 {% include JB/setup %}
