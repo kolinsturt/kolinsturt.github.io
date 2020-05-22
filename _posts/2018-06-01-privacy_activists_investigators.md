@@ -2,6 +2,7 @@
 layout: post
 category : lessons
 tagline: "Privacy for Activists and Investigators"
+title: Privacy for Activists and Investigators
 description: Tools to help with privacy for activists.
 tags : [Signal App, VeraCrypt, TorBrowser, Tails OS, HTTPSEverywhere, Riseup.net, Autistici, Whisper Systems]
 ---
