@@ -1,8 +1,10 @@
 ---
 layout: post
 category : lessons
-tagline: "iOS Secure Programming"
-description: Secure programming on the Apple platform. By Kolin Stürt
+tagline: "iOS app hardening"
+title: App hardening and secure programming
+description: Secure programming and app hardening on iOS
+author: Kolin Stürt
 tags : [iOS, Foundation, Core Foundation, Secure Programming]
 ---
 {% include JB/setup %}
