@@ -2,7 +2,9 @@
 layout: post
 category : lessons
 tagline: "Input validation"
-description: Input validation in the Apple environment by Kolin Stürt
+title: App hardening with input validation
+description: Input validation for app hardening
+author: Kolin Stürt
 tags : [iOS, Foundation, Core Foundation, Secure Programming]
 ---
 {% include JB/setup %}
