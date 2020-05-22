@@ -2,7 +2,9 @@
 layout: post
 category : lessons
 tagline: "OpenSSL SHA Hash"
-description: SHA Hash in OpenSSL by Kolin Stürt
+title: SHA in OpenSSL
+description: SHA Hash in OpenSSL
+author: Kolin Stürt
 tags : [OpenSSL, C++, hash, SHA, message digest, ios, Core Foundation, tutorial]
 ---
 {% include JB/setup %}
