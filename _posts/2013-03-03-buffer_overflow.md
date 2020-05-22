@@ -2,7 +2,9 @@
 layout: post
 category : lessons
 tagline: "Buffer Overflows and Format String Attacks"
-description: A discussion of buffer overflows and format string attacks. By Kolin Stürt
+title: Buffer Overflows and Format String Attacks
+description: A discussion of buffer overflows and format string attacks
+author: Kolin Stürt
 tags : [iOS, Foundation, Core Foundation, Secure Programming]
 ---
 {% include JB/setup %}
