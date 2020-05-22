@@ -2,7 +2,9 @@
 layout: post
 category : lessons
 tagline: "app-provided entropy for keychain items"
-description: Providing entropy for keychain items in iOS 9 - Kolin Stürt.
+title: iOS Keychain Item Entropy
+author: Kolin Stürt
+description: Providing entropy for keychain items in iOS 9
 tags : [iOS9, "iOS 9", keychain, entropy, "access control list", SecAccessControlCreateWithFlags, kSecAccessControlApplicationPassword, "Application Password", LACredentialTypeApplicationPassword, kSecAttrAccessControl, kSecUseAuthenticationContext, LAContext]
 ---
 {% include JB/setup %}
