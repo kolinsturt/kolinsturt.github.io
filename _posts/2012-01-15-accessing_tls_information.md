@@ -2,7 +2,9 @@
 layout: post
 category : lessons
 tagline: "CFNetwork Validating TLS"
-description: Examining SSL/TLS certificate information in Core Foundation's CFNetwork. By Kolin Stürt
+title:  SSL/TLS certificate information in Core Foundation
+description: Examining SSL/TLS certificate information in CFNetwork
+author: Kolin Stürt
 tags : [iOS, SSL, TLS Networking, CFNetwork, Core Foundation]
 ---
 {% include JB/setup %}
