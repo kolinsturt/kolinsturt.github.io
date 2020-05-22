@@ -2,7 +2,9 @@
 layout: post
 category : lessons
 tagline: "Data Protection"
-description: Data protection in iOS by Kolin Stürt
+title: iOS data protection
+description: Data protection in iOS
+author: Kolin Stürt
 tags : [iOS, Foundation, Core Foundation, Secure Programming]
 ---
 {% include JB/setup %}
