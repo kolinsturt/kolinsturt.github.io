@@ -2,7 +2,9 @@
 layout: post
 category : lessons
 tagline: "CommonCrypto Hash and Message Digest algorithms"
-description: Hashing algorithms using Common Crypto by Kolin Stürt
+title: Hasing in Common Crypto
+description: Hashing algorithms using Common Crypto
+author: Kolin Stürt
 tags : [CommonCrypto, hash, SHA, message digest, ios, Core Foundation, tutorial]
 ---
 {% include JB/setup %}
