@@ -1,8 +1,10 @@
 ---
 layout: post
 category : lessons
-tagline: "C++ Atomic Programming"
-description: Condition variables in C++ 11 by Kolin Stürt
+tagline: "C++ condition variables"
+title: Secure coding with condition variables 
+description: Secure coding with condition variables in C++ 11
+author: Kolin Stürt
 tags : [C++ 11, "std::condition_variable", Condition Variable, Multithreading, concurrent Programming]
 ---
 {% include JB/setup %}
