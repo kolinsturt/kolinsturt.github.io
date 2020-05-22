@@ -2,7 +2,9 @@
 layout: post
 category : lessons
 tagline: "Application Integrity"
-description: iOS application integrity by Kolin Stürt
+title: App integrity on iOS
+description: iOS application integrity
+author: Kolin Stürt
 tags : [iOS, Foundation, Core Foundation, Secure Programming]
 ---
 {% include JB/setup %}
