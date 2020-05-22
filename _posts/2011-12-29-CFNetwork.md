@@ -2,8 +2,10 @@
 layout: post
 category : lessons
 tagline: "HTTPS CFNetwork GET Request"
-description: Performing low level HTTPS GET requests in Core Foundation. By Kolin Stürt
-tags : [iOS, Networking, CFNetwork, Core Foundation, HTTPS, SSL]
+title: HTTPS GET requests in CFNetwork
+description: Performing low level HTTPS GET requests in Core Foundation
+author: Kolin Stürt
+tags : [iOS, Networking, CFNetwork, Core Foundation, HTTPS, SSL, TLS]
 ---
 {% include JB/setup %}
 
