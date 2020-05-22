@@ -2,8 +2,8 @@
 layout: post
 category : lessons
 tagline: "Data Protection"
-title: iOS data protection
-description: Data protection in iOS
+title: iOS data protection and privacy
+description: Data protection and privacy in iOS
 author: Kolin Stürt
 tags : [iOS, Foundation, Core Foundation, Secure Programming]
 ---
