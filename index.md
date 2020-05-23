@@ -1,15 +1,14 @@
 ---
 layout: page
 title: Kolin Stürt
-description: Security articles for iOS, macOS, Android and Linux.
+description: App security articles for iOS, macOS, Android and Linux.
 
 tags : [Android, Kolin, Sturt, Kolin Sturt, iOS, Core Foundation, Security, C++, OS X, macOS, XCode, Reverse Engineering, Secure Coding, Secure Programming, Objective-C, Hacking, Application Hardening, Privacy]
 ---
 {% include JB/setup %}
 {% raw %}{% endraw %}
 
-<a href="{{ BASE_PATH }}/lessons/2020/02/01/remote_collaboration">! Working Securely During COVID-19 !</a>
-
+<a href="{{ BASE_PATH }}/lessons/2020/02/01/remote_collaboration">Working Securely During COVID-19</a>
 
 <a href="{{ BASE_PATH }}/lessons/2016/01/01/beginning_ios_forensics">iOS Forensics</a>
 
@@ -25,7 +24,7 @@ tags : [Android, Kolin, Sturt, Kolin Sturt, iOS, Core Foundation, Security, C++,
 
 <a href="{{ BASE_PATH }}/lessons/2014/06/01/asn1">ASN.1 and DER</a>
     
-## C 
+## Application Security in C 
 
 <a href="{{ BASE_PATH }}/lessons/2014/01/01/common_crypto">AES Encryption using Common Crypto</a>
 
@@ -43,7 +42,7 @@ tags : [Android, Kolin, Sturt, Kolin Sturt, iOS, Core Foundation, Security, C++,
 
 <a href="{{ BASE_PATH }}/lessons/2013/01/01/CFSocket">Low Level Socket Programming in POSIX and Core Foundation</a>
 
-## Objective-C
+## Objective-C Security
 
 <a href="{{ BASE_PATH }}/lessons/2013/03/03/buffer_overflow">Buffer Overflows and Format String Attacks</a>
 
