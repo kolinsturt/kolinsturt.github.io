@@ -72,7 +72,7 @@ Last but not least, while the topic of financial privacy is beyond the scope of 
 Monero is a cryptocurrency that solves many of the privacy and security issues of Bitcoin. 
 
 #### Cryptocurrency exchange network - [Bisq](https://bisq.network) 
-Banks and governments have forced many companies to undo security. For example, while cryptocurrency solves the privacy problem, many organizations are requiring government ID and photographs to do purchasing or exchanges. Bisq is the opposite of that. It's a private exchange network that does not not require you to submit your personal information to do exchanges and transactions. 
+Banks and governments have forced many companies to undo security for Bitcoin and Litecoin trading. For example, while cryptocurrency solves the privacy problem, many organizations are requiring government ID and photographs to do purchasing or exchanges. Bisq is the opposite of that. It's a private exchange network that does not not require you to submit your personal information to do exchanges and transactions. 
 
 ### Where To Go From Here
 That's it for now. For more information about security and privacy, see the suggestions in my <a href="https://kolinsturt.github.io/lessons/2018/06/01/privacy_activists_investigators">Privacy Tips for Investigators</a> article.
