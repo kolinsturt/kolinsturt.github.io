@@ -17,12 +17,17 @@ With COVID19 we're all trying to cope by continuing to work with online sessions
 
 #### [Jitsi](https://jitsi.org)
 
-Jitsi is an encrypted, open-source group videoconferencing app available on multiple platforms such as web, Linux, macOS, Windows, iOS and Android. The Jitsi Videobridge briefly decrypts the data to pass it on, check out the [full details] (https://jitsi.org/security/), but there’s a beta for a true [end-to-end encryption solution](https://jitsi.org/blog/e2ee/). You do not need to create an account to use Jitsi.
+Jitsi is an encrypted, open-source group videoconferencing app available on multiple platforms such as web, Linux, macOS, Windows, iOS and Android. The Jitsi Videobridge briefly decrypts the data to pass it on, check out the [full details](https://jitsi.org/security/), but there’s a beta for a true [end-to-end encryption solution](https://jitsi.org/blog/e2ee/). You do not need to create an account to use Jitsi.
 
-### Chat
+### Chat and Calling
 
 #### [Signal](https://signal.org)
 Signal is an encrypted chat app that is available for Android, iPhone, and desktop computers. It encrypts messages so that only the sender and receiver can read them, called end-to-end encryption. It offers group chat, and ont-to-one encrypted video and voice calling. You can also choose to have messages disappear after a specific time once viewed.
+
+### Remote Collaberation
+
+#### [Riot](https://about.riot.im/)
+Riot is a secure alternative to Slack. It features end-to-end encrypted chat rooms, file sharing, video and voice calling. It is open sourced and available for desktops, iPhone and Android.
 
 #### [Retroshare](https://retroshare.cc)
 A privacy equivalent to Slack. Offers encrypted connections between you and your acquaintances to create a network of computers. It also provides various distributed services: forums, channels, chat and mail. Retroshare is a decentralized network designed to provide security and anonymity to its users. Retroshare is free and open-source software. Open Sourced means that the full code for the program is open to the public so that security researches can audit it to make sure there are no weaknesses or back doors. 
@@ -31,6 +36,7 @@ A privacy equivalent to Slack. Offers encrypted connections between you and your
 An alternative open sourced collaboration software to the above.
 
 ### Cloud Collaboration
+
 #### [CryptPad](https://cryptpad.fr/) 
 The Zero Knowledge Cloud. In the current health crisis linked to the COVID-19 outbreak, CryptPad supports remote working. The storage limit for all registered users is 1GB. Registration is free and there’s no personal data required.
 
