@@ -13,10 +13,16 @@ tags : [Signal App, Open Source, Open Sourced, open-source, Privacy, Security, R
 
 With COVID19 we're all trying to cope by continuing to work with online sessions and remote communication. Some professionals that have to do their work in person to discuss private matters, such as lawyers, financial advisers or therapists, have been asking how to continue to work remotely without risking privacy. I've curated a list of apps that allow for secure and encrypted communications. Activists, investigators and whistle-blowers have used these apps for their work. 
 
+### Video Conferencing
+
+#### [Jitsi](https://jitsi.org)
+
+Jitsi is an encrypted, open-source group videoconferencing app available on multiple platforms such as web, Linux, macOS, Windows, iOS and Android. The Jitsi Videobridge briefly decrypts the data to pass it on, check out the [full details] (https://jitsi.org/security/), but there’s a beta for a true [end-to-end encryption solution](https://jitsi.org/blog/e2ee/). You do not need to create an account to use Jitsi.
+
 ### Chat
 
 #### [Signal](https://signal.org)
-Signal is an encrypted chat app that is available for Android, iPhone, and desktop computers. Messages get encrypted so that only the sender and receiver can read them. (called end-to-end encryption). You can also choose to have messages disappear after a specific time once viewed. 
+Signal is an encrypted chat app that is available for Android, iPhone, and desktop computers. It encrypts messages so that only the sender and receiver can read them, called end-to-end encryption. It offers group chat, and ont-to-one encrypted video and voice calling. You can also choose to have messages disappear after a specific time once viewed.
 
 #### [Retroshare](https://retroshare.cc)
 A privacy equivalent to Slack. Offers encrypted connections between you and your acquaintances to create a network of computers. It also provides various distributed services: forums, channels, chat and mail. Retroshare is a decentralized network designed to provide security and anonymity to its users. Retroshare is free and open-source software. Open Sourced means that the full code for the program is open to the public so that security researches can audit it to make sure there are no weaknesses or back doors. 
@@ -26,7 +32,7 @@ An alternative open sourced collaboration software to the above.
 
 ### Cloud Collaboration
 #### [CryptPad](https://cryptpad.fr/) 
-The Zero Knowledge Cloud In the current health crisis linked to the COVID-19 outbreak, CryptPad supports remote working. The storage limit for all registered users is increased to 1GB until further notice. Registration is free and there's no personal data required. 
+The Zero Knowledge Cloud. In the current health crisis linked to the COVID-19 outbreak, CryptPad supports remote working. The storage limit for all registered users is 1GB. Registration is free and there’s no personal data required.
 
 Proprietary services like Google Drive and Dropbox have weakness; the companies can access all the documents you've opted to send to them. Cryptpad is free, open sourced and uses a blockchain for a zero-knowledge platform for collaborative document editing. This ensures only the people working on the documents have access to them. 
 
@@ -41,9 +47,8 @@ Riseup is special in that it offers many collaboration features. First, users ca
 #### Using Tor? - [OnionShare](https://onionshare.org/) 
 OnionShare is an open source tool for securely and anonymously sending and receiving files using Tor onion services. TorBrowser acts like the Firefox internet browser but hides your location from sites you’re visiting. It does this by concealing your IP address through a series of virtual tunnels. 
 
-#### Too difficult to switch platforms - [CryptoMator](https://cryptomator.org/) 
-
-This is a secure solution if you have to use Google Drive or DropBox. It encrypts folders with a password. That way, it provides transparent document protection from unauthorized access. It's free and open source. You can test it out with one folder in the cloud and have people try out CryptoMator while the rest of the drive stays untouched, 
+#### Too difficult to switch platforms? -> [CryptoMator](https://cryptomator.org/) 
+This is a secure solution if you have to use Google Drive or DropBox. It encrypts folders with a password. That way, it provides transparent document protection from unauthorized access. It’s free and open source. You can test it out with one folder in the cloud and have people try out CryptoMator while the rest of the drive stays untouched.
 
 ### Calenders
 #### [Etesync](https://www.etesync.com/) 
