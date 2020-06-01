@@ -11,22 +11,32 @@ tags : [C++ 11, "std::condition_variable", Condition Variable, Multithreading, c
 
 ## Condition Variables
 
-A critical background task may need to wait until another process is completed in order to continue, such as waiting for user authentication or until a virus scan is complete. The simplest way to do this would be to run a loop until the condition is met and then continue. Once the condition is met, it proceeds to the next part of the code. The problem with this is that the thread is taking up CPU cycles performing a loop while the CPU could be giving that time to threads that have actual work to do. This concept is called busy waiting. If an attacker is able to start many login requests but never complete them, it could fill up the CPU time with busy loops, leading to a denile-of-service attack. Rate limiting connections and setting timeouts may be solutions, but to prevent the thread from busy waiting, C++ 11's thread library has a *condition_variable*. std::condition_variable will block a thread until a notification is received in such a way that CPU time is preserved. To do this, we use the wait member function. For example:
+A critical background task may need to wait until another process is completed in order to continue, such as waiting for authentication is complete. This is often implemented by a run-loop that has a callback when the system meets a condition. One the system meets the condition, it proceeds to the next part of the code. The problem with this is that a thread is taking up CPU cycles performing a loop, called busy waiting. The CPU could be giving that time to threads that have actual work to do. 
+
+#### Denial Of Service
+
+If an attacker is able to start many authentication requests but never complete them, it could fill up the CPU time with busy loops, leading to a denial of service attack. Rate limiting the requests and setting timeouts are part of the solution, but to prevent the thread from busy waiting, C++ 11’s thread library has a condition_variable. 
+
+std::condition_variable will block a thread until a notification is received in such a way that it preserves CPU time. You'll use the wait member function to accomplish this:
 
 	cv.wait(lk); //lk is the lock
 
-Undefined behavior can also lead to security vulnerabilities. This is true when there are potential code paths in a security application that are overlooked, such as getting to a state where the user should only be able to by logging in. For condition variables, the most common cause of undefined behaviour are spurious wakeups. With many thread APIs, POSIX and Windows included, a thread can be woken up periodically even through no thread signalled the condition variable. Because of this complication, it is necessary to check to make sure the variable you are testing against is actually correct. Let's look at an example. Say we are testing a bool called ready. Passing in a [Lambda function](http://en.cppreference.com/w/cpp/language/lambda), we can do this easily:
+Undefined behavior can also lead to security vulnerabilities - when there are potential code paths in a security application that QA overlooked. An example is reaching a logged-in area when you're not logged-in. For condition variables, the most common cause of undefined behavior are spurious wakeups. 
+
+#### Spurious Wakeups 
+
+With many thread APIs, POSIX and Windows included, the platform may wake the thread up periodically even through no thread signaled the condition variable. Because of this, it's necessary to make sure the variable you are testing against is actually correct. You are testing a bool called ready. Passing in a [Lambda function](http://en.cppreference.com/w/cpp/language/lambda), you can do this easily:
 
 	cv.wait(lk, []{return ready;});
 
-Which is equivalent to:
+Which is similar to:
 
 	while(!ready)
 	{
 	        cv.wait(lk);
 	}
 
-As attackers will exploit race conditions, to analyze a shared condition variable across multiple threads, we will need to acquire a lock. The wait function will actually take care of the task of unlocking the mutex and suspending the thread until a notification is received to wake it up, at which point the lock will be reacquired.
+Attackers will exploit race conditions. To analyze a shared condition variable across threads, you'll need to aquare a lock. The wait function will take care of unlocking the mutex and suspending the thread until until it receives a notification to wake up. The function will reacquire the lock when woken up.
 
 	#include <iostream>
 	#include <thread>
@@ -65,13 +75,15 @@ As attackers will exploit race conditions, to analyze a shared condition variabl
 
 In this code, you used the wait method that safely checks against the ready flag. The notify_one function will notify one thread to wake up. A condition variable can block multiple threads at the same time, and to notify all waiting threads we can use the notify_all() function.
 
-You will notice here we used something called chrono (instead of say, a usleep() function). C++ 11 introduces the chrono library which can be quite helpful in many scenarios. It allows access to the system-wide real time wall clock as well as steady monotonic and high-resolution clocks. 
+You will notice here we used something called chrono (instead of say, a usleep() function). C++ 11 introduces the chrono library which can be quite helpful in many scenarios. It allows access to the system-wide real time wall clock as well as steady monotonic and high-resolution clocks.
 
-Another way a process can be tied up leading to denile-of-service is in the event of a lost wakeup. This could happen if the notification is sent before the waiting started, or in the event an attacker can prevent the event such as a login to ever complete. We can wait until a specific time or until a predefined timeout occurs. wait_for() will unblock the thread when a specific amount of time has passed, whereas wait_until() can be used to set a specific date. In either case, if the notification is sent before the timeout, the thread will unblock just as it does with the wait() function. A steady clock is used for the duration. There are many units of time we can use, such as nanoseconds, microseconds, milliseconds, seconds, minutes and hours. Check out the [std::chrono library](http://en.cppreference.com/w/cpp/chrono) for all the options you can use.
+An attacker can tie a process up, causing a denial of service, by exploiting a lost wakeup. This could happen if the notification is sent before the waiting started, or in the event an attacker can prevent the event such as authentication never completing. You can wait until a specific time or until a predefined timeout occurs. wait_for() will unblock the thread when a specific amount of time has passed, whereas you can use wait_until() to set a specific date. In either case, if the platforms sends the notification before the timeout, the thread will unblock as it does with the wait() function. 
+
+The functions use a steady clock for the duration. There are many units of time you can use: nanoseconds, microseconds, milliseconds, seconds, minutes and hours. Check out the [std::chrono library](http://en.cppreference.com/w/cpp/chrono) for all the options.
 
 As with other parts of this higher-level thread library, a native_handle() function will return you the underlying handle. For example, on iOS, Mac OS or any POSIX system, this will be a pthread_cond_t * variable. On Windows, it is PCONDITION_VARIABLE.
 
-Denile-of-service attacks can happen the other way, for example, a login already succeeded yet the attacker keeps spawning busy loops that will never complete because a logged-in notification will never be sent again. You can have a function only ever called once – even across multiple threads - even if two threads call it at the same time. This is also good for initialization during a singleton class:
+Denial of service attacks can happen the other way. A authentication already succeeded but the attacker keeps spawning busy loops that will never complete because you're already authenticated. You can have a function only ever called once, even across multiple threads, even if two threads call it at the same time. This is good practice for initialization of a singleton class:
 
 	std::once_flag flag;
 	void SomeSingletonClass::sharedSingleton()
@@ -81,6 +93,7 @@ Denile-of-service attacks can happen the other way, for example, a login already
 	    std::call_once(flag, [](){std::cout << "Init stuff. This is called only once" << std::endl;});
 	}
 
-The call_once() function utilizes the [std::once_flag](http://en.cppreference.com/w/cpp/thread/once_flag) which coordinates to make sure that a function only gets called once and runs to completion. Any [C++ Callable object](http://en.cppreference.com/w/cpp/concept/Callable) can be used as the second parameter. Here we decide to pass in a [Lambda function](http://en.cppreference.com/w/cpp/language/lambda). You can use this to make sure the state of an object doesn't get reinitialized.
 
-For more information, check out [condition_variable](http://en.cppreference.com/w/cpp/thread/condition_variable)
+The call_once() function utilizes the [std::once_flag](http://en.cppreference.com/w/cpp/thread/once_flag) which makes sure a function only gets called once and runs to completion. You can use any [C++ Callable object](http://en.cppreference.com/w/cpp/concept/Callable) as the second parameter. In the example you've passed in a [Lambda function](http://en.cppreference.com/w/cpp/language/lambda). You used it to make sure the state of the object doesn’t get reinitialized.
+
+For more information, check out [condition_variable](http://en.cppreference.com/w/cpp/thread/condition_variable) documentation.
