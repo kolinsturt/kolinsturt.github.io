@@ -11,25 +11,25 @@ tags : [C++, Boost.Asio, https, http, SSL, TLS]
 
 ## TLS/SSL using Boost.Asio
 
-Recently I needed to work on porting code that would perform https GET and POST network requests. This would be ported to iOS. Most of the code was already in C++ but since the code did not need to stay portable, I took some advantage of [Grand Central Dispatch (GCD).](https://developer.apple.com/library/mac/documentation/Performance/Reference/GCD_libdispatch_Ref/index.html) 
+Recently I needed to work on porting code that would perform HTTPS GET and POST network requests. I would port this to iOS. Most of the code was already in C++ but since the code did not need to stay portable, I took some advantage of [Grand Central Dispatch (GCD).](https://developer.apple.com/library/mac/documentation/Performance/Reference/GCD_libdispatch_Ref/index.html) 
 
  There are a lot of samples on how to use Boost.Asio to make regular HTTP requests: [http://www.boost.org/doc/libs/1_47_0/doc/html/boost_asio/example/http/client/async_client.cpp](http://www.boost.org/doc/libs/1_47_0/doc/html/boost_asio/example/http/client/async_client.cpp).
  
-Examples of TLS support available for socket connections can be found here:
+Examples of TLS support are available for socket connections:
 [http://www.boost.org/doc/libs/1_42_0/doc/html/boost_asio/example/ssl/server.cpp](http://www.boost.org/doc/libs/1_42_0/doc/html/boost_asio/example/ssl/server.cpp)
 [http://www.boost.org/doc/libs/1_42_0/doc/html/boost_asio/example/ssl/client.cpp](http://www.boost.org/doc/libs/1_42_0/doc/html/boost_asio/example/ssl/client.cpp)
 
-However there isn't ample information on how to convert regular HTTP request examples to TLS ones. Furthermore, there seems to be a lot of questions circulating on forums as to how to accomplish this.
+However there isn't ample information on how to convert regular HTTP request examples to TLS ones. Furthermore, there seems to be a lot of questions circulating on forums on how to accomplish this.
 
-Basically, in order to do this task from the above [HTTP example](http://www.boost.org/doc/libs/1_47_0/doc/html/boost_asio/example/http/client/async_client.cpp), it requires converting the private member variable:
+In order to do this task from the above [HTTP example](http://www.boost.org/doc/libs/1_47_0/doc/html/boost_asio/example/http/client/async_client.cpp), it requires converting the private member variable:
 
 	tcp::socket socket_;
 
-into a
+into:
 
 	boost::asio::ssl::stream<boost::asio::ip::tcp::socket> socket_;
 
-Therefor this blog is a walk through of my experience turning Boost's HTTP request examples into an SSL example, while making it work smoothly on iOS. This code is by no means finished, but is merely a test example.
+Therefor this blog is a walk through of my experience turning Boost’s HTTP request examples into an SSL example, while making it work on iOS. This code is by no means finished, but it's a test example.
 
 Here is the [source code](https://github.com/CollinStuart/BoostAsioTLS) for the class with the converted socket_ ivar.
 
@@ -145,11 +145,11 @@ For the header file:
 	
 	#endif
 
-Notice in the constructor we can pass in a string of post parameters (in the format "key1=value1&key2=value2"). HTTP 1.1 uses [chunked transfer-encoding](https://en.wikipedia.org/wiki/Chunked_transfer_encoding) which means that numbers will appear before and after the response. HTTP 1.0 does not do this, though usually requires a "Connection: close" in the header. For the post request case, I do  not add a "Connection: close" header as we may not get the rest of the data if we do this. Also, the protocol depicts that after the last header before the post body there should be an "/r/n/r/n" so the protocol knows the content is coming next. The last line of content should also have an "/r/n/r/n" so the protocol knows where the end of the content is.
+Notice in the constructor you can pass a string of post parameters (in the format "key1=value1&key2=value2"). HTTP 1.1 uses [chunked transfer-encoding](https://en.wikipedia.org/wiki/Chunked_transfer_encoding) which means that numbers will appear before and after the response. HTTP 1.0 does not do this, though usually requires a "Connection: close" in the header. For the post request case, I do  not add a "Connection: close" header as we may not get the rest of the data if we do this. Also, the protocol depicts that after the last header before the post body there should be an "/r/n/r/n" so the protocol knows the content is coming next. The last line of content should also have an "/r/n/r/n" so the protocol knows where the end of the content is.
 
 There are two static class methods that you can use - getRequest and postRequest. Keeping somewhat in the style of modern network API's such as [AFNetworking](http://afnetworking.com/), these functions have callbacks where you can pass in a Lambda function, similar to callback blocks in Objective-C.
 
-Inside these post and get requests, I am actually spawning a thread. Although Boost.Asio has an asynchronous model, I have found that it has not fully been tested and optimized for iOS. Instead I am using the standard thread library but you could just as easily use GCD (more on this later for the callback functions).
+Inside the POST and GET requests, I am spawning a thread. Although Boost.Asio has an asynchronous model, I have found that it it's not tested and optimized for iOS. Instead I am using the standard thread library but you can use Grand Central Dispatch - GCD (more on this later for the callback functions).
 
 	NetworkManager* NetworkManager::getRequest(string urlString, string paramString, std::function<void(string responseString)> callback)
 	{
@@ -165,7 +165,7 @@ Inside these post and get requests, I am actually spawning a thread. Although Bo
 	    return NULL;
 	}
 
-A future task is to rewrite some of the code so we can get a pointer back of the particular request, however right now for this example we are simply returning NULL. The various callback functions of the original Boost example will still be performed (handle_resolve, handle_connect, handle_handshake, etc). Inside the handle_read_content, I am going to use GCD to perform the callback function back on the main thread. 
+TODO: Add ability to get a pointer back of the request. Right now it's returning NULL. Boost calls the callback functions of the original Boost example - handle_resolve, handle_connect, handle_handshake, etc. Inside handle_read_content, I used GCD to perform the callback function back on the main thread.
 
 	void NetworkManager::handle_read_content(const boost::system::error_code& err)
 	{    
@@ -195,7 +195,7 @@ A future task is to rewrite some of the code so we can get a pointer back of the
 	}
 
 
-Lets take a look inside the  _dispatchOnMainThreadWithResponseString and corresponding Go function
+Take a look inside the  _dispatchOnMainThreadWithResponseString and corresponding Go function:
 
 	void Go(pair<function<void(string)>, string> *thePair)
 	{
@@ -220,11 +220,13 @@ Lets take a look inside the  _dispatchOnMainThreadWithResponseString and corresp
 	    dispatch_async_f(dispatch_get_main_queue(), thePair, (dispatch_function_t)Go);
 	}
 
-If we were to use the more common [dispatch_async](https://developer.apple.com/library/mac/documentation/Performance/Reference/GCD_libdispatch_Ref/index.html#//apple_ref/c/func/dispatch_async) function here, as soon as dispatch_async executed, the _callbackFunction variable would go out of scope because our class would have been deallocated after the request had finished being processed. We need to hold on to the variable to still execute the callback function that the user passed in upon making a network request. A solution would be to somehow copy the std::function into dispatch_async_f as a context. Note that although [std::function::target](http://en.cppreference.com/w/cpp/utility/functional/function/target) gives you a raw pointer to the function that we could make use of, when it's a Lambda function, the function is missing state such as capture variables, so this method simply returns NULL. Therefore, we just package them together into a pair; the function wrapped as a std::function which includes scope, and the data string as the second part of the pair.
-    
-I used GCD because std::thread does not provide any way of dispatching a function on the GUI/main thread as there is no concept of main threads in the library (for portability reasons). (The main thread conceptually is just the initial starting thread.)
+If you use the [dispatch_async](https://developer.apple.com/library/mac/documentation/Performance/Reference/GCD_libdispatch_Ref/index.html#//apple_ref/c/func/dispatch_async) function here: As soon as dispatch_async executes, the _callbackFunction variable goes out of scope because the class deallocates after the request finishes. You need to hold on to the variable to still execute the callback function that the user passed in when making a network request.
 
-For testing the functionality, you can uncomment some of the cout statements. If your coming from the "NSLog" world, note that cout to the standard console from multiple threads is not guaranteed to be synchronized. Using cout with streams, especially without std::endl at end can fill the buffer and cout can just stop working when you need to use it. You can either flush, or comment out the couts for streams.
+One solution would be to copy the std::function into dispatch_async_f as a context. Although [std::function::target](http://en.cppreference.com/w/cpp/utility/functional/function/target) gives you a raw pointer to the function, the Lambda function is missing state such as capture variables so this method returns NULL. Therefore, package them together into a pair: The function wrapped as a std::function that includes scope, and the data string as the second part of the pair.
+    
+I used GCD because std::thread does not provide a way of dispatching a function on the GUI thread.
+
+You can uncomment some of the cout statements for testing. If your coming from the Foundation (NSLog) world, note that cout to the standard console from multiple threads is not synchronized. Using cout with streams, especially without std::endl at the end can fill the buffer and cout may stop working. You can either flush or comment out the couts for streams.
 
         cout << std::flush;
         cout << _responseString.str() << endl;
@@ -243,13 +245,4 @@ Here are some examples of using the class interface:
 	           cout << "Response is " << responseString << endl;
 	     });
 
-and again, [here](https://github.com/CollinBStuart/BoostAsioTLS) is the full code. This code is by no means complete. I would like to add a fail block and other error checking as well as certificate verification. (Replace verify_none with verify_peer for set_verify_mode and add your pem file to the project - we need to call set_verify_mode(boost::asio::ssl::verify_peer) and load_verify_file("ca.pem"); ) However I thought I would share it for anyone else who finds themselves in the same situation as I have. Since this blog is often dedicated to less common scenarios, it seems a perfect fit. For more general info see [here](http://www.boost.org/doc/libs/1_47_0/doc/html/boost_asio/overview/ssl.html)
-
-
-
-
-
-
-
-
-
+[Here](https://github.com/CollinBStuart/BoostAsioTLS) is the full code. This code is by no means complete. I would like to add a fail block and other error checking as well as certificate verification. (Replace verify_none with verify_peer for set_verify_mode and add your pem file to the project - we need to call set_verify_mode(boost::asio::ssl::verify_peer) and load_verify_file("ca.pem"); ) However I thought I would share it for anyone else who finds themselves in the same situation as I have. Since this blog is often dedicated to less common scenarios, it seems a perfect fit. For more general info see [Boost SSL](http://www.boost.org/doc/libs/1_47_0/doc/html/boost_asio/overview/ssl.html).
