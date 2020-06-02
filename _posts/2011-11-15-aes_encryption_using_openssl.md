@@ -11,7 +11,9 @@ tags : [C++, OpenSSL, AES, Encryption, CBC, PBKDF2]
 
 ## AES Encryption using OpenSSL
 
-AES is a fast block cipher and symmetric encryption standard. It encrypts data using a key so lets start there. A key should always be salted or stretched. A simple hard coded string or password is not enough entropy to be used as the key. Instead we can derive a key from the password by hashing it and also applying a salt (random data). The salt is used so that if the same password is used elsewhere, the output will always be different.
+AES is a fast block cipher and symmetric encryption standard. It encrypts data using a key. You should always salt, or stretch, a key. A simple string or password is not enough entropy. Instead you'll derive a key from a user-supplied password by applying random data, called a salt, and then hash it several times over. You'll use a salt so that if a person uses the same password elsewhere, the output will always be different.
+
+In the [previous article](https://kolinsturt.github.io/lessons/2013/04/01/sha_using_openssl) you leanred about hashing. If that is new to you, check out that article first.
 
 ### Password-Based Key Derivation
 
@@ -65,8 +67,6 @@ Here is a 128 bit IV:
 ###### NOTE: Although the IV is considered public, avoid using constant or sequential IV's. Do not reuse an IV for more than one message if you are using the same key.
 
 
-###### NOTE: Padding is used by default if the data does not divide exactly into the fixed block size.
-
 ### Encryption
 
 To begin, lets create a context and initialize it:
@@ -78,11 +78,11 @@ Next we set up the type of encryption operation we are doing, in this case AES. 
 
 	EVP_EncryptInit_ex(cipherContext, EVP_aes_256_cbc(), NULL, keyChar, ivChar);
 
-We use the update function to provide data to be encrypted. This can be called multiple times to add chunks of data to be encrypted.
+Use the update function to provide cleartext data. You can call it multiple times to append unencrypted data.
 
 	EVP_EncryptUpdate(cipherContext, cipherTextChar, &length, plainTextChar, plainTextLength);
 
-When we are finished adding data to be encrypted, we call the finalize function. This will finish writing all encrypted bytes:
+When you're finished adding data, call the finalize function. This will finish writing all encrypted bytes:
 
 	EVP_EncryptFinal_ex(cipherContext, cipherTextChar + length, &length);
 
@@ -132,6 +132,8 @@ Here is the full function:
 	    return cipherTextLength;
 	}
 
+###### NOTE: Padding is used by default if the data does not divide exactly into the fixed block size.
+
 ### Decryption
 
 To decrypt, we create and initialize the context with a decryption operation using the same appropriate key sizes:
@@ -139,11 +141,11 @@ To decrypt, we create and initialize the context with a decryption operation usi
 	cipherContext = EVP_CIPHER_CTX_new();
 	EVP_DecryptInit_ex(cipherContext, EVP_aes_256_cbc(), NULL, keyChar, ivChar);
 
-Same as before, the decrypted operation can be called on multiple input sources:
+Same as before, you can call the decrypted operation on multiple input sources:
 
 	EVP_DecryptUpdate(cipherContext, plainTextChar, &length, cipherTextChar, cipherTextLength);
 
-And we write the final plain text bytes:
+Call this to write the final plaintext bytes:
 
 	EVP_DecryptFinal_ex(cipherContext, plainTextChar + length, &length);
 
@@ -197,15 +199,14 @@ Here is the _handleErrors() function used in the above code:
 
 To configure OpenSSL using a configuration file, call OPENSSL_config(). You can pass NULL to use the system default .cnf configuration file. To free up configuration resources, call CONF_modules_free().
 
-For debugging purposes, if you would like to print out error messages as strings, you must call the ERR_load_crypto_strings() function first. To clean up the resources and free this memory when you are done, call ERR_free_strings().
+For debugging purposes, if you would like to print out error messages as strings, you must call the ERR_load_crypto_strings() function first. Call ERR_free_strings() to clean up the resources and free memory.
 
 OpenSSL contains a table of available algorithms which is used when calling 
-functions such as EVP_get_cipher_byname(). It's also used internally so that if not initialized, some functions will fail. To add algorithms to the internal table, call OpenSSL_add_all_algorithms().
-When you are finished, or before your application exits, call EVP_cleanup() which removes all algorithms from the table.
+functions such as EVP_get_cipher_byname(). It's also used internally so that if not initialized, some functions will fail. To add algorithms to the internal table, call OpenSSL_add_all_algorithms(). When you finish or before your application exits, call EVP_cleanup() which removes all algorithms from the table.
 
-NOTE: Once you have encrypted the plaintext, you can pass around or store this encrypted binary information. If, however, you need to send or store it in a text format such as XML or JSON, you will need to encode the binary information. For example, we can use [Base64](https://en.wikipedia.org/wiki/Base64) to encode the encrypted binary data. For a Base64 utility, see [here](https://github.com/CollinStuart/Base64CPP).
+NOTE: Once you have encrypted the plaintext, you can pass around or store this encrypted binary information. If you need to send or store it in a text format such as XML or JSON, you'll need to encode the binary information. For example, you can use [Base64](https://en.wikipedia.org/wiki/Base64) to encode the encrypted binary data. For a Base64 utility, see [here](https://github.com/CollinStuart/Base64CPP).
 
-Lets make a test function. We could wrap this C code in a higher level C++ class (lets call it Crypto). You could additionally pass std::strings in and out of the class if you wanted to. The following example adds the extra convenience of encoding and decoding the binary data to and from Base64 as an example. However, if you do not feel like adding a Base64 utility to your code base, you can comment out that optional step below
+Lets make a test function. We could wrap this C code in a higher level C++ class (lets call it Crypto). You could additionally pass std::strings in and out of the class if you wanted to. The following example adds the extra convenience of encoding and decoding the binary data to and from Base64 as an example. If you do not feel like adding a Base64 utility to your code base, you can comment out that optional step below
 
 
 	void Crypto::encryptTest()
@@ -293,6 +294,6 @@ Lets make a test function. We could wrap this C code in a higher level C++ class
 	    free(keyChar);
 	}
 
-While this example knows the length of the plain text and output, you can mathematically figure out the length of the output by ( (inputLength / blockSize) * blockSize) + blockSize.
+While this example knows the length of the plain text and output, you can figure out the length of the output by ( (inputLength / blockSize) * blockSize) + blockSize.
 
-And that's it for implementing AES 256 CBC in OpenSSL. To see an equivalent example of AES encryption using a Apple's CommonCrypto library, see [here](https://collinbstuart.github.io/lessons/2014/01/01/common_crypto/).
+That's it for implementing AES 256 CBC in OpenSSL. To learn how to perform AES encryption using a Apple’s CommonCrypto library see [this article](https://kolinsturt.github.io/lessons/2014/01/01/common_crypto).
