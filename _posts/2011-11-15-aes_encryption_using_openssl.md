@@ -35,7 +35,7 @@ Here is some code to create a 256 bit key using OpenSSL's PKCS5_PBKDF2_HMAC_SHA1
 	        printf("%02x", saltChar[i]);
 	    }
 	    cout << endl;
-	    if (PKCS5_PBKDF2_HMAC_SHA1(passwordChar, strlen(passwordChar), saltChar, sizeof(saltChar), iterations, keyLength, keyChar) != 0 )
+	    if (PKCS5_PBKDF2_HMAC(passwordChar, strlen(passwordChar), saltChar, sizeof(saltChar), iterations, EVP_sha512(), keyLength, keyChar) != 0 )
 	    {
 	        cout << "key is ";
 	        for (i = 0; i < keyLength; i++)
@@ -73,6 +73,7 @@ To begin, lets create a context and initialize it:
 
 	EVP_CIPHER_CTX *cipherContext;
 	cipherContext = EVP_CIPHER_CTX_new();
+	EVP_CIPHER_CTX_init(cipherContext);
 
 Next we set up the type of encryption operation we are doing, in this case AES. We lookup the correct values for this standard. AES-256 uses a 256 bit key, and 128 bit IV size (AES256 refers to the key size. The block and IV size are still [128 bits](http://csrc.nist.gov/publications/fips/fips197/fips-197.pdf)). The following [function](https://www.openssl.org/docs/crypto/EVP_EncryptInit.html) will perform key setup.
 
@@ -107,6 +108,7 @@ Here is the full function:
 	    {
 	        _handleErrors();
 	    }
+	    EVP_CIPHER_CTX_init(cipherContext);
 	    
 	    if (1 != EVP_EncryptInit_ex(cipherContext, EVP_aes_256_cbc(), NULL, keyChar, ivChar) )
 	    {
@@ -127,6 +129,7 @@ Here is the full function:
 	    
 	    cipherTextLength += length;
 	    
+	    EVP_CIPHER_CTX_cleanup(cipherContext);
 	    EVP_CIPHER_CTX_free(cipherContext);
 	    
 	    return cipherTextLength;
@@ -140,6 +143,7 @@ To decrypt, we create and initialize the context with a decryption operation usi
 
 	cipherContext = EVP_CIPHER_CTX_new();
 	EVP_DecryptInit_ex(cipherContext, EVP_aes_256_cbc(), NULL, keyChar, ivChar);
+	EVP_CIPHER_CTX_init(cipherContext);
 
 Same as before, you can call the decrypted operation on multiple input sources:
 
@@ -161,6 +165,7 @@ Here is the full decrypt function:
 	    {
 	        _handleErrors();
 	    }
+	    EVP_CIPHER_CTX_init(cipherContext);
 	    
 	    if (1 != EVP_DecryptInit_ex(cipherContext, EVP_aes_256_cbc(), NULL, keyChar, ivChar))
 	    {
@@ -180,6 +185,7 @@ Here is the full decrypt function:
 	    }
 	    plainTextLength += length;
 	    
+	    EVP_CIPHER_CTX_cleanup(cipherContext);
 	    EVP_CIPHER_CTX_free(cipherContext);
 	    
 	    return plainTextLength;
@@ -206,7 +212,7 @@ functions such as EVP_get_cipher_byname(). It's also used internally so that if 
 
 NOTE: Once you have encrypted the plaintext, you can pass around or store this encrypted binary information. If you need to send or store it in a text format such as XML or JSON, you'll need to encode the binary information. For example, you can use [Base64](https://en.wikipedia.org/wiki/Base64) to encode the encrypted binary data. For a Base64 utility, see [here](https://github.com/CollinStuart/Base64CPP).
 
-Lets make a test function. We could wrap this C code in a higher level C++ class (lets call it Crypto). You could additionally pass std::strings in and out of the class if you wanted to. The following example adds the extra convenience of encoding and decoding the binary data to and from Base64 as an example. If you do not feel like adding a Base64 utility to your code base, you can comment out that optional step below
+Make a test function by wrapping the C code in a higher level C++ class, call it Crypto. You could additionally pass `std::string` in and out of the class if you want. The following example adds the extra convenience of encoding and decoding the binary data to and from Base64. If you don't feel like adding a Base64 utility to your code base, you can comment out that optional step below
 
 
 	void Crypto::encryptTest()
@@ -226,21 +232,22 @@ Lets make a test function. We could wrap this C code in a higher level C++ class
 	        printf("%02x", saltChar[i]);
 	    }
 	    cout << endl;
-	    if (PKCS5_PBKDF2_HMAC_SHA1(passwordChar, strlen(passwordChar), saltChar, sizeof(saltChar), iterations, keyLength, keyChar) != 0 )
+	    if (PKCS5_PBKDF2_HMAC(passwordChar, strlen(passwordChar), saltChar, sizeof(saltChar), iterations, EVP_sha512(), keyLength, keyChar) != 0 )
 	    {
-	        cout << "key is ";
-	        for (i = 0; i < keyLength; i++)
-	        {
-	            printf("%02x", keyChar[i]);
-	        }
-	        cout << endl;
+	        //Comment out for production code:
+	        //cout << "key is ";
+	        //for (i = 0; i < keyLength; i++)
+	        //{
+	        //    printf("%02x", keyChar[i]);
+	        //}
+	        //cout << endl;
 	    }
 	    else
 	    {
 	        cout << "Failure to create key for password - PKCS5_PBKDF2_HMAC_SHA1" << endl;
 	    }
 	
-	    unsigned char *ivChar = (unsigned char *)"73472859478267948"; //128 bit IV
+	    unsigned char *ivChar = (unsigned char *)"73472859478267948"; //128 bit IV - use a secure generator
 	    unsigned char *plainTextChar = (unsigned char *)"Secret text to be encrypted";
 	
 	    //Test buffer for cipher text. For this test we must make sure this is long enough for the
