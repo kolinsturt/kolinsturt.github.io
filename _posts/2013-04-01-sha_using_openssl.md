@@ -15,16 +15,18 @@ In this post you're going to hash data using Secure Hash Algorithm - SHA. SHA is
 
 SHA-1 has major weaknesses. It is not approved for production cryptographic implementations. You should not for applications relying on security. [1](https://www.schneier.com/blog/archives/2005/02/cryptanalysis_o.html) [2](http://2012.sharcs.org/slides/stevens.pdf).
 
-You'll use the SHA2 family of operations in the OpenSSL  encryption library. While OpenSSL is C code, it is quite common to use it for C++ development. The other common library is [Crypto++](http://www.cryptopp.com/). You can use one-shot functinos such as `SHA512`. This is good if you already have all the data to hash. If the entirety of the message is not stored in memory such as when using streams, you can use multiple hash calls. You'll learn this way because the solution is more extensible. It works for both streams and one-shot logic.
+You'll use the SHA2 family of operations in the OpenSSL  encryption library. While OpenSSL is C code, it is quite common to use it for C++ development. The other common library is [Crypto++](http://www.cryptopp.com/). 
+
+In OpenSSL, you can use one-shot functinos such as `SHA512`. This is good if you already have all the data to hash. If the entirety of the message is not stored in memory such as when using streams, you can use multiple hash calls. You'll learn this way because the solution is more extensible. It works for both streams and one-shot logic.
 
 ### Initializing a Context
 
-To initialize a context structure, call `EVP_DigestInit()`. You then add chunks using the `EVP_DigestUpdate()` function. When there's no more data to add, call `EVP_DigestFinal()` to get a pointer to the hashed data. This function will also erase the context structure.
+To initialize a context structure, call `EVP_DigestInit()`. You then add chunks using the `EVP_DigestUpdate()` function. When there's no more data to add, call `EVP_DigestFinal()` to get a pointer to the hashed data.
 
-These are higher level functions for message digests - [EVP_Digest](https://www.openssl.org/docs/crypto/EVP_DigestInit.html). The EVP methods are "envelope", high level interfaces to cryptographic operations. Always start with a high level solution. Low level solutions may introduce more security holes if you're not careful with the implementation. Create a header file and call it *MessageDigest.h*. Don't forget to link against the libcrypto and libssl libraries:
+These are higher level functions for message digests - [EVP_Digest](https://www.openssl.org/docs/crypto/EVP_DigestInit.html). The EVP methods are "envelope" interfaces to cryptographic operations. Always start with a high level solution. Low level solutions may introduce more security holes if you're not careful with the implementation. Create a header file and call it *MessageDigest.h*. Don't forget to link against the *libcrypto* and *libssl* libraries:
 
 
-        #include <iostream>
+	#include <iostream>
 	#include <openssl/sha.h>
 	#include <stdio.h>
 	#include <string>
@@ -41,7 +43,7 @@ These are higher level functions for message digests - [EVP_Digest](https://www.
 
 ### Creating a Digest
 
-First, you'll hash a `string` using OpenSSL's EVP API. Create a function to hash the `string` given a specific hash length:
+First, you'll hash a `string`. Create a function to hash the `string` given a specific hash length:
 
     std::string MessageDigest::sha2ForString(std::string &theString, int length)
     {
@@ -108,7 +110,7 @@ First, you'll hash a `string` using OpenSSL's EVP API. Create a function to hash
         return shaString;
     }
 
-In this code, you initialized a `EVP_MD_CTX` and `EVP_MD type` given one of four lengths: 224, 256, 384 and 512. After you create the hash, you cleanup the context by calling `EVP_MD_CTX_cleanup` and `EVP_MD_CTX_destroy`.
+In this code, you initialized a `EVP_MD_CTX` and `EVP_MD` type given one of four lengths: 224, 256, 384 and 512. After you create the hash, you convert it using hexidecimal (Base16) using `std::hex`. Then you cleanup the context by calling `EVP_MD_CTX_cleanup` and `EVP_MD_CTX_destroy`.
 
 ### Performing Low Level Operations
 
@@ -152,11 +154,11 @@ You can use one-shot functinos such as `SHA512` or it's init, update and final c
 	    return resultString;
 	}
 
-Here you used the SHA512 functions to hash binary data and converted it to a HEX (Base16) string.
+Here you used the SHA512 functions to hash binary data and converted it to a HEX string. In this case, the `SHA512_Final` function also erases the context structure.
 
 ### Porting The Code
 
-That’s all you need to do to create a message digest. But if you'd like to port this to iOS and OS X platforms for example, write a function to make it interoperable with Core Foundation, and thus the Foundation Cocoa environment. Here's an updated header file, adding the Core Foundation framework and one new static function that returns a `CFStringRef`.
+That’s all you need to do to create a message digest. But if you'd like to port this to iOS and OS X platforms, for example, write a function to make it interoperable with Core Foundation, and thus the Foundation Cocoa environment. Here's an updated header file, adding the Core Foundation framework and one new static function that returns a `CFStringRef`.
 
 	#include <stdio.h>
 	#include <string>
