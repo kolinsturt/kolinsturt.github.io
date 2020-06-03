@@ -15,11 +15,19 @@ AES is a fast block cipher and symmetric encryption standard. It encrypts data u
 
 In the [previous article](https://kolinsturt.github.io/lessons/2013/04/01/sha_using_openssl) you leanred about hashing. If that is new to you, check out that article first.
 
-### Password-Based Key Derivation
+### Applying Password-Based Key Derivation
 
 You can implement this all yourself, however a key derivation function has already been developed for this purpose – called PBKDF2 (Password-Based Key Derivation Function 2). It performs the functions many times over to stretch the key and help prevent password cracking.
 
-Here is some code to create a 256 bit key using OpenSSL's PKCS5_PBKDF2_HMAC_SHA1 function. It's parameters are the password, the length of the password, the salt, the length of the salt, and the number of iterations to perform.
+Here is some code to create a 256 bit key using OpenSSL's `PKCS5_PBKDF2_HMAC` function. It's parameters are the following:
+1. The password.
+2. Length of the password.
+3. The salt.
+4. Length of the salt.
+5. Number of iterations to perform.
+6. The specific hash function.
+7. Length of the key.
+8. The out data.
 
 	    int iterations = 1000;
 	    size_t keyLength  = 32; //256 bits
@@ -61,21 +69,21 @@ There are different modes of encryption, and we will be using CBC mode. The reas
 
 Here is a 128 bit IV:
 
-	unsigned char *iv = (unsigned char *)"73472859478267948"; //create with a good random number generator for your platform, in this case I used arc4random()
+	unsigned char *iv = (unsigned char *)"73472859478267948";
 
+Create the above with a good secure random number generator for your platform. One option is [arc4random](https://security.stackexchange.com/questions/85601/is-arc4random-secure-enough). Another is [SecRandomCopyBytes](https://developer.apple.com/documentation/security/1399291-secrandomcopybytes).
 
-###### NOTE: Although the IV is considered public, avoid using constant or sequential IV's. Do not reuse an IV for more than one message if you are using the same key.
+Although the IV is considered public, avoid using constant or sequential IV's. Do not reuse an IV for more than one message if you are using the same key.
 
+### Encrypting The Data
 
-### Encryption
-
-To begin, lets create a context and initialize it:
+To begin, create a context and initialize it:
 
 	EVP_CIPHER_CTX *cipherContext;
 	cipherContext = EVP_CIPHER_CTX_new();
 	EVP_CIPHER_CTX_init(cipherContext);
 
-Next we set up the type of encryption operation we are doing, in this case AES. We lookup the correct values for this standard. AES-256 uses a 256 bit key, and 128 bit IV size (AES256 refers to the key size. The block and IV size are still [128 bits](http://csrc.nist.gov/publications/fips/fips197/fips-197.pdf)). The following [function](https://www.openssl.org/docs/crypto/EVP_EncryptInit.html) will perform key setup.
+Next set up the type of encryption operation you're are doing, in this case AES. Lookup the correct values for the standard. AES-256 uses a 256 bit key, and 128 bit IV size (AES256 refers to the key size. The block and IV size are still [128 bits](http://csrc.nist.gov/publications/fips/fips197/fips-197.pdf)). The following [function](https://www.openssl.org/docs/crypto/EVP_EncryptInit.html) performs key setup:
 
 	EVP_EncryptInit_ex(cipherContext, EVP_aes_256_cbc(), NULL, keyChar, ivChar);
 
@@ -135,17 +143,17 @@ Here is the full function:
 	    return cipherTextLength;
 	}
 
-###### NOTE: Padding is used by default if the data does not divide exactly into the fixed block size.
+Padding is used by default if the data does not divide exactly into the fixed block size.
 
-### Decryption
+### Decrypting The Data
 
-To decrypt, we create and initialize the context with a decryption operation using the same appropriate key sizes:
+To decrypt the data, create and initialize the context with a decryption operation using the same key size:
 
 	cipherContext = EVP_CIPHER_CTX_new();
 	EVP_DecryptInit_ex(cipherContext, EVP_aes_256_cbc(), NULL, keyChar, ivChar);
 	EVP_CIPHER_CTX_init(cipherContext);
 
-Same as before, you can call the decrypted operation on multiple input sources:
+As before, you can call the decrypted operation on multiple input sources:
 
 	EVP_DecryptUpdate(cipherContext, plainTextChar, &length, cipherTextChar, cipherTextLength);
 
@@ -191,10 +199,6 @@ Here is the full decrypt function:
 	    return plainTextLength;
 	}
 	
-### Putting It All Together
-
-There are a few more things we should cover before you go ahead an use these functions. 
-
 Here is the _handleErrors() function used in the above code:
 
 	void Crypto::_handleErrors(void)
@@ -202,18 +206,17 @@ Here is the _handleErrors() function used in the above code:
 	    ERR_print_errors_fp(stderr);
 	    abort();
 	}
+	
+### Putting it All Together
 
-To configure OpenSSL using a configuration file, call OPENSSL_config(). You can pass NULL to use the system default .cnf configuration file. To free up configuration resources, call CONF_modules_free().
+There are a few more things you should know about the functions:
 
-For debugging purposes, if you would like to print out error messages as strings, you must call the ERR_load_crypto_strings() function first. Call ERR_free_strings() to clean up the resources and free memory.
+- To configure OpenSSL using a configuration file, call `OPENSSL_config()`. You can pass `NULL` to use the system default *.cnf* configuration file. To free up configuration resources, call `CONF_modules_free()`.
+- For debugging purposes, if you would like to print out error messages as strings, you must call the `ERR_load_crypto_strings()` function first. Call `ERR_free_strings()` to clean up the resources and free memory. Remember to remove debug logs that output sensitive strings or the key to the console!
+- OpenSSL contains a table of available algorithms which is used when calling functions such as `EVP_get_cipher_byname()`. It's also used internally so that if not initialized, some functions will fail. To add algorithms to the internal table, call `OpenSSL_add_all_algorithms()`. When you finish or before your application exits, call `EVP_cleanup()` which removes all algorithms from the table.
+- Once you have encrypted the plaintext, you can store the encrypted binary data. If you need to send or store it in a text format such as XML or JSON, you'll need to encode the binary information. For example, you can use [Base64](https://en.wikipedia.org/wiki/Base64) to encode the encrypted binary data. For a Base64 utility, see [here](https://github.com/CollinStuart/Base64CPP).
 
-OpenSSL contains a table of available algorithms which is used when calling 
-functions such as EVP_get_cipher_byname(). It's also used internally so that if not initialized, some functions will fail. To add algorithms to the internal table, call OpenSSL_add_all_algorithms(). When you finish or before your application exits, call EVP_cleanup() which removes all algorithms from the table.
-
-NOTE: Once you have encrypted the plaintext, you can pass around or store this encrypted binary information. If you need to send or store it in a text format such as XML or JSON, you'll need to encode the binary information. For example, you can use [Base64](https://en.wikipedia.org/wiki/Base64) to encode the encrypted binary data. For a Base64 utility, see [here](https://github.com/CollinStuart/Base64CPP).
-
-Make a test function by wrapping the C code in a higher level C++ class, call it Crypto. You could additionally pass `std::string` in and out of the class if you want. The following example adds the extra convenience of encoding and decoding the binary data to and from Base64. If you don't feel like adding a Base64 utility to your code base, you can comment out that optional step below
-
+Make a test function by wrapping the C code in a higher level C++ class, call it *Crypto*. You could additionally pass `std::string` in and out of the class if you want. The following example adds the extra convenience of encoding and decoding the binary data to and from Base64. If you don't feel like adding a Base64 utility to your code base, you can comment out that optional step below:
 
 	void Crypto::encryptTest()
 	{
@@ -225,6 +228,7 @@ Make a test function by wrapping the C code in a higher level C++ class, call it
 	    const char passwordChar[] = "qf4i2btz";
 	    unsigned char saltChar[] = {'q','j','6','-'};
 	    keyChar = (unsigned char *)malloc(sizeof(unsigned char) * keyLength);
+	    //Remove the following in production code:
 	    cout << "password is " << passwordChar << endl;
 	    cout << "salt is ";
 	    for (i = 0; i < sizeof(saltChar); i++)
@@ -235,12 +239,12 @@ Make a test function by wrapping the C code in a higher level C++ class, call it
 	    if (PKCS5_PBKDF2_HMAC(passwordChar, strlen(passwordChar), saltChar, sizeof(saltChar), iterations, EVP_sha512(), keyLength, keyChar) != 0 )
 	    {
 	        //Comment out for production code:
-	        //cout << "key is ";
-	        //for (i = 0; i < keyLength; i++)
-	        //{
-	        //    printf("%02x", keyChar[i]);
-	        //}
-	        //cout << endl;
+	        cout << "key is ";
+	        for (i = 0; i < keyLength; i++)
+	        {
+	            printf("%02x", keyChar[i]);
+	        }
+	        cout << endl;
 	    }
 	    else
 	    {
@@ -303,4 +307,6 @@ Make a test function by wrapping the C code in a higher level C++ class, call it
 
 While this example knows the length of the plain text and output, you can figure out the length of the output by ( (inputLength / blockSize) * blockSize) + blockSize.
 
-That's it for implementing AES 256 CBC in OpenSSL. To learn how to perform AES encryption using a Apple’s CommonCrypto library see [this article](https://kolinsturt.github.io/lessons/2014/01/01/common_crypto).
+Remember to remove all console logging for production code.
+
+That's it for implementing AES 256 CBC in OpenSSL. To learn how to perform AES encryption using Apple’s CommonCrypto library see [this article](https://kolinsturt.github.io/lessons/2014/01/01/common_crypto).
