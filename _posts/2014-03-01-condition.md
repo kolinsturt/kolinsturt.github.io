@@ -11,7 +11,9 @@ tags : [C++ 11, "std::condition_variable", Condition Variable, Multithreading, c
 
 ## Condition Variables
 
-A critical background task may need to wait until another process is completed in order to continue, such as waiting for authentication is complete. This is often implemented by a run-loop that has a callback when the system meets a condition. One the system meets the condition, it proceeds to the next part of the code. The problem with this is that a thread is taking up CPU cycles performing a loop, called busy waiting. The CPU could be giving that time to threads that have actual work to do. 
+In the previous [article](https://kolinsturt.github.io/lessons/2014/02/01/mutex), you learned how to synchronize data. In this article you'll use those techniques to coordinate critical background work.
+
+A critical background task may need to wait until another process is completed in order to continue, such as waiting for authentication to complete. This is often implemented by a run-loop that has a callback when the system meets a condition. One the system meets the condition, it proceeds to the next part of the code. The problem with this is that a thread is taking up CPU cycles performing a loop, called busy waiting. The CPU could be giving that time to threads that have actual work to do. 
 
 #### Denial Of Service
 
@@ -100,4 +102,4 @@ Denial of service attacks can happen the other way. A authentication already suc
 
 The `call_once` function utilizes the [std::once_flag](http://en.cppreference.com/w/cpp/thread/once_flag) which makes sure a function only gets called once and runs to completion. You can use any [C++ Callable object](http://en.cppreference.com/w/cpp/concept/Callable) as the second parameter. In the example you've passed in a [Lambda function](http://en.cppreference.com/w/cpp/language/lambda). You used it to make sure the state of the object doesn’t get reinitialized.
 
-If you'd like to know more about `condition_variable`, check out the [condition_variable reference](http://en.cppreference.com/w/cpp/thread/condition_variable).
+You've learned to coordinate critical work. Directing work often requires flags that determine the state of a job or data. Check out the [Atomic Variables article](https://kolinsturt.github.io/lessons/2013/03/01/atomic) to learn how to safely use flags in a multi-threaded context. If you'd like to know more about `condition_variable`, check out the [condition_variable reference](http://en.cppreference.com/w/cpp/thread/condition_variable).
