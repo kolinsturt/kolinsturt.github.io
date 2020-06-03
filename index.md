@@ -68,13 +68,13 @@ tags : [Android, Kolin, Sturt, Kolin Sturt, iOS, Core Foundation, Security, C++,
 
 <a href="{{ BASE_PATH }}/lessons/2011/10/17/boost_asio_tls_https">Boost.Asio TLS experiments</a>
 
-<a href="{{ BASE_PATH }}/lessons/2013/03/02/thread">Secure Coding with Concurrency in C++ 11 - Threads</a>
+<a href="{{ BASE_PATH }}/lessons/2013/03/02/thread">Secure Coding with Concurrency in C++ - Threads</a>
 
 <a href="{{ BASE_PATH }}/lessons/2014/02/01/mutex">Secure Coding with Concurrency in C++ - Mutual Exclusion</a>
 
-<a href="{{ BASE_PATH }}/lessons/2013/03/01/atomic">Secure Coding with Concurrency in C++ - Atomic</a>
-
 <a href="{{ BASE_PATH }}/lessons/2014/03/01/condition">Secure Coding with Concurrency in C++ - Condition Variables</a>
+
+<a href="{{ BASE_PATH }}/lessons/2013/03/01/atomic">Secure Coding with Concurrency in C++ - Atomic</a>
 
 
 
