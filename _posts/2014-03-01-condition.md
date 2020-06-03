@@ -15,9 +15,9 @@ A critical background task may need to wait until another process is completed i
 
 #### Denial Of Service
 
-If an attacker is able to start many authentication requests but never complete them, it could fill up the CPU time with busy loops, leading to a denial of service attack. Rate limiting the requests and setting timeouts are part of the solution, but to prevent the thread from busy waiting, C++ 11’s thread library has a condition_variable. 
+If an attacker is able to start many authentication requests but never complete them, it could fill up the CPU time with busy loops, leading to a denial of service attack. Rate limiting the requests and setting timeouts are part of the solution, but to prevent the thread from busy waiting, C++ 11’s thread library has a `condition_variable`. 
 
-std::condition_variable will block a thread until a notification is received in such a way that it preserves CPU time. You'll use the wait member function to accomplish this:
+`std::condition_variable` will block a thread until a notification is received in such a way that it preserves CPU time. You'll use the wait member function to accomplish this:
 
 	cv.wait(lk); //lk is the lock
 
@@ -25,7 +25,7 @@ Undefined behavior can also lead to security vulnerabilities - when there are po
 
 #### Spurious Wakeups 
 
-With many thread APIs, POSIX and Windows included, the platform may wake the thread up periodically even through no thread signaled the condition variable. Because of this, it's necessary to make sure the variable you are testing against is actually correct. You are testing a bool called ready. Passing in a [Lambda function](http://en.cppreference.com/w/cpp/language/lambda), you can do this easily:
+With many thread APIs, POSIX and Windows included, the platform may wake the thread up periodically even through no thread signaled the condition variable. Because of this, it's necessary to make sure the variable you are testing against is actually correct. You are testing a `bool` called `ready`. Passing in a [Lambda function](http://en.cppreference.com/w/cpp/language/lambda), you can do this easily:
 
 	cv.wait(lk, []{return ready;});
 
@@ -73,15 +73,19 @@ Attackers will exploit race conditions. To analyze a shared condition variable a
 	    t2.detach();
 	}
 
-In this code, you used the wait method that safely checks against the ready flag. The notify_one function will notify one thread to wake up. A condition variable can block multiple threads at the same time, and to notify all waiting threads we can use the notify_all() function.
+In this code, you used the `wait` method that safely checks against the `ready` flag. The `notify_one` function will notify one thread to wake up. A condition variable can block multiple threads at the same time, and to notify all waiting threads we can use the `notify_all` function.
 
-You will notice here we used something called chrono (instead of say, a usleep() function). C++ 11 introduces the chrono library which can be quite helpful in many scenarios. It allows access to the system-wide real time wall clock as well as steady monotonic and high-resolution clocks.
+You used something `std::chrono` instead of a `usleep()` function. C++ 11 introduces the chrono library which is helpful in many scenarios. It allows access to the system-wide real-time wall clock as well as steady monotonic and high-resolution clocks.
 
-An attacker can tie a process up, causing a denial of service, by exploiting a lost wakeup. This could happen if the notification is sent before the waiting started, or in the event an attacker can prevent the event such as authentication never completing. You can wait until a specific time or until a predefined timeout occurs. wait_for() will unblock the thread when a specific amount of time has passed, whereas you can use wait_until() to set a specific date. In either case, if the platforms sends the notification before the timeout, the thread will unblock as it does with the wait() function. 
+#### Lost Wakeups
+
+An attacker can tie a process up, causing a denial of service, by exploiting a lost wakeup. This could happen if the system sends the notification before the waiting started, or in the event an attacker can prevent the event such as authentication never completing. You can wait until a specific time or until a predefined timeout occurs. `wait_for` will unblock the thread when a specific amount of time has passed, whereas you can use `wait_until` to set a specific date. In either case, if the platform sends the notification before the timeout, the thread will unblock as it does with the `wait` function. 
 
 The functions use a steady clock for the duration. There are many units of time you can use: nanoseconds, microseconds, milliseconds, seconds, minutes and hours. Check out the [std::chrono library](http://en.cppreference.com/w/cpp/chrono) for all the options.
 
-As with other parts of this higher-level thread library, a native_handle() function will return you the underlying handle. For example, on iOS, Mac OS or any POSIX system, this will be a pthread_cond_t * variable. On Windows, it is PCONDITION_VARIABLE.
+Consistent with other higher-level APIs, a `native_handle` function will return you the underlying handle. For example, on iOS, Mac OS or any POSIX system, it returns a `pthread_cond_t *` variable. On Windows, it's `PCONDITION_VARIABLE`.
+
+#### Call-Once Functions
 
 Denial of service attacks can happen the other way. A authentication already succeeded but the attacker keeps spawning busy loops that will never complete because you're already authenticated. You can have a function only ever called once, even across multiple threads, even if two threads call it at the same time. This is good practice for initialization of a singleton class:
 
@@ -94,6 +98,6 @@ Denial of service attacks can happen the other way. A authentication already suc
 	}
 
 
-The call_once() function utilizes the [std::once_flag](http://en.cppreference.com/w/cpp/thread/once_flag) which makes sure a function only gets called once and runs to completion. You can use any [C++ Callable object](http://en.cppreference.com/w/cpp/concept/Callable) as the second parameter. In the example you've passed in a [Lambda function](http://en.cppreference.com/w/cpp/language/lambda). You used it to make sure the state of the object doesn’t get reinitialized.
+The `call_once` function utilizes the [std::once_flag](http://en.cppreference.com/w/cpp/thread/once_flag) which makes sure a function only gets called once and runs to completion. You can use any [C++ Callable object](http://en.cppreference.com/w/cpp/concept/Callable) as the second parameter. In the example you've passed in a [Lambda function](http://en.cppreference.com/w/cpp/language/lambda). You used it to make sure the state of the object doesn’t get reinitialized.
 
-For more information, check out [condition_variable](http://en.cppreference.com/w/cpp/thread/condition_variable) documentation.
+If you'd like to know more about `condition_variable`, check out the [condition_variable](http://en.cppreference.com/w/cpp/thread/condition_variable) documentation.
