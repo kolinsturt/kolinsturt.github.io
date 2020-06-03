@@ -100,4 +100,4 @@ Denial of service attacks can happen the other way. A authentication already suc
 
 The `call_once` function utilizes the [std::once_flag](http://en.cppreference.com/w/cpp/thread/once_flag) which makes sure a function only gets called once and runs to completion. You can use any [C++ Callable object](http://en.cppreference.com/w/cpp/concept/Callable) as the second parameter. In the example you've passed in a [Lambda function](http://en.cppreference.com/w/cpp/language/lambda). You used it to make sure the state of the object doesn’t get reinitialized.
 
-If you'd like to know more about `condition_variable`, check out the [condition_variable](http://en.cppreference.com/w/cpp/thread/condition_variable) documentation.
+If you'd like to know more about `condition_variable`, check out the [condition_variable reference](http://en.cppreference.com/w/cpp/thread/condition_variable).
