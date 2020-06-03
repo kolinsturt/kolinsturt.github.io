@@ -65,7 +65,7 @@ This will always give the same result given the same iterations, salt and passwo
 
 ### Initialization Vectors
 
-There are different modes of encryption, and we will be using CBC mode. The reason for this is that in CBC mode each next plain text block is XOR'd with the previous cipher text block which makes for stronger encryption. The problem with CBC is that the first block is not as unique. If there are common words in the first block, then we could perform a dictionary attack on it. To get around this, we use an initialization vector (IV) of random bytes that will be XOR'd with the first block. 
+There are different modes of encryption - You'll use CBC mode. The reason for this is that in CBC mode each next plain text block is XOR'd with the previous cipher text block which makes for stronger encryption. The problem with CBC is that the first block is not as unique. If there are common words in the first block, then you could perform a dictionary attack on it. To get around this, you'll use an initialization vector (IV) of random bytes that are XOR'd with the first block.
 
 Here is a 128 bit IV:
 
@@ -255,7 +255,7 @@ Make a test function by wrapping the C code in a higher level C++ class, call it
 	    unsigned char *plainTextChar = (unsigned char *)"Secret text to be encrypted";
 	
 	    //Test buffer for cipher text. For this test we must make sure this is long enough for the
-	    //encrypted data. It could end up being longer than plain text/
+	    //encrypted data. It could end up being longer than plain text
 	    unsigned char cipherTextChar[128];
 	
 	    unsigned char decryptedTextChar[128];
@@ -291,7 +291,7 @@ Make a test function by wrapping the C code in a higher level C++ class, call it
 	    //do the actual decryption
 	    decryptedTextLength = _decrypt(cipherTextChar, cipherTextLength, keyChar, ivChar, decryptedTextChar);
 	
-	    //We know we passed in text at the beginning, so lets add a NULL terminator to be compliant with printable text
+	    //We know we passed in text at the beginning, so add a NULL terminator to be compliant with printable text
 	    decryptedTextChar[decryptedTextLength] = '\0';
 	
 	    //wrap it into something useful or higher level...
@@ -309,4 +309,4 @@ While this example knows the length of the plain text and output, you can figure
 
 Remember to remove all console logging for production code.
 
-That's it for implementing AES 256 CBC in OpenSSL. To learn how to perform AES encryption using Apple’s CommonCrypto library see [this article](https://kolinsturt.github.io/lessons/2014/01/01/common_crypto).
+That's it for implementing AES 256 CBC in OpenSSL. To learn how to perform AES encryption using Apple’s CommonCrypto library see [this article](https://kolinsturt.github.io/lessons/2014/01/01/common_crypto). If you're interested in learning more about other popular modes of operation, check out [AES GCM](https://en.wikipedia.org/wiki/Galois/Counter_Mode).
