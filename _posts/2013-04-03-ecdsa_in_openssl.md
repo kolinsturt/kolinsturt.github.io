@@ -94,14 +94,14 @@ Unlike RSA, you do not need to hash the data prior to signing with ECDSA. You'll
         return success;
     }
     
-#1 Add you're public key here.
-#2 Create a memory Basic Input/Output Stream.
-#3 Write the data to the `BIO`.
-#4 Feed the `BIO` into the PEM read function to create an EVP Public Key Object.
-#5 Because you used "new", free the bio object.
-#6 Initialize a verification context with the digest type ECDSA.
-#7 You hash `size()` bytes from `data()` into the verification context. While you can call this multiple times, you're adding all the data at once. You're using this way instead of one-shot functions in case the implementation changes and you later need to add data from a stream, for example.
-#8 `EVP_VerifyFinal` finalizes a copy of the data in the digest context. That means you can still call `EVP_VerifyUpdate` and `EVP_VerifyFinal` later to digest and verify more data.
+1. Add you're public key here.
+2. Create a memory Basic Input/Output Stream.
+3. Write the data to the `BIO`.
+4. Feed the `BIO` into the PEM read function to create an EVP Public Key Object.
+5. Because you used "new", free the bio object.
+6. Initialize a verification context with the digest type ECDSA.
+7. You hash `size()` bytes from `data()` into the verification context. While you can call this multiple times, you're adding all the data at once. You're using this way instead of one-shot functions in case the implementation changes and you later need to add data from a stream, for example.
+8. `EVP_VerifyFinal` finalizes a copy of the data in the digest context. That means you can still call `EVP_VerifyUpdate` and `EVP_VerifyFinal` later to digest and verify more data.
  
 One thing to note is that this example doesn't return unverified data. Be careful with this style where the data is set earlier. As long as their's no returns an attacker won't be able to change the flow to allow for unverified data. Another style is to only set the data after verification was successful.
     
