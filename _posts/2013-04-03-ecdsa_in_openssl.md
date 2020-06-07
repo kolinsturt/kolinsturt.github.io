@@ -11,7 +11,7 @@ tags : [OpenSSL, C++, hash, SHA, message digest, ecdsa, ec, Elliptic Curve Crypt
 
 ## ECDSA in OpenSSL
 
-In the previous article, you learned how to sign data using a symmetric key via HMAC. The problem with symmetric keys are how to exchange the key security. In this article, you'll use Public Key Cryptography to solve that problem. 
+In the [previous article](https://kolinsturt.github.io/lessons/2013/04/02/hmac_in_openssl), you learned how to sign data using a symmetric key via HMAC. The problem with symmetric keys are how to exchange the key security. In this article, you'll use Public Key Cryptography to solve that problem. 
 
 Elliptic Curve Cryptography - ECC, is a modern set of algorithms based on elliptic curves over finite fields. ECC keys are smaller in size and faster to generate than other standards such as RSA. A key of 256-bits offers a very strong level of security. You use the private key for signing and the public key for verifying. That way, you can exchange the public key without worrying about compromising the private key.
 
