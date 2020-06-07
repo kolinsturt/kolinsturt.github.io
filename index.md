@@ -66,6 +66,10 @@ tags : [Android, Kolin, Sturt, Kolin Sturt, iOS, Core Foundation, Security, C++,
 
 <a href="{{ BASE_PATH }}/lessons/2013/04/01/sha_using_openssl">SHA Hashing in OpenSSL</a>
 
+<a href="{{ BASE_PATH }}/lessons/2013/04/02/hmac_in_openssl">HMAC in OpenSSL</a>
+
+<a href="{{ BASE_PATH }}/lessons/2013/04/03/ecdsa_in_openssl">ECDSA in OpenSSL</a>
+
 <a href="{{ BASE_PATH }}/lessons/2011/10/17/boost_asio_tls_https">Boost.Asio TLS experiments</a>
 
 <a href="{{ BASE_PATH }}/lessons/2013/03/02/thread">Secure Coding with Concurrency in C++ - Threads</a>
