@@ -13,7 +13,7 @@ tags : [C++, OpenSSL, AES, Encryption, CBC, PBKDF2]
 
 AES is a fast block cipher and symmetric encryption standard. It encrypts data using a key. You should always salt, or stretch, a key. A simple string or password is not enough entropy. Instead you'll derive a key from a user-supplied password by applying random data, called a salt, and then hash it several times over. You'll use a salt so that if a person uses the same password elsewhere, the output will always be different.
 
-In the [previous article](https://kolinsturt.github.io/lessons/2013/04/01/sha_using_openssl) you leanred about hashing. If that is new to you, check out that article first.
+In [another article](https://kolinsturt.github.io/lessons/2013/04/01/sha_using_openssl) you leanred about hashing. If that is new to you, check out that article first.
 
 ### Applying Password-Based Key Derivation
 
@@ -309,4 +309,6 @@ While this example knows the length of the plain text and output, you can figure
 
 Remember to remove all console logging for production code.
 
-That's it for implementing AES 256 CBC in OpenSSL. To learn how to perform AES encryption using Apple’s CommonCrypto library see [this article](https://kolinsturt.github.io/lessons/2014/01/01/common_crypto). If you're interested in learning more about other popular modes of operation, check out [AES GCM](https://en.wikipedia.org/wiki/Galois/Counter_Mode).
+That's it for implementing AES 256 CBC in OpenSSL. To learn how to perform AES encryption on other mobile platforms, check out the [iOS Encryption Tutorial](http://code.tutsplus.com/tutorials/securing-ios-data-at-rest-encryption--cms-28786) and [Encryption Tutorial for Android](https://www.raywenderlich.com/778533-encryption-tutorial-for-android-getting-started).
+
+If you're interested in learning more about other popular modes of operation, check out [AES GCM](https://en.wikipedia.org/wiki/Galois/Counter_Mode).
