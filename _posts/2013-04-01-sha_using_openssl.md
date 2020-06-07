@@ -205,6 +205,4 @@ You used the word “create” at the beginning of the function name; denoting t
 
 If you're working entirely on this platform, check out the [article](https://kolinsturt.github.io/lessons/2013/05/01/hashing_algorithms_in_core_foundation) covering SHA512 using the Common Crypto library. Here is the full [MessageDigest](https://github.com/CollinBStuart/SHAOpenSSL) class for you to download.
 
-Now that you've learned about hashing, see how it's applied during password-based encryption in the [next article](https://kolinsturt.github.io/lessons/2011/11/15/aes_encryption_using_openssl).
-
-
+Now that you've learned about hashing, see how it's applied to signing data in the [next article](https://kolinsturt.github.io/lessons/2013/04/02/hmac_in_openssl).
