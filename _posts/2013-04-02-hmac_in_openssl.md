@@ -11,7 +11,7 @@ tags : [OpenSSL, C++, hash, SHA, message digest, hmac, C, how-to]
 
 ## HMAC in OpenSSL
 
-In the previous article you looked at creating a hash of data. Now you'll add a secret to the hash by using HMAC. HMAC authenticates data to make sure that it originated from the correct sender and that no one has altered the information. This works provided only you and the sender know the secret key.
+In the [previous article](https://kolinsturt.github.io/lessons/2013/04/01/sha_using_openssl) you looked at creating a hash of data. Now you'll add a secret to the hash by using HMAC. HMAC authenticates data to make sure that it originated from the correct sender and that no one has altered the information. This works provided only you and the sender know the secret key.
 
 You set up a key by calling `EVP_PKEY_new_mac_key`.
 
@@ -67,4 +67,4 @@ In the above example, `EVP_DigestSignInit` will cover initialization for you. Fo
 
 For good security, use at least a 256-bit key generated from a cryptographically secure random number generator. 
 
-The HMAC CPU operation is fast, but because HMAC relies on a single shared key, you'll need to exchange the secret key securely. While there are ways to secure data in transit (iOS and Android example), it's not foolproof. If security is a priority over speed, the solution is to generate a key that doesn't need to leave the device in the first place. See the next tutorial to learn how to sign data using Public Key Cryptography.
+The HMAC CPU operation is fast, but because HMAC relies on a single shared key, you'll need to exchange the secret key securely. While there are ways to secure data in transit (iOS and Android example), it's not foolproof. If security is a priority over speed, the solution is to generate a key that doesn't need to leave the device in the first place. See the [next tutorial](https://kolinsturt.github.io/lessons/2013/04/03/ecdsa_in_openssl) to learn how to sign data using Public Key Cryptography.
