@@ -54,15 +54,17 @@ Make sure to also free the key that you created with `EVP_PKEY_free`.
     }
     
 Newer versions recommend heap-based allocation:
+
     EVP_MD_CTX *context = NULL;
     context = EVP_MD_CTX_create();
 
-That initializes the context. For stack-based you'll need to initialize the it explicitly:
+That initializes the context. For stack-based you'll need to initialize it explicitly:
+
     EVP_MD_CTX context;
     EVP_MD_CTX_init(&context);
  
 In the above example, `EVP_DigestSignInit` will cover initialization for you. For consistency, I'm leaving `EVP_MD_CTX_init` in the code as a reminder in case the implementation changes.
 
-For good security, use at least a 256-bit (32 byte) key generated from a cryptographically secure random number generator. 
+For good security, use at least a 256-bit key generated from a cryptographically secure random number generator. 
 
 The HMAC CPU operation is fast, but because HMAC relies on a single shared key, you'll need to exchange the secret key securely. While there are ways to secure data in transit (iOS and Android example), it's not foolproof. If security is a priority over speed, the solution is to generate a key that doesn't need to leave the device in the first place. See the next tutorial to learn how to sign data using Public Key Cryptography.
