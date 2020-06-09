@@ -29,7 +29,7 @@ To get started, create an elliptic curve key-pair. You can sign strings or files
 
     openssl dgst -sha1 -sign private.pem fileToSign.xml > signature.bin
 
-* Older OpenSSL versions use `-ecdsa-with-SHA1` in place of the `-sha` parameter.
+* Older OpenSSL versions use `-ecdsa-with-SHA1` in place of the `-sha1` parameter.
 
 #### Base64 Encoding the Signature:
 
@@ -47,7 +47,7 @@ Then verify the binary signature:
 
     openssl dgst -ecdsa-with-SHA1 -verify public.pem -signature signatureDec.bin test.xml
   
-#### Verifying in Your App
+### Verifying in Your App
 
 Unlike RSA, you do not need to hash the data prior to signing with ECDSA. You'll support verifying both binary and text files with an `isBinary` flag. It's redundant to open the file to verify and then open it again to read it's contence once verified. You'll add a `fileData` variable to pass in to the function that returns the bytes read if verified. Here's an example implementation in OpenSSL:
 
