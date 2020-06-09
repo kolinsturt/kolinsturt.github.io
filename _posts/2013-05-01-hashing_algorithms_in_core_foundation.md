@@ -49,12 +49,12 @@ After you've added all the data, call the final function to finish the operation
 
 Now you have a message digest. While you can pass it around in a data object, you'll turn it into a string. One trick to turn this into a string might be to package the bytes into a `CFDataRef` object and then run `CFCopyDescription()` on that data. This function reveals hexadecimal digits but it also outputs a lot more information about the object type. You would need to parse the string to get at the information you want. (The same with Foundation's `description`: You'd need to get rid of the spaces and *<* and *>* that are in the output). A better way is to loop through the data and output the correct hex digits:
 
-	// Convert the array of bytes into a string showing its hex representation.
+	// Convert the array of bytes into a string showing hex representation.
 	CFMutableStringRef hashMutableString = CFStringCreateMutable(kCFAllocatorDefault, 	CC_SHA512_DIGEST_LENGTH);
 	 
 	for (CFIndex i = 0; i < CC_SHA512_DIGEST_LENGTH; i++)
 	 {
-	     // Add a dash every four bytes, for readability.
+	     // Add a dash every four bytes.
 	     if (i != 0 && i%4 == 0)
 	     {
 	         CFStringAppend(hashMutableString, CFSTR("-"));
@@ -74,4 +74,4 @@ Now you have a message digest string. You can replace any `CC_` hash function wi
 		CC_SHA384()
 		CC_SHA512()
 		
-Here is the example source code for this tutorial in an XCode project [here](https://github.com/CollinBStuart/MessageDigest).
+Here is the example source code for this tutorial in an XCode project [here](https://github.com/CollinBStuart/MessageDigest). Now that you’ve learned about hashing, see how it’s applied to encryption in the [next article](https://kolinsturt.github.io/lessons/2014/01/01/common_crypto).
