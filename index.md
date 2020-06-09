@@ -26,9 +26,9 @@ tags : [Android, Kolin, Sturt, Kolin Sturt, iOS, Core Foundation, Security, C++,
     
 ## Application Security in C 
 
-<a href="{{ BASE_PATH }}/lessons/2014/01/01/common_crypto">AES Encryption using Common Crypto</a>
-
 <a href="{{ BASE_PATH }}/lessons/2013/05/01/hashing_algorithms_in_core_foundation">Hashing Algorithms in Core Foundation</a>
+
+<a href="{{ BASE_PATH }}/lessons/2014/01/01/common_crypto">AES Encryption using Common Crypto</a>
 
 <a href="{{ BASE_PATH }}/lessons/2012/01/15/accessing_tls_information">Customizing TLS Server Trust Evaluation</a>
 
