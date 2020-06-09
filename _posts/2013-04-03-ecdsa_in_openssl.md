@@ -128,6 +128,7 @@ Unlike RSA, you do not need to hash the data prior to signing with ECDSA. You'll
         return success;
     }
     
+Here's what the code does:
 1. Add you're public key here.
 2. Create a memory Basic Input/Output Stream.
 3. Write the data to the `BIO`.
