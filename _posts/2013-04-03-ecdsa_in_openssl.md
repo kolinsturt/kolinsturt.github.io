@@ -19,11 +19,11 @@ To get started, create an elliptic curve key-pair. You can sign strings or files
 
 #### Generating a Private Key:
 
- sudo openssl ecparam -name secp256k1 -genkey -noout -out secp256k1-PrivateKey.pem
+  sudo openssl ecparam -name secp256k1 -genkey -noout -out secp256k1-PrivateKey.pem
 
 #### Generating the Corresponding Public Key:
 
-sudo openssl ec -in secp256k1-PrivateKey.pem -pubout -out secp256k1-PublicKey.pem
+  sudo openssl ec -in secp256k1-PrivateKey.pem -pubout -out secp256k1-PublicKey.pem
 
 #### Creating a Signature:
 
