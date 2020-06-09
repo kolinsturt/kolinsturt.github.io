@@ -2,18 +2,24 @@
 layout: post
 category : lessons
 tagline: "Using the CommonCrypto library in CoreFoundation"
-title: Encryption on iOS using Common Crypto
-description: Encryption using the Common Crypto framework
+title: Encryption using Common Crypto
+description: Encryption using the Common Crypto framework in Core Foundation
 author: Kolin Stürt
 tags : [CommonCrypto, ios, Core Foundation, tutorial]
 ---
 {% include JB/setup %}
 
-## AES Encryption - Using the CommonCrypto Library in Core Foundation
+## Encrypting Data Using the CommonCrypto Library
+
+In the [previous article](https://kolinsturt.github.io/lessons/2013/05/01/hashing_algorithms_in_core_foundation) you leanred about hashing. In this article you'll apply it to encrypting data.
+
+### AES
+
+Here is a demonstration of how to encrypt and decrypt data using the CommonCrypto library in Core Foundation. You'll use a symmetric-key algorithm using the AES specification - AES128. 128 refers to the key size. The AES standard is based on the Rijndeal cipher and uses a substitution-permutation network. It uses a 128 bit block size and operates on a four by four flattened array of bytes in linear memory. AES encrypts data given a key and often you derive key from a user supplied password. 
 
 ### Secure Random Generator
 
-Here is a demonstration of how to encrypt and decrypt data using the CommonCrypto library. We will be using a symmetric-key algorithm using the AES specification - AES128 (128 refers to the key size that is used). The AES standard is based on the Rijndeal cipher and uses a substitution-permutation network. It uses a 128 bit block size and operates on a four by four flattened array of bytes in linear memory. AES encrypts data given a key and often the key is derived from a user inputted password. You may have a place in your application where the user can enter a password. We will cover the security of passwords in another tutorial. The function we will create can be adapted to work with a password that the user enters, but for our example we will just generate a random password each time. Lets do that now
+You can adapt this code to work with a password that the user supplies. For now, generate a random password:
 
 	uint8_t password[kCCKeySizeAES128];
     OSStatus result = SecRandomCopyBytes(kSecRandomDefault, kCCKeySizeAES128, password); //  /dev/random is fed by entropy to this function
@@ -22,11 +28,11 @@ Here is a demonstration of how to encrypt and decrypt data using the CommonCrypt
         CFShow(CFSTR("\nCould not create password"));
     }
     
-The underlying functionality of the SecRandomCopyBytes function uses the /dev/random Unix file which relies upon the 160-bit Yarrow algorithm, based on SHA1 to generate pseudorandom numbers. Depending on the hardware (iOS verses Mac OS), generally the entropy is retrieved from system events, device sensors, as well as interrupt timing during boot.
+The underlying functionality of the SecRandomCopyBytes function uses the /dev/random Unix file which relies upon the 160-bit Yarrow algorithm. It's based on SHA1 to generate pseudorandom numbers. Depending on the hardware (iOS verses Mac OS), system events, device sensors and interrupt timing during boot generate the entropy.
 
-**NOTE: To look at the open source code of the kernel entropy function, see the collectEntropy call [here](https://www.opensource.apple.com/source/securityd/securityd-40600/src/entropy.cpp). The KERN_KDGETENTROPY define in the code calls the kdbg_getentropy function [here](https://www.opensource.apple.com/source/xnu/xnu-1456.1.26/bsd/kern/kdebug.c)**
+**NOTE: To look at the open source code of the kernel entropy function, see the [collectEntropy call](https://www.opensource.apple.com/source/securityd/securityd-40600/src/entropy.cpp). The KERN_KDGETENTROPY define in the code calls the [kdbg_getentropy function](https://www.opensource.apple.com/source/xnu/xnu-1456.1.26/bsd/kern/kdebug.c)**
 
-Now we have our password. However, if you are going to adapt this code so that instead a user enters a password, in addition to strong password checking, it is a good idea to salt the password. This will help prevent dictionary attacks and rainbow table attacks by adding additional random data to the password.
+Now that you have a password, you should salt the password. Without a salt, the code would derive the same key if other users supplied the same password:
 
 	uint8_t salt[8];
     result = SecRandomCopyBytes(kSecRandomDefault, 8, salt);
@@ -34,6 +40,8 @@ Now we have our password. However, if you are going to adapt this code so that i
     {
         CFShow(CFSTR("\nCould not create salt"));
     }
+
+This code helps prevent dictionary attacks and rainbow table attacks by adding random data to the password.
 
 ### Password-Based Key Derivation
 
