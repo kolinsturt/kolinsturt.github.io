@@ -15,7 +15,7 @@ In the [previous article](https://kolinsturt.github.io/lessons/2013/05/01/hashin
 
 ### AES
 
-Here is a demonstration of how to encrypt and decrypt data using the CommonCrypto library in Core Foundation. You'll use a symmetric-key algorithm using the AES specification - AES128. 128 refers to the key size. The AES standard is based on the Rijndeal cipher and uses a substitution-permutation network. It uses a 128 bit block size and operates on a four by four flattened array of bytes in linear memory. AES encrypts data given a key and often you derive key from a user supplied password. 
+Here is a demonstration of how to encrypt and decrypt data using the CommonCrypto library in Core Foundation. You'll use a symmetric-key algorithm using the AES specification - AES128. 128 refers to the key size. The AES standard is based on the Rijndeal cipher and uses a substitution-permutation network. It uses a 128 bit block size and operates on a four by four flattened array of bytes in linear memory. AES encrypts data given a key and often you derive the key from a user supplied password. 
 
 ### Secure Random Generator
 
@@ -32,7 +32,7 @@ The underlying functionality of the SecRandomCopyBytes function uses the /dev/ra
 
 **NOTE: To look at the open source code of the kernel entropy function, see the [collectEntropy call](https://www.opensource.apple.com/source/securityd/securityd-40600/src/entropy.cpp). The KERN_KDGETENTROPY define in the code calls the [kdbg_getentropy function](https://www.opensource.apple.com/source/xnu/xnu-1456.1.26/bsd/kern/kdebug.c)**
 
-Now that you have a password, you should salt the password. Without a salt, the code would derive the same key if other users supplied the same password:
+Now that you have a password, you should salt the password. Without a salt, your code would derive the same key when multiple users supply the same password:
 
 	uint8_t salt[8];
     result = SecRandomCopyBytes(kSecRandomDefault, 8, salt);
@@ -45,7 +45,11 @@ This code helps prevent dictionary attacks and rainbow table attacks by adding r
 
 ### Password-Based Key Derivation
 
-Now that we have a more solid password, we will use it to generate a key that will be used to encrypt our data. Instead of just making up a key of random numbers, we are going to use a special function, called Password-Based Key Derivation Function 2, or PBKDF2 for short. The reason for this is that in addition to the function also calling a pseudorandom function, it combines the salt value as well as repeating operations many times to finally derive the key. This further secures the key, often referred to as key stretching, in expanding the time it would take to operate on a set of keys during a brute force attack. PBKDF2 is an improvement over PBKDF1 in that PBKDF1 can only derive keys up to 160 bits in length.
+Now that you have a solid password, you'll use it to generate a key to encrypt the data. Instead of making up a key of random characters, it's best practice to use special function, called Password-Based Key Derivation Function 2 - PBKDF2 for short.
+
+PBKDF2 calls a pseudorandom function, combines the salt value repeats hashing operations many times to derive the key. Developers refer to this as key stretching. It expands the time it would take to operate on a set of keys during a brute force attack. PBKDF2 is an improvement over PBKDF1 in that PBKDF1 can only derive keys up to 160 bits in length.
+
+Use the `CCKeyDerivationPBKDF` function with the `kCCPBKDF2` parameter to create an AES key:
 
     uint8_t derivedKey;
     CCCryptorStatus cryptResult = CCKeyDerivationPBKDF(kCCPBKDF2, (const char *)password, sizeof(password), salt, sizeof(salt), kCCPRFHmacAlgSHA1, 10000, &derivedKey, kCCKeySizeAES128);
@@ -54,17 +58,16 @@ Now that we have a more solid password, we will use it to generate a key that wi
         CFShow(CFSTR("\nCould not create key"));
     }
     
-As you can see in this function, we first pass in the function type. Right now we only have kCCPBKDF2 but as improvements are made there may be more options. Then we pass the password and size of password, as well as the salt and size of the salt. The sixth parameter takes a CCPseudoRandomAlgorithm which defines which pseudorandom algorithm we are going to use, in this case kCCPRFHmacAlgSHA1 (PRF stands for pseudorandom function family. We are using HAMC with the SHA-1 algorithm). Then we pass in how many rounds of the random algorithm we will apply. The last parameters take the output key and length. 
+In this code, you pass in the function type, `kCCPBKDF2`. Then you provide the password and size of password as well as the salt and size of the salt. The sixth parameter takes a `CCPseudoRandomAlgorithm`. It defines which pseudorandom algorithm to use. You used `kCCPRFHmacAlgSHA1` - PRF stands for the *pseudorandom function* family - the HMAC with the SHA-1 algorithm. Then you pass in how many rounds of the algorithm to apply. The higher the number, the longer it takes to operate on a set of keys during a brute force attack. The last parameters take the output key and length. 
 
-**NOTE: It's not a good idea to log passwords and keys to the console as the console log is easily retrieved in production environments. If there are such logs, remember to remove them in production code.**  
-
-Now we have a suitable key, lets package it in a data object
+Now that you have a suitable key, package it in a data object:
 
 	CFDataRef keyData = CFDataCreate(kCFAllocatorDefault, &derivedKey, kCCKeySizeAES128);
 
 ### Initialization Vectors
 
-The last thing we need to do before we actually encrypt the data is come up with a random initialization vector. We need this so that the same message does not encrypt to the same cipher text on subsequent operations. If a message were to start off the same, without a new random IV to be used on the first block of data, the output could aid cryptanalysis, especially if they knew the characters of the start of the message. The IV is computed against the first block of plaintext which then dominoes to the rest of the blocks in the chain. We will create an IV now and also add it to a data object
+
+The last thing you need to do before encrypting the data is come up with a random initialization vector. This so that the same message does not encrypt to the same cipher text on subsequent operations. Also, the encryption function  computes the IV against the first block of plaintext which then dominoes to the rest of the blocks in the chain. Without an IV, if a message were to start off the same, the output would aid cryptanalysis, especially if they knew the characters of the start of the message. Create an IV now and also add it to a data object:
 
     uint8_t ivBytesChar[kCCBlockSizeAES128];
     result = SecRandomCopyBytes(kSecRandomDefault, kCCBlockSizeAES128, ivBytesChar);
@@ -76,7 +79,7 @@ The last thing we need to do before we actually encrypt the data is come up with
     
 ### Encrypting the Data    
     
-Now that we have all the necessary parts, we can go aged and encrypt the data using the CCCrypt function. Here is it's definition:
+Now that you have all the necessary parts, encrypt the data using the `CCCrypt` function. Here is it's definition:
 
 	CCCryptorStatus CCCrypt(
 	    CCOperation op,         /* kCCEncrypt, etc. */
@@ -92,11 +95,12 @@ Now that we have all the necessary parts, we can go aged and encrypt the data us
 	    size_t *dataOutMoved)
 	    __OSX_AVAILABLE_STARTING(__MAC_10_4, __IPHONE_2_0);
 
-The first parameter tells it to either encrypt or decrypt the data followed by the algorithm used. The third parameter includes options and the rest of the parameters pass in the key, iv, data, and out data. Lets talk about the options parameter. Currently there are no options for stream ciphers but there are two options for block ciphers: kCCOptionPKCS7Padding and kCCOptionECBMode. 
 
-ECB stands for Electronic Code Block, passing in this mode means that the basic system is used where a message is divided into blocks and each one gets encrypted on its own. Identical blocks would output identical encrypted blocks so that it would be easy to see patters in the encrypted data. It is not recommended to use this mode, as leaving it out of the options means the default CBC mode is used. CBC, Cipher-block chaining means that each block that is encrypted is XORed with the previous one so that each block depends on all blocks processed up until that block. This is a clear reason why this mode needs an IV, because if not, identical messages with the same key would produce identical sequences.
+The first parameter tells it to either encrypt or decrypt the data followed by the algorithm used. The third parameter includes options and the rest of the parameters pass in the key, iv, data, and out data. The options parameter: Currently there are no options for stream ciphers but there are two options for block ciphers: `kCCOptionPKCS7Padding` and `kCCOptionECBMode`. 
 
-Another option we have is kCCOptionPKCS7Padding. Because we are using a block cipher, if the message doesn't fit nicely into a multiple of the block size, we will need to add padding to it. PKCS#7 works by padding whole bytes. The value of the added bytes are equal to the number of bytes that need to be added. Here is the CCCrypt code
+ECB stands for Electronic Code Block, passing in this mode means that it divides a message into blocks and each one gets encrypted on its own. Identical blocks would output identical encrypted blocks so that it would be easy to see patters in the encrypted data. It is not recommended to use this mode. Leaving it out of the options means you'll use the default - CBC mode. CBC stands for Cipher-Block Chaining. It means that it XORs each encrypted block with the previous one so that each block depends on all blocks processed up until that block. This is a clear reason why this mode needs an IV. If there's no IV then identical messages with the same key would produce identical sequences.
+
+Another option is `kCCOptionPKCS7Padding`. Because you're using a block cipher, if the message doesn't fit into a multiple of the block size you'll need to add padding to it. PKCS#7 works by padding whole bytes. The value of the added bytes are equal to the number of bytes added. Here is the CCCrypt code:
 
     //encrypt
     size_t outLength;
@@ -122,7 +126,7 @@ Another option we have is kCCOptionPKCS7Padding. Because we are using a block ci
         CFShow(CFSTR("\nEncryption error"));
     }
     
-For our example, we will package all the necessary data and return it so that a user can decrypt the data at a later point. This is merely meant to be used as a code example.
+For this example, package all the necessary data and return it so that a user can decrypt the data at a later point:
 
 	CFMutableDictionaryRef encryptionDictionary = CFDictionaryCreateMutable(kCFAllocatorDefault, 3, &kCFTypeDictionaryKeyCallBacks, &kCFTypeDictionaryValueCallBacks);
     CFDictionarySetValue(encryptionDictionary, kEncryptedData, encryptedData);
@@ -132,13 +136,13 @@ For our example, we will package all the necessary data and return it so that a 
     CFRelease(keyData);
     CFRelease(ivData);
     
-We are packaging the encrypted data, key and IV into a dictionary so that we can use it in our example to decrypt the data. At the top of our code we can add the constants used for the keys for the dictionary
+You packaging the encrypted data, key and IV into a dictionary so that you can use it to decrypt the data. Note that you're not storing and should never store the AES key. At the top of the code, add the constants for the dictionary keys:
 
 	const CFStringRef kEncryptedData = CFSTR("EncryptedData");
 	const CFStringRef kEncryptionKey = CFSTR("EncryptedKey");
 	const CFStringRef kEncryptedInitializationVector = CFSTR("EncryptedIV");
 
-The full function will look like this
+The full function looks like this:
 
 	CFDictionaryRef EncryptAES128FromData(CFDataRef plainTextData)
 	{
@@ -211,9 +215,11 @@ The full function will look like this
 	    return CFAutorelease(encryptionDictionary);
 	}
 	
+Now that you've encrypted the data. You'll need to write code to decrypt it.
+	
 ### Decrypting the Data
 	
-Next, lets write the decrypt function. The CCCrypt function has exactly the same setup except we pass kCCDecrypt as the first parameter.
+To decrypt the data, you use the same `CCCrypt` function. It has exactly the same setup except you pass `kCCDecrypt` as the first parameter:
 
 	CFDataRef DecryptAES128File(CFDictionaryRef cipherText)
 	{
@@ -251,10 +257,12 @@ Next, lets write the decrypt function. The CCCrypt function has exactly the same
 	
 	    return CFAutorelease(decryptedData);
 	}
+	
+Now that you have both encrypt and decrypt functions, it's time to test the code.
 
 ### Putting It All Together
 
-That's the full code for encrypting and decrypting data. This code can of course be adapted to Foundation if you have included Foundation in your project as CFDictionaryRef and CFDataRef are toll-free bridged with their NSDictionary* and NSData* counterparts. Additionally, here is how one might use this in an iOS XCode project:
+To test and implement the functions, CFDictionaryRef and CFDataRef are toll-free bridged with their NSDictionary* and NSData* counterparts. Here is how you might use this in an iOS XCode project:
 
 	NSDictionary *encryptedDictionary = (__bridge NSDictionary *)EncryptAES128FromData((__bridge CFDataRef)[@"test string to encrypt" dataUsingEncoding:NSUTF8StringEncoding]);
     
@@ -264,6 +272,6 @@ That's the full code for encrypting and decrypting data. This code can of course
     
     NSLog(@"Decrypted string is: %@", decodedString);
 
-
+While this test outputs the decrypted string to confirm it works, remember not to log passwords and keys to the console in production. The console log is easily retrieved. In production projects, it's better to set breakpoints and inspect variables for security-related code instead of logging. That way your team won't forget to remove them when releasing the code.
 
 As always, the full source code for this tutorial can be found [here](https://github.com/CollinBStuart/AESEncryption).
