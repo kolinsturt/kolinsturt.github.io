@@ -275,3 +275,7 @@ To test and implement the functions, CFDictionaryRef and CFDataRef are toll-free
 While this test outputs the decrypted string to confirm it works, remember not to log passwords and keys to the console in production. The console log is easily retrieved. In production projects, it's better to set breakpoints and inspect variables for security-related code instead of logging. That way your team won't forget to remove them when releasing the code.
 
 As always, the full source code for this tutorial can be found [here](https://github.com/CollinBStuart/AESEncryption).
+
+If you're intending to do AES exclusively on a specific mobile platform, check out the [iOS Encryption Tutorial](http://code.tutsplus.com/tutorials/securing-ios-data-at-rest-encryption--cms-28786) and [Encryption Tutorial for Android](https://www.raywenderlich.com/778533-encryption-tutorial-for-android-getting-started).
+
+If you're interested in learning more about other popular modes of operation, check out [AES GCM](https://en.wikipedia.org/wiki/Galois/Counter_Mode).
