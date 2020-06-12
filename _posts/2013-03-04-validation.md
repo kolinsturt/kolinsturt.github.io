@@ -181,4 +181,6 @@ An often overlooked area of input is unarchiving object graph serializations or 
 
 One more overlooked area is network callback functions and signals. Say you have a runloop that triggers an event when it receives data, such as a socket connection waiting for data. In addition to validating the data, don't assume in your program flow when you think the callback will fire. Be prepared for it to happen anytime and also be very careful validating the input received. Make sure the read buffer will not overflow, or block the main thread resulting in a denial of service attack launched from the server. POSIX Networking and CFNetworking are out of scope of this post, so see [the CFSocket article](https://kolinsturt.github.io/lessons/2013/01/01/CFSocket) for more details.
 
-You learned secure coding practices for Objective-C. To learn about secure programming for other environments, see the Secure Coding in Swift and Null Safety Tutorial for Kotlin.
+
+
+You learned secure coding practices for Objective-C. To learn about secure programming for other environments, see the [Secure Coding in Swift](http://code.tutsplus.com/tutorials/secure-coding-in-swift-4--cms-29835) and [Null Safety Tutorial in Kotlin](https://www.raywenderlich.com/436090-null-safety-tutorial-in-kotlin-best-practices).
