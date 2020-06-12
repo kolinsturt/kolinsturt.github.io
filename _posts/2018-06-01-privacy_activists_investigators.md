@@ -1,17 +1,17 @@
 ---
 layout: post
 category : lessons
-tagline: "Privacy for Activists and Investigators"
-title: Privacy for Activists and Investigators
-description: Tools to help with privacy for activists.
+tagline: "Privacy for Activists, Investigators and Whistleblowers"
+title: Privacy for Activists, Investigators and Whistleblowers
+description: Privacy tools for activists, investigators and whistleblowers
 tags : [Signal App, VeraCrypt, TorBrowser, Tails OS, HTTPSEverywhere, Riseup.net, Autistici, Whisper Systems]
 ---
 {% include JB/setup %}
 
-## Privacy for Activists and Investigators
+## Privacy for Investigators and Whistleblowers
 
 This guide will discuss how to communicate, coordinate, and expose information as securely as
-possible. You'll read about computer security first, followed by mobile security.
+possible for activists, investigators and whistleblowers. You'll read about computer security first, followed by mobile security.
 
 ## Laptops and Desktops
 
