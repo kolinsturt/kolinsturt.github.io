@@ -11,7 +11,7 @@ tags : [iOS, Foundation, Core Foundation, Secure Programming]
 
 ## Input Validation
 
-In previous articles, you learned about [NSSecureCoding](https://kolinsturt.github.io/lessons/2014/05/01/nssecurecoding), [Buffer Overflows and Format String Attacks(https://kolinsturt.github.io/lessons/2013/03/03/buffer_overflow).
+In previous articles, you learned about [NSSecureCoding](https://kolinsturt.github.io/lessons/2014/05/01/nssecurecoding), [Buffer Overflows and Format String Attacks](https://kolinsturt.github.io/lessons/2013/03/03/buffer_overflow).
 
 In this article, you'll learn about input validation in Objective-C. User input validation is the strongest countermeasure to some of the most common security vulnerabilities. You can prevent many of the vulnerabilities such as buffer overflows by checking all places in an application where a user can input data. Input text fields should have a max character limit and only accept the type of input expected.
 
