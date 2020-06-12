@@ -54,6 +54,8 @@ tags : [Android, Kolin, Sturt, Kolin Sturt, iOS, Core Foundation, Security, C++,
 
 <a href="{{ BASE_PATH }}/lessons/2013/03/04/validation">Input Validation</a>
 
+<a href="{{ BASE_PATH }}/lessons/2013/12/12/secure_coding_in_iOS">Objective-C Runtime Security and Obfuscation</a>
+
 <a href="{{ BASE_PATH }}/lessons/2013/03/02/security_related_project_settings">XCode Security Project Settings</a>
 
 <a href="{{ BASE_PATH }}/lessons/2013/03/07/logging">Auditing and Logging</a>
