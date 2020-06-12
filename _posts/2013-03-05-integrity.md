@@ -11,13 +11,38 @@ tags : [iOS, Foundation, Core Foundation, Secure Programming]
 
 ## Application Integrity
 
-Depending on the context or sensitivity of the application, it may be in your best interest to test the environment to make sure it has not been tampered with. Once it appears that the integrity has been compromised, the developer can choose to do a number of actions: limiting functionality, wiping data, phoning home, etc; an application's behavior can deliberately be changed if the application detects the integrity of the environment has been compromised. For example, a malicious user might have attached a debugger to the process to watch the contents of variables, or a mobile device may have been jailbroken. Lets start with the latter.
+Depending on the sensitivity of the application, it may be in your best interest to make sure it's not operating in a tampered environment. For instance, a malicious user might have attached a debugger or jailbroken the device. Often spammers or reverse engineers tamper with the environment. Once it appears that the integrity has been compromised, you can choose appropriate actions. Some examples are limiting functionality, wiping data or phoning home.
 
-In order to check for jailbroken devices, we could look for the most common jailbreak applications that are installed 
+### Detecting Jailbroken Devices
+
+To check for jailbroken devices, test that a private area in storage is writable, such as **/private/jailbreak.txt**:
+
+    NSError *error = nil;
+    [@"Test" writeToFile:pathString atomically:YES encoding:NSUTF8StringEncoding error:&error];
+    if ( ! error)
+    {
+        //jailbroken
+        [[NSFileManager defaultManager] removeItemAtPath:pathString error:nil];
+    }
+
+Check for files often installed by a jailbreak:
+
+    "/bin/bash"
+    "/usr/sbin/sshd"
+    "/etc/apt"
+    "/private/var/lib/apt/"
+    "/var/cache/apt"
+    "/var/lib/apt"
+    "/usr/bin/sshd"
+
+You can also look for the most common jailbreak apps:
 
 	static const char* jailbreakApps[] = 
      {
+         "/Applications/Sileo.app"
          "/Applications/Cydia.app",
+	 "/private/var/lib/cydia",
+	 "/var/lib/cydia",
          "/Applications/limera1n.app",
          "/Applications/greenpois0n.app",
          "/Applications/blackra1n.app",
@@ -26,9 +51,9 @@ In order to check for jailbroken devices, we could look for the most common jail
          NULL,
      };
      
-We can use NSFileManager's fileExistsAtPath, or we can search specifically for a file using the stat() command
+You can use `NSFileManager`’s `fileExistsAtPath` or `stat()`:
 
-	Boolean isJB = FALSE;
+    Boolean isJB = FALSE;
     struct stat theStat;
     int result = (stat("/Applications/Cydia.app", &theStat) == 0);
     if (result)
@@ -36,15 +61,15 @@ We can use NSFileManager's fileExistsAtPath, or we can search specifically for a
         isJB = TRUE;
     }
     
-Most jailbreak patches install the Mobile Substrate dynamic library. This is a common library that allows programmers to make runtime patches to system functions. This can be dangerous if your application is relying on system functions. We can look for this library to try to determine if a device is jailbroken
+Most jailbreak patches install the Mobile Substrate dynamic library. This is a common library that allows programmers to make runtime patches to system functions. This can be dangerous if your application is relying on system functions. You can look for this library to try to determine if a device is jailbroken:
 
-	result = (stat("/Library/MobileSubstrate/MobileSubstrate.dylib", &theStat) == 0);
+    result = (stat("/Library/MobileSubstrate/MobileSubstrate.dylib", &theStat) == 0);
     if (result)
     {
         isJB = TRUE;
     }
     
-Most redsn0w jailbreaks move the application folder from the small readonly partition to the large one on the device and symbolic link it, so we can check for this using the link version of the stat function, lstat()
+Most redsn0w jailbreaks move the application folder from the small read-only partition to the large one on the device and symbolic link it. You can check for this using the link version of the stat function, `lstat()`:
 
 	if (lstat("/Applications", &theStat) != 0)
     {
@@ -54,16 +79,16 @@ Most redsn0w jailbreaks move the application folder from the small readonly part
         }
     }
     
-[Johnathan Zdziarski](http://www.zdziarski.com/blog/?cat=8) had researched that the size of the fstab in iOS (so far) has always been 80 bytes but noticed that on jailbreak devices, fstab is 65 bytes because it has been patched for read-write access
+[Johnathan Zdziarski](http://www.zdziarski.com/blog/?cat=8) researched that the size of the fstab on iOS (so far) has always been 80 bytes but noticed that on jailbreak devices, fstab is 65 bytes. That's because the jailbreak patches it for read-write access:
 
-	stat("/etc/fstab", &theStat);
+    stat("/etc/fstab", &theStat);
     off_t fstabSize = theStat.st_size;
     if (fstabSize < 80)
     {
         ; //possibly jailbroken
     }
     
-He also mentions that many functions like the fork() function to fork a process are turned off for the app sandbox environment of iOS, therefor is fork() succeeds, the phone may be jailbroken. This check may not be able to be used unless you are writing adhoc code that does not need to be approved through the App store as you don't want to fork() a process. If the fork process succeeds, you'd need to exit the process with exit(0), however explicitly exiting an app is against Apple's review guidelines and may get your app rejected. If your using this in a test environment, make sure that you exclude when the user is running an iPhone simulator as you will incorrectly be notified of a jailbreak when their isn't one
+He also mentions that iOS disables many functions like `fork()` for the app sandbox environment. Therefor if `fork()` succeeds, the phone may be jailbroken. You can use this check for adhoc builds. You don’t want to `fork()` a process without cleanup by calling `exit(0)`. Explicitly exiting an app is against Apple’s review guidelines and you'll get rejected for calling exit function.:
 
 	#if !(TARGET_IPHONE_SIMULATOR)
 	    pid_t theID = fork();
@@ -74,9 +99,11 @@ He also mentions that many functions like the fork() function to fork a process 
 	    }
 	#endif
 
+Make sure that you exclude your tests from debug and simulator builds to prevent false positives.
 
-Last but not least, there are a few things we can try to do to detect if [a debugger is attached](https://developer.apple.com/library/mac/qa/qa1361/_index.html). The kernel has a flag, P_TRACED, that is set when a debugger is attached and we can simple check for it
+### Detecting Debuggers
 
+There's a few things we can try to do to detect if [a debugger is attached](https://developer.apple.com/library/mac/qa/qa1361/_index.html). The kernel sets a `P_TRACED` flag when you attach a debugger so you can check for this:
 
 	static inline Boolean IsDebuggerAttached()
 	{
@@ -109,7 +136,9 @@ Last but not least, there are a few things we can try to do to detect if [a debu
 	    
 	}
 
-Another thing we can do is block the application from running if a debugger is attached in production environments. Apple created a flag, PT_DENY_ATTACH for Mac OS X that could be used for your application to request that it not be traced or debugged. On iOS it doesn't exist, but it's value is 31 so we can just define it in our code. We use the ptrace system call to pass in a request integer to the first parameter - PT_DENY_ATTACH. You will obviously want to have your own flag to turn this test off for debug environments and on for production environments. Putting this function before the main run loop is set up will prevent the application from launching if a debugger is attached. 
+Apple created a `PT_DENY_ATTACH` flag for Mac OS that you could use to deny tracing and debugging. It doesn't exist on iOS but it’s value is 31 so you can define it in your code. 
+
+Use the ptrace system call to pass in a request integer to the first parameter - `PT_DENY_ATTACH`. You'll want to have your own flag to disable it for debug environments. Add the function before the main run loop to prevent the application from launching if it detects a debugger:
 
 	#import <dlfcn.h>
 	#import <sys/types.h>
@@ -147,4 +176,6 @@ Another thing we can do is block the application from running if a debugger is a
 	    
 	}
 
-Depending on your app, it may be completely fine for users to use your product on a jailbroken phone. Judgment has to be made depending on the developer or company needs.
+Depending on your app, it may be completely fine for users to use your product on a jailbroken phone. Integrity checking in recent years helps prevent spammers from botting an app.
+
+To learn more about protecting your environment from spammers, check out the [Digital Signatures With Swift](http://code.tutsplus.com/tutorials/creating-digital-signatures-with-swift--cms-29287), [Securing Network Data Tutorial for Android](https://www.raywenderlich.com/10056112-securing-network-data-tutorial-for-android) and [SafetyNet API documentation](https://developer.android.com/training/safetynet/attestation).
