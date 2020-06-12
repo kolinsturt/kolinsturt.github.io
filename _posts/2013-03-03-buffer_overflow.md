@@ -121,4 +121,4 @@ should be:
 	printf("%s", buffer)
 
 
-To learn more about secure coding in other environments, check out the [Secure Coding in Swift](http://code.tutsplus.com/tutorials/secure-coding-in-swift-4--cms-29835) and [App Hardening Tutorial for Kotlin](https://www.raywenderlich.com/6294778-app-hardening-tutorial-for-android-with-kotlin).
+To learn more about secure coding in other environments, check out the [Secure Coding in Swift](http://code.tutsplus.com/tutorials/secure-coding-in-swift-4--cms-29835), [App Hardening Tutorial for Kotlin](https://www.raywenderlich.com/6294778-app-hardening-tutorial-for-android-with-kotlin) and [Null Safety Tutorial in Kotlin](https://www.raywenderlich.com/436090-null-safety-tutorial-in-kotlin-best-practices).
