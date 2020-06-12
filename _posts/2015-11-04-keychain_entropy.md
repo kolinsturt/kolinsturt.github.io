@@ -9,28 +9,31 @@ tags : [iOS9, "iOS 9", keychain, entropy, "access control list", SecAccessContro
 ---
 {% include JB/setup %}
 
-## iOS 9 Keychain Item Entropy
+## Keychain Entropy on iOS 9
 
-iOS 9 offers the ability to add entropy while encrypting items in the keychain. This involves using the Application Password option as part of an access control list. This opens up opportunities to provide entropy in different ways. For example, we could use PBKDF2 from a user provided password that lets them save and load items from the keychain. We could authenticate with a server which would securely return a key or password that could be used with the keychain, or while obviously less secure, we could hardcode an obfuscated password in the binary.
+This article assumes you're familiar with the keychain and it's query style. If that is new to you, check out [Keychain Services in C](https://kolinsturt.github.io/lessons/2012/05/01/KeychainServices) or the [Keychain in Swift](http://code.tutsplus.com/tutorials/securing-ios-data-at-rest--cms-28528?_ga=2.184040613.269493678.1591988254-1806496344.1591988254) tutorial.
+
+iOS 9 added the ability to add entropy while encrypting items in the keychain. This involves using the Application Password option as part of an access control list. This opens up opportunities to provide entropy in different ways. For example, you could use PBKDF2 from user's provided passwords that let them save and load items from the keychain. You could authenticate with a server which securely returns a token for the keychain. While not very secure, you could hardcode an obfuscated password in the binary to prevent offline keychain dumps.
 
 ### Access Control
 
-The keychain is accessed like always except that we add two new parameters; a context and an access control options object to the keychain query dictionary being used. The keys are kSecUseAuthenticationContext and kSecAttrAccessControl. (For more general information about how the keychain services work, see [here](https://collinbstuart.github.io/lessons/2012/05/01/KeychainServices/))
+You can provide an access control object and context to the keychain query dictionary. The keys are `kSecUseAuthenticationContext` and `kSecAttrAccessControl`. 
 
-kSecUseAuthenticationContext lets you pass in an authentication context. We will create an LAContext that allows us to set an app-specific password.
+`kSecUseAuthenticationContext` lets you pass in an authentication context. You'll create an `LAContext` that allows you to set an app-specific password:
 
 	LAContext *localAuthenticationContext = [[LAContext alloc] init];
 	NSData *theApplicationPassword = [@"1234" dataUsingEncoding:NSUTF8StringEncoding];
 	            [localAuthenticationContext setCredential:theApplicationPassword type:LACredentialTypeApplicationPassword];
 
-Next we use a SecAccessControlRef object that will contain access control conditions.
-To create this object we use the SecAccessControlCreateWithFlags function (available in iOS 8 +) which takes the parameters of a default allocator, the kSecAttrAccessible protection class to use, an options bitmask and an error object. In our example we will use kSecAttrAccessibleAfterFirstUnlock as the protection class and kSecAccessControlApplicationPassword as the option - this denotes that an application provided password for encryption will be used.
+Next, use a `SecAccessControlRef` object that will contain access control conditions. Use the `SecAccessControlCreateWithFlags` function (available in iOS 8 +) to create this object:
 
 	SecAccessControlRef accessControl = SecAccessControlCreateWithFlags(kCFAllocatorDefault, kSecAttrAccessibleAfterFirstUnlock, kSecAccessControlApplicationPassword, &error);
+	
+The parameters you passed are a default allocator, `kSecAttrAccessibleAfterFirstUnlock` as the `kSecAttrAccessible` protection class and kSecAccessControlApplicationPassword as the bitmask option - this denotes that an application provided password for the keychain item. Then you passed in an error object.
 
 ### Adding a Keychain Item
 
-Now that we have a context and an access control object, we can add them to a regular keychain query dictionary, for example:
+Now that you have a context and an access control object, add them to a keychain query dictionary:
 
 	NSDictionary *saveDictionary = @{
 	                            (__bridge id)kSecClass: (__bridge id)kSecClassGenericPassword,
@@ -41,24 +44,21 @@ Now that we have a context and an access control object, we can add them to a re
 	                            (__bridge id)kSecUseAuthenticationContext:localAuthenticationContext
 	                            };
 
-and call SecItemAdd(), SecItemCopyMatching(), or others.
-
-* These additions are only available on iOS 9, so you would want to only use the new options for storing keychain items that will be accessed on a single device that has iOS 9. 
-
-* Not including kSecAttrAccessControl and kSecUseAuthenticationContext in the SecItemCopyMatching search query when they were used during SecItemAdd will cause SecItemCopyMatching to block for a long period of time (often returning  _BSMachError: (os/kern) invalid capability (20) ) . So check for the existence of the instantiated objects and if they do not exist, just return an error instead.
-
-* If the incorrect application password is used to try and retrieve an item, an OSStatus error of -25293 (password incorrect) is returned.
+* You can use this with `SecItemAdd()`, `SecItemCopyMatching()` and other keychain query functions. 
+* These additions are only available on iOS 9.
+* Omitting `kSecAttrAccessControl`and `kSecUseAuthenticationContext` in `SecItemCopyMatching` when `SecItemAdd` included them will cause `SecItemCopyMatching` to block for a long period of time. Sometimes it returns **_BSMachError: (os/kern) invalid capability (20)**. Check for the existence of the instantiated objects and if they don't exist, return an error. 
+* If you supply an incorrect application password, the system returns OSStatus error `-25293`.
 
 ### Putting It All Together
 
-Here is a complete example that first stores and then retrieves a password from the keychain using the new application password options. If the user is not on iOS 9 then there should be a fallback at the last else statement to save and load without using the new features.
+Here's an example that stores and retrieves a password from the keychain using the new application password option. If the user is not on iOS 9 then there should be a fallback at the last else statement to save and load without using the new feature.
 
-Remember to add the LocalAuthentication framework to your project and
+Remember to add the LocalAuthentication framework to your project and import it in your code:
 
 	#import <LocalAuthentication/LocalAuthentication.h>
 	#import <Security/SecAccessControl.h>
 	
-in the file you are working with.
+Here's the full example:
 
 	- (void)applicationPasswordExample
 	{
@@ -137,5 +137,4 @@ in the file you are working with.
 	}
 
 
-Feel free to send me any [issues](https://github.com/CollinBStuart/CollinBStuart.github.io/issues) you may find. 
-
+To learn move about keychain capabilities, check out the [Keychain in Swift](http://code.tutsplus.com/tutorials/securing-ios-data-at-rest--cms-28528?_ga=2.184040613.269493678.1591988254-1806496344.1591988254) and [Keys and Credentials on Android](http://code.tutsplus.com/tutorials/keys-credentials-and-storage-on-android--cms-30827?_ga=2.254295179.269493678.1591988254-1806496344.1591988254) tutorial.
