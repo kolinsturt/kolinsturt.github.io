@@ -11,18 +11,17 @@ tags : [iOS, Foundation, Core Foundation, Secure Programming]
 
 ### Buffer Overflows
 
-Secure coding is the art of writing software in a way that is protected from security vulnerabilities and malicious attacks. The most common of the vulnerabilities in a c based language appear as buffer overflows, integer overflows, buffer underflows, and format string attacks. For a primer on these subjects, you can check out Apple's [Secure Programming Guide](https://developer.apple.com/library/mac/documentation/security/conceptual/SecureCodingGuide/Articles/SecurityGuidelines.html#//apple_ref/doc/uid/TP40009511-SW1). In this guide, there is a list of common functions susceptible to buffer overflow attacks, and which ones to use as a replacement. 
+Secure coding is the art of writing software so you protect it from security vulnerabilities and malicious attacks. The most common of the vulnerabilities in a C based language appear as buffer overflows, integer overflows, buffer underflows, and format string attacks. For a primer on these subjects, check out Apple’s [Secure Programming Guide](https://developer.apple.com/library/mac/documentation/security/conceptual/SecureCodingGuide/Articles/SecurityGuidelines.html#//apple_ref/doc/uid/TP40009511-SW1). There's a list of common functions susceptible to buffer overflow attacks and which ones to use as replacements:
 
 * strcat -> strlcat
 * strcpy -> strlcpy
 * strncat -> strlcat
 * strncpy -> strlcpy
-* sprintf -> snprintf (see note) or asprintf
-* vsprintf -> vsnprintf (see note) or vasprintf
-* gets -> fgets (see note) or use Core Foundation or Foundation APIs
+* sprintf -> snprintf -> asprintf
+* vsprintf -> vsnprintf -> vasprintf
+* gets -> fgets -> use Core Foundation or Foundation APIs
 
-Apple states in their document
-
+Apple states in their document:
 
 > Security Note for snprintf and vsnprintf: The functions snprintf, vsnprintf, and variants are 	dangerous if used incorrectly. Although they do behave functionally like strlcat and similar in 	that they limit the bytes written to n-1, the length returned by these functions is the length 	that would have been printed if n were infinite.
 	
@@ -40,7 +39,7 @@ If you are porting code in C++, std::string is safe from buffer overflows.
 
 If you must use C, here are some examples to help avoid buffer overflows.
 
-Try not to use hard coded buffer sizes such as 
+Try not to use hard coded buffer sizes such as:
 
 	UInt8 buffer[512];
 	if (size <= 511) 
@@ -49,7 +48,7 @@ Try not to use hard coded buffer sizes such as
 	}
 
 
-It would be better to define the buffer size once
+It would be better to define the buffer size once:
 
 	#define BUFFER_SIZE 512
 	UInt8 buffer[BUFFER_SIZE];
@@ -59,7 +58,7 @@ It would be better to define the buffer size once
 	}
 	
 	
-It is even better to do this
+It is even better to do this:
 
 	if (size < sizeof(buffer)) 
 	{
@@ -69,19 +68,19 @@ It is even better to do this
 
 ### Integer Overflows
 
-An important point about checking for integer overflows is to not perform any checks that are not being used later in code. If the compiler sees checks where the result is not being used, it may just optimize the test right out of the code. For example, we can check the result of a potentially overflowing multiplication
+Make sure the compiler doesn't optimize out your integer overflows. This can happen if the compiler sees checks where you never use the result. For example, here's a check for a potential overflowing multiplication:
 
-size_t byteSize = (first * second);
-if ( (bytes < first) || (bytes < second) ) //check for overflow
-{
+    size_t byteSize = (first * second);
+    if ( (bytes < first) || (bytes < second) ) //check for overflow
+    {
 	;
-}
+    }
 
-Apple suggests in their guide
+A point from Apple's guide:
 
 >the only correct way to test for integer overflow is to divide the maximum allowable result by the multiplier and comparing the result to the multiplicand or vice-versa. If the result is smaller than the multiplicand, the product of those two values would cause an integer overflow.
 
-Here is an example
+Here is an example:
 
 	if (first > 0 && second > 0 && SIZE_MAX / first >= second) 
 	{
@@ -93,23 +92,33 @@ Here is an example
 
 ### Buffer Underflows
 
-In order to prevent buffer underflows, make sure that you zero all buffers before you begin to use them. Do this with memset(), bzero(), or calloc() for example. When performing an alloc or init function, check that the function returned a success result code before processing the resulting data. If applicable, use any value returned by a function that tells you the size of the data returned and use this value rather than a hard-coded one. If you have a constant of what the size should have been, you can check this and fail gracefully if you did not receive the expected size instead of going on to process the data. The same should apply to any functions that operate on your data. For example, make sure a write call completes successfully before operating on that data. The same is said for opening and reading data. Make sure the size and type of data is of what is expected. Object strings such as NSString, CFStringRef or std::string handle size checks themselves, so it is best to leave the string in their 
-object form if possible. Converting objects to primitive C types can cause vulnerabilities. CFString's CFStringCreateWithCString() for example does not take into account the length of the C string buffer that will be used.  Also, if possible, it's best to separate buffer and data operations from string manipulation functions.
+To prevent buffer underflows, zero all buffers before you begin to use them. Do this with `memset()`, `bzero()`, or `calloc()` for example. When allocating or initializing memory, check that the function returned a success code before processing the resulting data. If applicable, use any value returned by a function that tells you the size of the data returned and use this value rather than a hard-coded one. If you have a constant of what the size should have been, you can check this and fail gracefully if you did not receive the expected size instead of going on to process the data. The same should apply to any functions that operate on your data. For example, make sure a write call completes successfully before operating on that data. Do the same for opening and reading data. 
 
-CFDataRef lets you access the underlying primitive data (CFDataGetBytes) in which it's memory was managed my malloc and free as opposed to the reference counting scheme. Therefor, there is the potential for the buffer to be freed and be overwritten or reused accidentally.
+Make sure the size and type of data is what you expect. Object strings such as `NSString`, `CFStringRef` or` std::string` handle size checks themselves, so it is best to leave the string in their object form if possible. Converting objects to primitive C types can cause vulnerabilities. `CFString`’s `CFStringCreateWithCString()` does not take into account the length of the C string buffer. If possible, separate buffer and data operations from string manipulation functions.
 
-Collection classes such as CFSet, CFArray, and CFDictionary fortunately create objects so that the user must first pass in the number of objects in the collection. Make sure this number is correct. Some of foundation's methods let you pass in a list of objects of a variable length with nil as the last element. If you forget to pass in nil, the initialize will continue reading into the process's stack. A warning will be issued in XCode if you forget the nil at the end, so it is a good idea to pay attention to warnings, eliminate all warnings so that new ones will stand out, and treat warnings as errors. 
+`CFDataRef` lets you access the underlying primitive data via `CFDataGetBytes`. You have to manage primitive memory with `malloc` and `free` instead of reference counting. There's the potential to free, overwrite or reuse the buffer accidentally.
 
-CFArrayGetValues (or NSArray getObjects) will create a primitive C array but it does not check the length of the buffer being passed in. If the buffer is not big enough it will overflow.
+Collection classes such as `CFSet`, `CFArray`, and `CFDictionary` create objects so that the user must first pass in the number of objects in the collection. Make sure this number is correct. Some of foundation’s methods let you pass in a list of objects of a variable length with nil as the last element. If you forget to pass in `nil`, the initialize will continue reading into the stack of the process. Xcode gives you a warning if you forget the `nil` at the end. That's why it's a good idea to eliminate all warning so that new ones will stand out. Treat warnings as errors.
+
+`CFArrayGetValues` or `NSArray`'s `getObjects` create a primitive C array. It does not check the length of the buffer you passed in. If the buffer is not big enough it will overflow.
 
 ### Format String Attacks
 
-Any format string functions are susceptible to format string attacks, such as printf, CFStringCreateWithFormat, or NSString's stringWithFormat. To guard against these attacks, we just have to make sure that data is not passed as part of the format string. You may need to use your own format string, for example
+Format string functions are susceptible to format string attacks. `printf`, `CFStringCreateWithFormat` or `NSString`’s `stringWithFormat` are examples. To guard against attacks, make sure that data is not passed as part of the format string. Use your own format string; Don't log variables directly as you don't know if they contain a **%**. For example:
 
+        NSLog(maliciousString);
+	
+should be:
+
+        NSLog(@"%@", maliciousString);
+	
+Just as:
 	
 	printf(buffer)
 	
-should be changed to
+should be:
 	
 	printf("%s", buffer)
-	
+
+
+To learn more about secure coding in other environments, check out the [Secure Coding in Swift](http://code.tutsplus.com/tutorials/secure-coding-in-swift-4--cms-29835) and [App Hardening Tutorial for Kotlin](https://www.raywenderlich.com/6294778-app-hardening-tutorial-for-android-with-kotlin).
