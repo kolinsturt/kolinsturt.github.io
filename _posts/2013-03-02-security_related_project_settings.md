@@ -47,4 +47,4 @@ You'll want to check the assembly to make sure it worked. In some cases, optimiz
 
 Make sure to test your app using the optimization level set for production. Xcode sets the optimization level differently for the release scheme of your app than for the debug scheme. Change the **Optimization Level** for debug in that **Code Generation** section of the build settings, or go to **Product** > **Scheme** > **Edit Scheme** and in the info tab set the **Build Configuration** to **Release**. Make sure the app works correctly with this setting before you release it.
 
-For more information about obfuscation and app hardening, see the [Secure Coding in Swift](http://code.tutsplus.com/tutorials/secure-coding-in-swift-4--cms-29835?_ga=2.151276730.244515763.1591989532-415024238.1591989532) and [Getting Started with ProGuard](https://www.raywenderlich.com/7449-getting-started-with-proguard) tutorials.
+For more information about obfuscation and app hardening, see the [Secure Coding in Swift](http://code.tutsplus.com/tutorials/secure-coding-in-swift-4--cms-29835) and [Getting Started with ProGuard](https://www.raywenderlich.com/7449-getting-started-with-proguard) tutorials.
