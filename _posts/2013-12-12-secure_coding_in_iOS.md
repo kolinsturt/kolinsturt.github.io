@@ -9,11 +9,7 @@ tags : [iOS, Foundation, Core Foundation, Secure Programming]
 ---
 {% include JB/setup %}
 
-## Secure Coding
-
-This is a post of some of the common security problems and solutions when developing secure applications for iOS using Objective-C and Core Foundation.
-
-### Objective-C Security and Obfuscation
+### Objective-C Runtime - Security and Obfuscation
 
 As you may already know, instance variables and methods in Objective-C classes are hardly secure. There are at least access specifiers that we can use, similar to C++:
 
@@ -128,7 +124,12 @@ If you have a method that performs some sensitive operation, such as enabling pa
 
 In order to hint inline functions under GCC, you can add the -Winline and -finline-functions flags in the "Compiler Flags" section of XCode. Go to the project settings and choose the "Build Phases" tab. Expand the section for the "Compile Sources" and double click on any file under the "Compiler Flags" section to bring up a box to enter the flag.
 
-Remember that the inline keyword is only a hint to the compiler. It is not guaranteed that the function will be called inline. Some testing and trial and error are needed and this is definitely true with the XCode optimizer, which can either expose part of the code, or in most cases it can help obfuscate your code during disassembly. Apple's optimizer tries to change up the code in order to speed up routines or to decrease the size of the compiled code. In your project settings, select the "Build Settings" tab, and search for "optimization". You should see an Optimization Level field. Setting the optimization level to Fastest -O3 may help obfuscate the code. In some cases it can make it easier to disassemble. Trial and error is needed (for example by using otool). For more information about this setting, see the [Compiler-Level Optimizations](https://developer.apple.com/library/mac/documentation/General/Conceptual/MOSXAppProgrammingGuide/Performance/Performance.html#//apple_ref/doc/uid/TP40010543-CH9-102307) section of the Apple reference guide.
+Remember that the inline keyword is only a hint to the compiler. It is not guaranteed that the function will be called inline.
+
+
+### End 
+
+Some testing and trial and error are needed and this is definitely true with the XCode optimizer, which can either expose part of the code, or in most cases it can help obfuscate your code during disassembly. Apple's optimizer tries to change up the code in order to speed up routines or to decrease the size of the compiled code. In your project settings, select the "Build Settings" tab, and search for "optimization". You should see an Optimization Level field. Setting the optimization level to Fastest -O3 may help obfuscate the code. In some cases it can make it easier to disassemble. Trial and error is needed (for example by using otool). For more information about this setting, see the [Compiler-Level Optimizations](https://developer.apple.com/library/mac/documentation/General/Conceptual/MOSXAppProgrammingGuide/Performance/Performance.html#//apple_ref/doc/uid/TP40010543-CH9-102307) section of the Apple reference guide.
 
 **Note: Make sure to test your app using the optimization level you would like to use for production. XCode sets the optimization level differently for the release scheme of your app than for the debug scheme. Change the "Optimization Level" for debug in the Code Generation section of the build settings, or go to Product -> Scheme -> Edit Scheme and in the info tab set the Build Configuration to release. Make sure you app works correctly in this setting before it reaches the public**
 
