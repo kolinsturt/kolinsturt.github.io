@@ -37,19 +37,15 @@ Check for files often installed by a jailbreak:
 
 You can also look for the most common jailbreak apps:
 
-	static const char* jailbreakApps[] = 
-     {
-         "/Applications/Sileo.app"
-         "/Applications/Cydia.app",
-	 "/private/var/lib/cydia",
-	 "/var/lib/cydia",
-         "/Applications/limera1n.app",
-         "/Applications/greenpois0n.app",
-         "/Applications/blackra1n.app",
-         "/Applications/blacksn0w.app",
-         "/Applications/redsn0w.app",
-         NULL,
-     };
+    "/Applications/Sileo.app"
+    "/Applications/Cydia.app"
+    "/private/var/lib/cydia"
+    "/var/lib/cydia"
+    "/Applications/limera1n.app"
+    "/Applications/greenpois0n.app"
+    "/Applications/blackra1n.app"
+    "/Applications/blacksn0w.app"
+    "/Applications/redsn0w.app"
      
 You can use `NSFileManager`’s `fileExistsAtPath` or `stat()`:
 
