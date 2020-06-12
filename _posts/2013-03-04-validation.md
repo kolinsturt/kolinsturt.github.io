@@ -185,4 +185,4 @@ One more overlooked area is network callback functions and signals. Say you have
 
 
 
-You learned secure coding practices for Objective-C. To learn about secure programming for other environments, see the [Secure Coding in Swift](http://code.tutsplus.com/tutorials/secure-coding-in-swift-4--cms-29835) and [Null Safety Tutorial in Kotlin](https://www.raywenderlich.com/436090-null-safety-tutorial-in-kotlin-best-practices).
+You learned secure coding practices for Objective-C. To learn about secure programming for other environments, see the [Secure Coding in Swift](http://code.tutsplus.com/tutorials/secure-coding-in-swift-4--cms-29835), [App Hardening Tutorial for Kotlin](https://www.raywenderlich.com/6294778-app-hardening-tutorial-for-android-with-kotlin) and [Null Safety Tutorial in Kotlin](https://www.raywenderlich.com/436090-null-safety-tutorial-in-kotlin-best-practices).
