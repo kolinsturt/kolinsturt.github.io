@@ -1,15 +1,15 @@
 ---
 layout: post
 category : lessons
-tagline: "CFNetwork Validating TLS"
-title:  SSL/TLS certificate information in Core Foundation
-description: Examining SSL/TLS certificate information in CFNetwork
+tagline: "CFNetwork TLS"
+title:  Customizing TLS Server Trust Evaluation
+description: Examining and customizing TLS certificate information in CFNetwork
 author: Kolin Stürt
-tags : [iOS, SSL, TLS Networking, CFNetwork, Core Foundation]
+tags : [iOS, SSL, TLS Networking, CFNetwork, Core Foundation, SecTrustEvaluate]
 ---
 {% include JB/setup %}
 
-## Customizing TLS validation
+## Customizing TLS Server Trust Evaluation
 
 TLS (Transport Layer Security) and SSL (Secure Sockets Layer) are the main protocols used to provide encryption and authentication over network transactions. The TLS and SSL terms are often interchangeable and generally speak of the same thing. SSL 3.0 was actually the foundation of TLS 1.0. Some still refer to this as SSL 3.1. In this article, you'll use TLS to refer to the most recent version of the cryptographic protocol. When an application is making a TLS connection, the operating system will verify the TLS certificate’s chain of trust down to the known anchor certificate. If any of the certificates along the way are not valid, then the entire certificate is invalid.
 
