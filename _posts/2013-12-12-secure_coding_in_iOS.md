@@ -125,4 +125,4 @@ In order to hint inline functions under GCC, you can add the -Winline and -finli
 
 Remember that the inline keyword is only a hint to the compiler. It is not guaranteed that the function will be called inline.
 
-If your goal is aimed at integrity protection, check out the [Application Integrity]https://kolinsturt.github.io/lessons/2013/03/05/integrity on iOS, [Getting Started With ProGuard](https://www.raywenderlich.com/7449-getting-started-with-proguard) tutorial and [SafetyNet API documentation](https://developer.android.com/training/safetynet/attestation).
+If your obfuscation is aimed at integrity protection, check out the [Application Integrity](https://kolinsturt.github.io/lessons/2013/03/05/integrity) article for iOS and [Getting Started With ProGuard](https://www.raywenderlich.com/7449-getting-started-with-proguard) and [SafetyNet API documentation](https://developer.android.com/training/safetynet/attestation) for Android.
