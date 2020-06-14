@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Kolin Stürt
+author: Kolin Sturt
 description: App security articles for iOS, macOS, Android and Linux.
 
 tags : [Android, Kolin, Sturt, Kolin Sturt, iOS, Core Foundation, Security, C++, OS X, macOS, XCode, Reverse Engineering, Secure Coding, Secure Programming, Objective-C, Hacking, Application Hardening, Privacy]
