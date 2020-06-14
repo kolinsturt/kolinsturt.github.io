@@ -4,7 +4,7 @@ category : lessons
 tagline: "Privacy for Activists, Investigators and Whistleblowers"
 title: Privacy for Activists, Investigators and Whistleblowers
 description: Privacy tools for activists, investigators and whistleblowers
-tags : [Signal App, VeraCrypt, TorBrowser, Tails OS, HTTPSEverywhere, Riseup.net, Autistici, Whisper Systems]
+tags : [Signal App, VeraCrypt, TorBrowser, Tails OS, Oppression, Hong Kong Protests, Black Lives Matter, Animal Rights Activists]
 ---
 {% include JB/setup %}
 
