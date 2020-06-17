@@ -231,3 +231,6 @@ Also commercial. [JEB](https://www.pnfsoftware.com/) can understand ARM and ELF 
 *[Jadx](https://github.com/skylot/jadx). This will let you browse decompiled DEX code. It also decompiles most of the entire project. 
 
 *[JAD](http://varaneckas.com/jad/). This will convert Java Class files back to source files. 
+
+
+To learn more about the forensics, check out the how-to [Finding Forensic Artifacts](https://www.raywenderlich.com/3419415-hack-an-android-app-finding-forensic-artifacts) tutorial.
