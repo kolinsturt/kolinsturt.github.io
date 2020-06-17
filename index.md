@@ -21,7 +21,7 @@ tags : [Android, Kolin, Sturt, Kolin Sturt, iOS, Core Foundation, Security, C++,
 
 <a href="{{ BASE_PATH }}/lessons/2016/12/01/reverse_engineering_android_apps">Android Forensics and Reverse Engineering</a>
 
-<a href="{{ BASE_PATH }}/lessons/2014/04/01/email_security">Email Security on Mobile Devices</a>
+<a href="{{ BASE_PATH }}/lessons/2014/04/01/email_security">Email Security and Privacy</a>
 
 <a href="{{ BASE_PATH }}/lessons/2014/06/01/asn1">ASN.1 and DER</a>
     
