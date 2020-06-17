@@ -2,7 +2,7 @@
 layout: post
 category : lessons
 tagline: "Hacking iOS apps"
-title: iOS hacking and reverse engineering
+title: iOS Forensics Part 2 - Reverse Engineering
 author: Kolin Stürt
 description: Decrypting, reverse engineering and patching
 tags : [iOS, hacking, patching, hooking, reverse engineering, security, XCode]
