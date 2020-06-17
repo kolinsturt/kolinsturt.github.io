@@ -13,6 +13,8 @@ tags : [Apple, Email, encryption, iPhone, security, privacy]
 
 There are a lot of privacy related chat apps that offer end-to-end encryption such as [Signal](https://signal.org/). In a [previous article](https://kolinsturt.github.io/lessons/2020/02/01/remote_collaboration) I discuss [Secure Remote collaboration](https://kolinsturt.github.io/lessons/2020/02/01/remote_collaboration) tools you can use. But when it comes to email, it was not designed with security in mind. If you must send email, here's a few tips.
 
+### Getting Started With Basics
+
 First off, you'll want to make sure your accessing email over an encrypted session - SSL. For web based email, make sure all addresses are **https://**, not **http://**. Most security researchers agree that FireFox is a secure browser over the others. There's a good browser plugin for this called [HTTPSEverywhere](https://www.eff.org/Https-everywhere) that attempts to make sure all the pages you browse are using the **https** encrypted versions of the site.
 
 Speaking of plugins, [Privacy Badger](https://privacybadger.org/) and [uBlock Origin](https://github.com/gorhill/uBlock) are good browser plugins to prevent tracking. Adblock plus used to be a very popular plugin, but has since decided to [allow companies to pay](https://www.businessinsider.com/google-microsoft-amazon-taboola-pay-adblock-plus-to-stop-blocking-their-ads-2015-2) to get around their block list, so this one is no longer recommended.
