@@ -9,15 +9,31 @@ tags : [Apple, Email, encryption, iPhone, security, privacy]
 ---
 {% include JB/setup %}
 
-## Email Security on Mobile Devices
+## Email Security
 
-It's good news that there are a lot of privacy related chat applications out there that offer end to end encryption - from open source XMPP applications such as [ChatSecure](https://chatsecure.org) and [Signal](https://signal.org/). In regards to email privacy, email is dated with all the other secure means of communicating. It still requires a lot of effort to secure email.
+There are a lot of privacy related chat apps that offer end-to-end encryption such as [Signal](https://signal.org/). In a [previous article](https://kolinsturt.github.io/lessons/2020/02/01/remote_collaboration) I discuss [Secure Remote collaboration](https://kolinsturt.github.io/lessons/2020/02/01/remote_collaboration) tools you can use. But when it comes to email, it was not designed with security in mind. If you must send email, here's a few tips.
 
-The most secure solution so far for email is Pretty Good Privacy (PGP), or it's open source equivalent, [GPG](https://gpgtools.org/). This is the most secure, but the main drawback here is that the other person receiving email needs to also have GPG set up as well. It works by exchanging public/private keys between you and the sender; essentially establishing end-to-end encryption. So when you send an email, it is kept encrypted right until the user on the receiving end decrypts it (as opposed to encrypted email offered by email services where the email along it's way is decrypted and stored on a company server). GPG is great but only works with someone willing to set this up. In other words, it seems only when people really need to communicate privately (with journalists, exchanging corporate secrets, etc) does anyone bother setting this up. For instructions on setting up this kind of system, there is a great video [here](https://www.youtube.com/watch?v=LkRbAFxOu6o).
+First off, you'll want to make sure your accessing email over an encrypted session - SSL. For web based email, make sure all addresses are **https://**, not **http://**. Most security researchers agree that FireFox is a secure browser over the others. There's a good browser plugin for this called [HTTPSEverywhere](https://www.eff.org/Https-everywhere) that attempts to make sure all the pages you browse are using the **https** encrypted versions of the site.
 
-There are solutions that automate all of the encryption steps for you. [Protonmail](https://protonmail.com/), for example, is simple to use but sending to a non-protonmail address is still unencrypted. The emails are less likely to be decrypted on their end compared to [Hushmail's problems](http://www.wired.com/2007/11/encrypted-e-mai/). [Riseup.net](https://riseup.net) is also a good choice when it comes to a secure and private email account.
+Email desktop applications should also [use SSL](https://riseup.net/en/security/network-security/secure-connections) (ports 587 and 995, not 25 or 110). For mobile devices, instructions to enable SSL encryption are [here](https://support.godaddy.com/help/article/4888/enabling-email-with-ssl-on-your-iphone).
 
-If you want to securely send something by email without any additional changes to your email setup, you can always wrap an attachment in an encrypted archive and then disclose the password to the other party by some other means, such as an encrypted chat conversation.
+### Encrypting the Content
+
+There are solutions to encrypt your content such as [SMime](https://support.microsoft.com/en-us/office/encrypt-messages-by-using-s-mime-in-outlook-on-the-web-878c79fc-7088-4b39-966f-14512658f480) but by far the most secure solution for email is Pretty Good Privacy (PGP), or it's open source equivalent, [GPG](https://gpgtools.org/). The main drawback is that the other person receiving email needs to also have GPG set up as well.
+
+GPG works by exchanging public/private keys between you and the sender; establishing end-to-end encryption. GPG encrypts your email right until the user on the receiving end decrypts it. Other email services may encrypt an email but decrypt it once arrived at their location. GPG is great but only works with someone willing to set this up. Often, only when people really need to communicate privately do they take the time this up. There's a great [video](https://www.youtube.com/watch?v=LkRbAFxOu6o) with instructions on setting it up here. You can also checkout [written instructions](https://riseup.net/en/security/message-security/openpgp).
+
+There are solutions that automate the encryption steps for you. [Protonmail](https://protonmail.com/) is a great example. It's simple to use but sending to a non Protonmail address is still unencrypted unless you incorporate GPG.
+
+If you want to send encrypted content by email without any changes to your email setup, you can include an attachment that's an encrypted archive. You'll need to disclose the password to the other party by some other means. Make sure it's over a secure channel such as [Signal](https://signal.org/).
+
+Here's an example: if you're both using macOS, you can create an [encrypted disk image](https://support.apple.com/en-ca/guide/disk-utility/dskutl11888/mac). From there add your content, text file, word doc or any files you want. Then send the encrypted disk image to the other person. If they don’t use the same platform as you, [VeraCrypt](https://www.veracrypt.fr/en/Home.html) is the recommended multi-platform encryption program.
+
+NOTE: You should also use this to send files over services such as WeTransfer or YouSendIt. [FireFox Send](https://send.firefox.com/) and [Riseup Share](https://share.riseup.net) are secure alternatives to these services.
+
+As a last resort, you can send a [password protected](https://www.liberiangeek.net/2013/07/password-protect-your-documents-when-using-libreoffice/) Word/Libre/OpenOffice document in lieu of a plaintext email.
+
+#### Anonymizing Your Location
 
 For example, if you are both using macOS, you can create an [encrypted disk image](https://support.apple.com/en-ca/guide/disk-utility/dskutl11888/mac). From there you can add your email, txt file, word doc or any files you want and then just send the encrypted disk image to the other person. If they don't use the same platform as you, VeraCrypt is still the default multi-platform encryption program in use despite controversy over it's previous TrueCrypt discontinuation. Here is the [updated VeraCrypt project](https://www.veracrypt.fr/en/Home.html). I know people that use this all the time for securely sending materials over services such as WeTransfer or YouSendIt. As a last resort, you could send a password protected Word/Libre/OpenOffice document instead of a plaintext email.
 
