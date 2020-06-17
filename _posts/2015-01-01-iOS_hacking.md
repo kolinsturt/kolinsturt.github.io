@@ -9,6 +9,8 @@ tags : [iOS, hacking, patching, hooking, reverse engineering, security, XCode]
 ---
 {% include JB/setup %}
 
+In the [previous article](https://kolinsturt.github.io/lessons/2016/01/01/beginning_ios_forensics) you looked at beginning iOS forensics in general. This guide looks at how to reverse engineer an app binary.
+
 ## Decrypting the Binary
 
 This requires a jailbroken phone with the [OpenSSH Cydia](https://cydia.saurik.com/openssh.html) package installed.
@@ -79,6 +81,8 @@ It will output something like **"DONE: /private/var/mobile/Documents/Dumped/x.x.
 
 ## Reverse Engineering
 
+Here's a quick list of tools that aid in reverse engineering the code:
+
 [nm](https://linux.die.net/man/1/nm)
 List symbols from object files.
 ex: `nm thelib.a`
@@ -101,6 +105,8 @@ Standard when it comes to iOS reverse engineering (Also because of https://www.h
 
 ## Hooking and Patching
 
+In addition to understanding how the code works, you can modify it to intercept function calls - called hooking. You can use this to monitor methods or replace security checks, for example. Here's a list of popular tools to help with the process:
+
 [Cydia Impactor](http://www.cydiaimpactor.com/)
 Use this to install IPA files on iOS.
 
@@ -115,3 +121,5 @@ The very popular code modification platform.
 
 [MSHookFunction](http://www.cydiasubstrate.com/api/c/MSHookFunction/)
 Hijack the behavior of native code or a private symbol.
+
+Besides looking at the data stored on the device and in the app, you'll need to analyze the data an app sends and receives over the network. That can give you a lot of data and insight as to how the app works. Check out the [Intercepting Network Traffic](https://kolinsturt.github.io/lessons/2016/06/01/intercepting_network_traffic_ios) article next to learn how to do that.
