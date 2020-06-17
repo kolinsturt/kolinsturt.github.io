@@ -2,9 +2,9 @@
 layout: post
 category : lessons
 tagline: "Reverse Engineering Android Apps"
-title: Reverse Engineering Android Apps
+title: Android Forensics and Reverse Engineering
 author: Kolin Stürt
-description: Tools for reverse engineering Android apps.
+description: Tools for forensics and reverse engineering Android apps.
 tags : [Android, aapt, DEX, Drozer, Dex2Jar, jd_gui, smali, baksmali]
 ---
 {% include JB/setup %}
