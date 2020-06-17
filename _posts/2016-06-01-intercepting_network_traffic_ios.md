@@ -1,10 +1,10 @@
 ---
 layout: post
 category : lessons
-title: Intercepting network traffic on iOS
+title: iOS Forensics Part 3 - Intercepting Network Traffic
 tagline: "Intercepting network traffic on iOS"
 author: Kolin Stürt
-description: mitm with mitmproxy on iOS
+description: Intercepting network traffic with mitm with mitmproxy on iOS
 tags : [iOS, mitmproxy, mitm, macOS, pf, security, XCode]
 ---
 {% include JB/setup %}
