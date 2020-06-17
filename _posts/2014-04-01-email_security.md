@@ -2,8 +2,8 @@
 layout: post
 category : lessons
 tagline: "Email security tips"
-title: Email security and privacy on iOS
-description: Email security and privacy
+title: Email Security and Privacy
+description: Email security and privacy tips
 author: Kolin Stürt
 tags : [Apple, Email, encryption, iPhone, security, privacy]
 ---
