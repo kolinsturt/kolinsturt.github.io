@@ -2,7 +2,7 @@
 layout: post
 category : lessons
 tagline: "Beginning iOS Forensics"
-title: iOS and iPhone Forensics
+title: iOS Forensics Part 1
 author: Kolin Stürt
 description: Tools to aid in iOS forensics and jailbreaks.
 tags : [iOS, jailbreak, forensics, investigation, root, bypass lock screen]
