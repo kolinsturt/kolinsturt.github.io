@@ -114,5 +114,5 @@ So that's a brief overview of the forensics process. For more information check 
 * [Autopsy - The open source digital forensics platform](https://www.autopsy.com/)
 * [Santoku Linux - Mobile and malware forensics](https://santoku-linux.com/)
            
-
+Sometimes apps use obfuscated or eccentric ways of storing the user's data so the focus shifts to understanding the particular app and how it works internally. During the forensic process, you can get a lot of intel by analyzing the app itself. Check out the [Hacking iOS Apps](https://kolinsturt.github.io/lessons/2015/01/01/iOS_hacking) article next to learn how to do that.
 
