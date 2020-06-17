@@ -13,11 +13,11 @@ tags : [Android, Kolin, Sturt, Kolin Sturt, iOS, Core Foundation, Security, C++,
 
 <a href="{{ BASE_PATH }}/lessons/2018/06/01/privacy_activists_investigators">Privacy for Investigators and Whistleblowers</a>
 
-<a href="{{ BASE_PATH }}/lessons/2016/01/01/beginning_ios_forensics">iOS Forensics</a>
+<a href="{{ BASE_PATH }}/lessons/2016/01/01/beginning_ios_forensics">iOS Forensics Part 1</a>
 
-<a href="{{ BASE_PATH }}/lessons/2015/01/01/iOS_hacking">Hacking iOS Apps</a>
+<a href="{{ BASE_PATH }}/lessons/2015/01/01/iOS_hacking">iOS Forensics Part 2 - Hacking iOS Apps</a>
 
-<a href="{{ BASE_PATH }}/lessons/2016/06/01/intercepting_network_traffic_ios">Intercepting Network Traffic on iOS</a>
+<a href="{{ BASE_PATH }}/lessons/2016/06/01/intercepting_network_traffic_ios">iOS Forensics Part 3 - Intercepting Network Traffic</a>
 
 <a href="{{ BASE_PATH }}/lessons/2016/12/01/reverse_engineering_android_apps">Android Forensics and Reverse Engineering</a>
 
