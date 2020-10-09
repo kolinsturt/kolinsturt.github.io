@@ -61,7 +61,7 @@ tags : [Android, Kolin, Sturt, Kolin Sturt, iOS, Core Foundation, Security, C++,
 
 <a href="{{ BASE_PATH }}/lessons/2013/03/07/logging">Auditing and Logging</a>
 
-<a href="{{ BASE_PATH }}/lessons/2015/11/04/keychain_entropy">iOS 9 Keychain Item Entropy</a>
+<a href="{{ BASE_PATH }}/lessons/2015/11/04/keychain_entropy">Keychain Entropy on iOS 9</a>
 
 ## C++
 
