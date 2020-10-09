@@ -2,8 +2,8 @@
 layout: post
 category : lessons
 tagline: "C++ condition variables"
-title: Secure coding with condition variables 
-description: Secure coding with condition variables in C++ 11
+title: Secure Coding with Concurrency in C++ - Condition Variables
+description: Safe coding with std::condition_variable in C++11
 author: Kolin Stürt
 tags : [C++ 11, "std::condition_variable", Condition Variable, Multithreading, concurrent Programming]
 ---
