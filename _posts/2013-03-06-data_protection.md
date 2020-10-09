@@ -1,8 +1,8 @@
 ---
 layout: post
 category : lessons
-tagline: "Data Protection"
-title: iOS data protection and privacy
+tagline: "iOS Data Protection and Privacy"
+title: Overlooked Areas of Data Privacy: Keyboard and Screenshot Caches
 description: Data protection and privacy in iOS
 author: Kolin Stürt
 tags : [iOS, Foundation, Core Foundation, Secure Programming]
@@ -11,7 +11,7 @@ tags : [iOS, Foundation, Core Foundation, Secure Programming]
 
 ## Overlooked Areas of Data Privacy
 
-The subject of privacy and protecting the user’s data is a hot topic these days. Personal information that gets compromised is a big deal. I covered the subject of data privacy in my iOS Data Privacy and Data Privacy for Android tutorials. While data privacy is covered in general in many books and articles, there's a few areas on iOS where you can leak the user’s data without realizing.
+The subject of privacy and protecting the user’s data is a hot topic these days. Personal information that gets compromised is a big deal. I covered the subject of data privacy in my [iOS Data Privacy](http://code.tutsplus.com/articles/securing-ios-data-at-rest-protecting-the-users-data--cms-28527) and [Data Privacy for Android](https://www.raywenderlich.com/6901838-data-privacy-for-android) tutorials. While data privacy is covered in general in many books and articles, there's a few areas on iOS where you can leak the user’s data without realizing.
 
 ### Screenshots
 
