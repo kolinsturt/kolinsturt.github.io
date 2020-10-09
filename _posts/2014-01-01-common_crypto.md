@@ -2,14 +2,14 @@
 layout: post
 category : lessons
 tagline: "Using the CommonCrypto library in CoreFoundation"
-title: Encryption using Common Crypto
-description: Encryption using the Common Crypto framework in Core Foundation
+title: AES Encryption using Common Crypto
+description: Encrypting data using the Common Crypto framework in Core Foundation
 author: Kolin Stürt
 tags : [CommonCrypto, ios, Core Foundation, tutorial]
 ---
 {% include JB/setup %}
 
-## Encrypting Data Using the CommonCrypto Library
+## AES Encryption using Common Crypto
 
 In the [previous article](https://kolinsturt.github.io/lessons/2013/05/01/hashing_algorithms_in_core_foundation) you leanred about hashing. In this article you'll apply it to encrypting data.
 
