@@ -1,17 +1,17 @@
 ---
 layout: post
 category : lessons
-tagline: "Working Remotely During COVID19"
+tagline: "Maintaining Privacy During COVID19"
 title: Working Securely During COVID-19
-description: Secure Apps for Working Remotely During COVID-19
+description: Maintaining privacy during the pandemic
 tags : [Signal App, Open Source, Open Sourced, open-source, Privacy, Security, Riseup.net, COVID19, COVID-19]
 ---
 {% include JB/setup %}
 {% raw %}{% endraw %}
 
-## Secure Apps for Working Remotely During COVID-19
+## Secure Ways for Working Remotely During COVID-19
 
-With COVID19 we're all trying to cope by continuing to work with online sessions and remote communication. Some professionals that have to do their work in person to discuss private matters, such as lawyers, financial advisers or therapists, have been asking how to continue to work remotely without risking privacy. I've curated a list of apps that allow for secure and encrypted communications. Activists, investigators and whistle-blowers have used these apps for their work. 
+With the pandemic we're all trying to cope by continuing to work with online sessions and remote communication. Some professionals that have to do their work in person to discuss private matters, such as lawyers, financial advisers or therapists, have been asking how to continue to work remotely without risking privacy. I've curated a list of apps that allow for secure and encrypted communications. Activists, investigators and whistle-blowers have used these apps for their work. 
 
 ### Video Conferencing
 
@@ -68,13 +68,18 @@ Last but not least, while the topic of financial privacy is beyond the scope of 
 
 ### Cryptocurrency
 
+A good way to keep a level of financial privacy is to use cash. While companies are moving away from cash and the pandemic is accelerating that, there are many online and technical servies that accept cryptocurrency.
+
 #### Cryptocurrency - [Monero](https://web.getmonero.org)
 Monero is a cryptocurrency that solves many of the privacy and security issues of Bitcoin. 
 
 #### Cryptocurrency exchange network - [Bisq](https://bisq.network) 
-Banks and governments have forced many companies to undo security for Bitcoin and Litecoin trading. For example, while cryptocurrency solves the privacy problem, many organizations are requiring government ID and photographs to do purchasing or exchanges. Bisq is the opposite of that. It's a private exchange network that does not not require you to submit your personal information to do exchanges and transactions. 
+Banks and governments have forced many companies to undo security for Bitcoin and Litecoin trading. For example, while cryptocurrency solves the privacy problem, many organizations are requiring government ID and photographs to do purchases or exchanges. Bisq is the opposite of that. It's a private exchange network that does not not require you to submit your personal information to do exchanges and transactions.
+
+#### Bitcoin ATMs
+One way to obtain cryptocurrency with a degree of privacy is through a bitcoin ATM, however some regions have specific laws which require identification or have limits. You can find the [specific regulations](https://www.loc.gov/law/help/cryptocurrency/world-survey.php) and [ATMs near you](https://coinatmradar.com). The know-your-customer measures are set by the provider so it's ultimately up to them how strict the identification settings are. Many of the ATM listings are starting to put that information in the description for the location so that you don't waste travel time.
 
 ### Where To Go From Here
 That's it for now. For more information about security and privacy, see the suggestions in my <a href="https://kolinsturt.github.io/lessons/2018/06/01/privacy_activists_investigators">Privacy Tips for Investigators</a> article.
 
-If you have any questions, feel free to contact me through any of the contact options at the top of this page. Last but not least, stay safe during this new and unknown time. 
+If you have any questions, feel free to contact me through any of the contact options at the top of this page. Last but not least, stay safe. 
