@@ -3,7 +3,7 @@ layout: post
 category : lessons
 tagline: "OpenSSL ECDSA"
 title: ECDSA in OpenSSL
-description: ECDSA with OpenSSL in C++
+description: ECDSA with EVP in C++
 author: Kolin Stürt
 tags : [OpenSSL, C++, hash, SHA, message digest, ecdsa, ec, Elliptic Curve Cryptography]
 ---
