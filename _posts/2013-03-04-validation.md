@@ -1,9 +1,9 @@
 ---
 layout: post
 category : lessons
-tagline: "Input validation"
-title: App hardening with input validation
-description: Input validation for app hardening
+tagline: "Input validation for app hardening"
+title: Input Validation
+description: App hardening with input validation
 author: Kolin Stürt
 tags : [iOS, Foundation, Core Foundation, Secure Programming]
 ---
