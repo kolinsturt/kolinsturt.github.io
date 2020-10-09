@@ -2,14 +2,14 @@
 layout: post
 category : lessons
 tagline: "OpenSSL AES Encryption"
-title: AES encryption using OpenSSL
-description: Implementing AES encryption in OpenSSL
+title: AES Encryption in OpenSSL
+description: Implementing AES 256 CBC in OpenSSL
 author: Kolin Stürt
 tags : [C++, OpenSSL, AES, Encryption, CBC, PBKDF2]
 ---
 {% include JB/setup %}
 
-## AES Encryption using OpenSSL
+## AES Encryption in OpenSSL
 
 AES is a fast block cipher and symmetric encryption standard. It encrypts data using a key. You should always salt, or stretch, a key. A simple string or password is not enough entropy. Instead you'll derive a key from a user-supplied password by applying random data, called a salt, and then hash it several times over. You'll use a salt so that if a person uses the same password elsewhere, the output will always be different.
 
