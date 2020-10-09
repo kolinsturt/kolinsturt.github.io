@@ -2,14 +2,14 @@
 layout: post
 category : lessons
 tagline: "OpenSSL SHA Hash"
-title: SHA in OpenSSL
-description: SHA Hash in OpenSSL
+title: SHA Hashing in OpenSSL
+description: SHA512 message digests with EVP
 author: Kolin Stürt
 tags : [OpenSSL, C++, hash, SHA, message digest, ios, Core Foundation, tutorial]
 ---
 {% include JB/setup %}
 
-## SHA using OpenSSL
+## SHA Hasing in OpenSSL
 
 In this post you're going to hash data using Secure Hash Algorithm - SHA. SHA is a one-way message digest mechanism that actually refers to a group of hash functions that often correspond by a version number. SHA-1 produces 160 bit, or 20 byte output and is similar to MD4 and MD5. SHA-2 included 256 and 512 block sizes, while SHA-3 uses the same block sizes as SHA-2, but was completely redesigned from previous SHA versions based off of predicated attacks. Generally you want to use 256 or 512 block sizes as it's more secure.
 
