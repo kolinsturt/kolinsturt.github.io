@@ -1,9 +1,9 @@
 ---
 layout: post
 category : lessons
-tagline: "Securely wiping the contents of memory"
-title: Secure Wiping the Contents of Memory
-description: Secure Wiping the Contents of Memory on iOS and macOS
+tagline: "Securely wiping strings and data"
+title: Secure Wipe Memory
+description: Secure Wiping the Contents of Memory in Objective-C
 author: Kolin Stürt
 tags : [Core Foundation, secure erase, wipe, shred, ios, Objective-C, sensitive strings]
 ---
