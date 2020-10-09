@@ -1,8 +1,8 @@
 ---
 layout: post
 category : lessons
-tagline: "Application Integrity"
-title: App integrity on iOS
+tagline: "Application Integrity on iOS"
+title: Application Integrity: Jailbreak and Debugger Detection
 description: iOS application integrity
 author: Kolin Stürt
 tags : [iOS, Foundation, Core Foundation, Secure Programming]
