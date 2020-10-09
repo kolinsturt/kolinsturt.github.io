@@ -1,17 +1,17 @@
 ---
 layout: post
 category : lessons
-tagline: "HTTPS CFNetwork POST Request"
-title: HTTPS POST requests in CFNetwork
+tagline: "HTTPS POST requests in CFNetwork"
+title: HTTPS CFNetwork POST and Callback Functions
 description: Performing low level HTTPS POST requests in Core Foundation
 author: Kolin Stürt
 tags : [iOS, Networking, CFNetwork, Core Foundation, HTTPS, SSL, TLS]
 ---
 {% include JB/setup %}
 
-## HTTPS POST Request With Headers
+## HTTPS POST Requests
 
-In this tutorial we are going to create an HTTPS POST request as well as add some request headers using the CFNetwork API. This article assumes some prior understanding of Core Foundation which was discussed in the first tutorial [Simple GET Requests in Core Foundation](https://collinstuart.github.io/lessons/2011/12/29/CFNetwork/). 
+In this tutorial we are going to create an HTTPS POST request. We will add some request headers and a callback function using the CFNetwork API. This article assumes some prior understanding of Core Foundation which was discussed in the [first tutorial](https://kolinsturt.github.io/lessons/2011/12/29/CFNetwork). 
 
 ### Adding POST data
 To get started, first lets add a post value as a string, then turn it into an external representation - a CFData object that is packaged to be sent out over the network:
@@ -151,7 +151,7 @@ The last thing to do is to open the stream. Our full post request code should lo
     	    }
 	}
 
-Here is our callback function that will be invoked when the read stream receives new data, the end of the data, or an error. This function will log to the console the data we passed in as our context, and then log the response received from the server which should also include our POST data we sent. We used the callback function of the [previous tutorial](https://collinstuart.github.io/lessons/2011/12/29/CFNetwork/) as a template which you can refer to for details of how each line works.
+Here is our callback function that will be invoked when the read stream receives new data, the end of the data, or an error. This function will log to the console the data we passed in as our context, and then log the response received from the server which should also include our POST data we sent. We used the callback function of the [previous tutorial](https://kolinsturt.github.io/lessons/2011/12/29/CFNetwork) as a template which you can refer to for details of how each line works.
 
 	void LogData(CFDataRef responseData)
 	{
