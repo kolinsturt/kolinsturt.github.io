@@ -9,7 +9,7 @@ tags : [Apple, Email, encryption, iPhone, security, privacy]
 ---
 {% include JB/setup %}
 
-## Email Security
+## Email Security and Privacy
 
 There are a lot of privacy related chat apps that offer end-to-end encryption such as [Signal](https://signal.org/). In a [previous article](https://kolinsturt.github.io/lessons/2020/02/01/remote_collaboration) I discuss [Secure Remote collaboration](https://kolinsturt.github.io/lessons/2020/02/01/remote_collaboration) tools you can use. But when it comes to email, it was not designed with security in mind. If you must send email, here's a few tips.
 
