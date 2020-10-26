@@ -3,13 +3,12 @@ layout: post
 category : lessons
 tagline: "Maintaining Privacy During COVID19"
 title: Working Securely During COVID-19
-description: Maintaining privacy during the pandemic
-tags : [Signal App, Open Source, Open Sourced, open-source, Privacy, Security, Riseup.net, COVID19, COVID-19]
+description: Secure Ways for Working Remotely During COVID-19
 ---
 {% include JB/setup %}
 {% raw %}{% endraw %}
 
-## Secure Ways for Working Remotely During COVID-19
+## Working Securely During COVID-19
 
 With the pandemic we're all trying to cope by continuing to work with online sessions and remote communication. Some professionals that have to do their work in person to discuss private matters, such as lawyers, financial advisers or therapists, have been asking how to continue to work remotely without risking privacy. I've curated a list of apps that allow for secure and encrypted communications. Activists, investigators and whistle-blowers have used these apps for their work. 
 
