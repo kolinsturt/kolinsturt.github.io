@@ -2,7 +2,7 @@
 layout: post
 category : lessons
 tagline: "iOS Data Protection and Privacy"
-title: Overlooked Areas of Data Privacy: Keyboard and Screenshot Caches
+title: Overlooked Areas of Data Privacy - Keyboard and Screenshot Caches
 description: Data protection and privacy in iOS
 author: Kolin Stürt
 tags : [iOS, Foundation, Core Foundation, Secure Programming]
