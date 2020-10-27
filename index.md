@@ -9,7 +9,7 @@ tags : [Android, Kolin, Sturt, Kolin Sturt, iOS, Core Foundation, Security, C++,
 {% include JB/setup %}
 {% raw %}{% endraw %}
 
-<a href="{{ BASE_PATH }}/lessons/2020/02/01/remote_collaboration">Working Securely During COVID-19</a>
+<a href="{{ BASE_PATH }}/lessons/2020/02/01/working-securely-during-covid-19">Working Securely During COVID-19</a>
 
 <a href="{{ BASE_PATH }}/lessons/2018/06/01/privacy_activists_investigators">Privacy for Investigators and Whistleblowers</a>
 
