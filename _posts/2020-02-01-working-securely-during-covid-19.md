@@ -10,7 +10,7 @@ description: Secure Ways for Working Remotely During COVID-19
 
 ## Working Securely During COVID-19
 
-With the pandemic we're all trying to cope by continuing to work with online sessions and remote communication. Some professionals that have to do their work in person to discuss private matters, such as lawyers, financial advisers or therapists, have been asking how to continue to work remotely without risking privacy. I've curated a list of apps that allow for secure and encrypted communications. Activists, investigators and whistle-blowers have used these apps for their work. 
+With the COVID-19 we're all trying to continue to work with online sessions and remote communication. Some professionals that have to do their work in person to discuss private matters, such as lawyers, financial advisers or therapists, have been asking how to continue to work remotely without risking privacy. I've curated a list of apps that allow for secure and encrypted communications. Regardless of the pandemic, activists, investigators and whistle-blowers have used these apps for their work.
 
 ### Video Conferencing
 
@@ -81,4 +81,4 @@ One way to obtain cryptocurrency with a degree of privacy is through a bitcoin A
 ### Where To Go From Here
 That's it for now. For more information about security and privacy, see the suggestions in my <a href="https://kolinsturt.github.io/lessons/2018/06/01/privacy_activists_investigators">Privacy Tips for Investigators</a> article.
 
-If you have any questions, feel free to contact me through any of the contact options at the top of this page. Last but not least, stay safe. 
+If you have any questions, feel free to contact me through any of the contact options at the top of this page. Last but not least, stay safe during COVID-19. 
