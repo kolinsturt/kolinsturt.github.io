@@ -47,9 +47,9 @@ tags : [Android, Kolin, Sturt, Kolin Sturt, iOS, Core Foundation, Security, C++,
 
 <a href="{{ BASE_PATH }}/lessons/2013/03/03/buffer-overflow">Buffer Overflows and Format String Attacks</a>
 
-<a href="{{ BASE_PATH }}/lessons/2013/03/05/integrity">Application Integrity: Jailbreak and Debugger Detection</a>
+<a href="{{ BASE_PATH }}/lessons/2013/03/05/integrity">Application Integrity - Jailbreak and Debugger Detection</a>
 
-<a href="{{ BASE_PATH }}/lessons/2013/03/06/data-protection">Overlooked Areas of Data Privacy: Keyboard and Screenshot Caches</a>
+<a href="{{ BASE_PATH }}/lessons/2013/03/06/data-protection">Overlooked Areas of Data Privacy - Keyboard and Screenshot Caches</a>
 
 <a href="{{ BASE_PATH }}/lessons/2014/05/01/nssecurecoding">NSSecureCoding Findings</a>
 
