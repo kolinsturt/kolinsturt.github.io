@@ -6,6 +6,7 @@ Disallow: /
 
 User-agent: *
 Allow: /
+Sitemap: https://kolinsturt.github.io/sitemap.xml
 
 User-agent: Rogerbot
 User-agent: Exabot
@@ -58,5 +59,3 @@ User-agent: Whizbang
 User-agent: UniverseBot
 User-agent: SlySearch
 Disallow: /
-
-Sitemap: https://kolinsturt.github.io/sitemap.xml
