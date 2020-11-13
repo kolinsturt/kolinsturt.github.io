@@ -4,6 +4,7 @@ category : lessons
 tagline: "Maintaining Privacy During COVID19"
 title: Working Securely During COVID-19
 description: Secure Ways for Working Remotely During COVID-19
+last_modified_at: 2020-10-01T00:00:00+00:00
 ---
 {% include JB/setup %}
 {% raw %}{% endraw %}
