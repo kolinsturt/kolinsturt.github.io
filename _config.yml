@@ -140,3 +140,4 @@ theme: jekyll-theme-cayman
 
 plugins:
   - jekyll-sitemap
+  - jekyll-redirect-from
