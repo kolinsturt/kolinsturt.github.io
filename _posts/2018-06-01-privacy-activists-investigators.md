@@ -5,6 +5,7 @@ tagline: "Privacy for Activists, Investigators and Whistleblowers"
 title: Privacy for Investigators and Whistleblowers
 description: Privacy tools for activists, investigators and whistleblowers
 tags : [Signal App, VeraCrypt, TorBrowser, Tails OS, Oppression, Hong Kong Protests, Black Lives Matter, Animal Rights Activists]
+redirect_from: /lessons/2018/06/01/privacy-activists-investigators
 ---
 {% include JB/setup %}
 
