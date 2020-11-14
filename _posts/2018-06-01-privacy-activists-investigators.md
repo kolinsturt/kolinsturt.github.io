@@ -7,8 +7,6 @@ description: Privacy tools for activists, investigators and whistleblowers
 tags : [Signal App, VeraCrypt, TorBrowser, Tails OS, Oppression, Hong Kong Protests, Black Lives Matter, Animal Rights Activists]
 redirect_from:
   - /lessons/2018/06/01/privacy_activists_investigators
-  - /2018/06/01/privacy_activists_investigators
-  - /privacy_activists_investigators
 ---
 {% include JB/setup %}
 
