@@ -6,6 +6,8 @@ tagline: "Intercepting network traffic on iOS"
 author: Kolin Stürt
 description: Intercepting network traffic with mitm with mitmproxy on iOS
 tags : [iOS, mitmproxy, mitm, macOS, pf, security, XCode]
+redirect_from:
+  - /lessons/2016/06/01/intercepting_network_traffic_ios
 ---
 {% include JB/setup %}
 
