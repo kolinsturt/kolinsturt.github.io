@@ -6,6 +6,8 @@ title: Boost.Asio TLS experiments
 description: My experience implementing the Boost Asio library for HTTPS on iOS
 author: Kolin Stürt
 tags : [C++, Boost.Asio, https, http, SSL, TLS]
+redirect_from:
+  - /lessons/2011/10/17/boost_asio_tls_https
 ---
 {% include JB/setup %}
 
