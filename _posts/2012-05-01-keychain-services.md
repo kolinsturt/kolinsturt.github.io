@@ -6,6 +6,8 @@ title: Keychain Services in C
 description: Keychain Services C API on iOS
 author: Kolin Stürt
 tags : [Keychain Services, SecItem, ios, Core Foundation, SecItemCopyMatching]
+redirect_from:
+  - /lessons/2012/05/01/keychain_services
 ---
 {% include JB/setup %}
 
