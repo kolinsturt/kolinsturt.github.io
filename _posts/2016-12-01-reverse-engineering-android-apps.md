@@ -6,6 +6,8 @@ title: Android Forensics and Reverse Engineering
 author: Kolin Stürt
 description: Tools for forensics and reverse engineering Android apps.
 tags : [Android, aapt, DEX, Drozer, Dex2Jar, jd_gui, smali, baksmali]
+redirect_from:
+  - /lessons/2016/12/01/reverse_engineering_android_apps
 ---
 {% include JB/setup %}
 
