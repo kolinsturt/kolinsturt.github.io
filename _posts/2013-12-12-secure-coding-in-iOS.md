@@ -6,6 +6,8 @@ title: Objective-C Runtime Security and Obfuscation
 description: Objective-C Runtime - Security and Obfuscation
 author: Kolin Stürt
 tags : [iOS, Foundation, Core Foundation, Secure Programming]
+redirect_from:
+  - /lessons/2013/12/12/secure_coding_in_iOS
 ---
 {% include JB/setup %}
 
