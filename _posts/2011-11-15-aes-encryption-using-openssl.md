@@ -6,6 +6,8 @@ title: AES Encryption in OpenSSL
 description: Implementing AES 256 CBC in OpenSSL
 author: Kolin Stürt
 tags : [C++, OpenSSL, AES, Encryption, CBC, PBKDF2]
+redirect_from:
+  - /lessons/2011/11/15/aes_encryption_using_openssl
 ---
 {% include JB/setup %}
 
