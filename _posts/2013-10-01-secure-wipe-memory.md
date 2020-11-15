@@ -6,6 +6,8 @@ title: Secure Wipe Memory
 description: Secure Wiping the Contents of Memory in Objective-C
 author: Kolin Stürt
 tags : [Core Foundation, secure erase, wipe, shred, ios, Objective-C, sensitive strings]
+redirect_from:
+  - /lessons/2013/10/01/secure_wipe_memory
 ---
 {% include JB/setup %}
 
