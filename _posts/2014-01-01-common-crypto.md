@@ -6,6 +6,8 @@ title: AES Encryption using Common Crypto
 description: Encrypting data using the Common Crypto framework in Core Foundation
 author: Kolin Stürt
 tags : [CommonCrypto, ios, Core Foundation, tutorial]
+redirect_from:
+  - /lessons/2014/01/01/common_crypto
 ---
 {% include JB/setup %}
 
