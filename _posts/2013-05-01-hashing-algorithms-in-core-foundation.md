@@ -6,6 +6,8 @@ title: Hashing Algorithms in Core Foundation
 description: Hashing algorithms using Common Crypto
 author: Kolin Stürt
 tags : [CommonCrypto, hash, SHA, message digest, ios, Core Foundation, tutorial]
+redirect_from:
+  - /lessons/2013/05/01/hashing_algorithms-in-core-foundation
 ---
 {% include JB/setup %}
 
