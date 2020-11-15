@@ -6,6 +6,8 @@ title:  Customizing TLS Server Trust Evaluation
 description: Examining and customizing TLS certificate information in CFNetwork
 author: Kolin Stürt
 tags : [iOS, SSL, TLS Networking, CFNetwork, Core Foundation, SecTrustEvaluate]
+redirect_from:
+  - /lessons/2012/01/15/accessing_tls_information
 ---
 {% include JB/setup %}
 
