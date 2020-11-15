@@ -6,6 +6,8 @@ title: Keychain Entropy on iOS 9
 author: Kolin Stürt
 description: Provide an application password for keychain items in iOS 9
 tags : [iOS9, "iOS 9", keychain, entropy, "access control list", SecAccessControlCreateWithFlags, kSecAccessControlApplicationPassword, "Application Password", LACredentialTypeApplicationPassword, kSecAttrAccessControl, kSecUseAuthenticationContext, LAContext]
+redirect_from:
+  - /lessons/2015/11/04/keychain_entropy
 ---
 {% include JB/setup %}
 
