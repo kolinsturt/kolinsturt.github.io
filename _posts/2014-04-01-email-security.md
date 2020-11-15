@@ -6,7 +6,8 @@ title: Email Security and Privacy
 description: Email security and privacy tips
 author: Kolin Stürt
 tags : [Apple, Email, encryption, iPhone, security, privacy]
-redirect_from: /lessons/2014/04/01/email_security
+redirect_from: 
+  - /lessons/2014/04/01/email_security
 ---
 {% include JB/setup %}
 
