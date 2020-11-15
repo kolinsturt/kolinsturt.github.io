@@ -6,6 +6,8 @@ title: XCode Security Project Settings
 description: XCode project settings for app hardening
 author: Kolin Stürt
 tags : [iOS, Foundation, Core Foundation, Secure Programming]
+redirect_from:
+  - /lessons/2013/03/102/security_related_project_settings
 ---
 {% include JB/setup %}
 
