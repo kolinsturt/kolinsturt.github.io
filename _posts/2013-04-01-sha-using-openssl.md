@@ -6,6 +6,8 @@ title: SHA Hashing in OpenSSL
 description: SHA512 message digests with EVP
 author: Kolin Stürt
 tags : [OpenSSL, C++, hash, SHA, message digest, ios, Core Foundation, tutorial]
+redirect_from:
+  - /lessons/2013/04/01/sha_using_openssl
 ---
 {% include JB/setup %}
 
