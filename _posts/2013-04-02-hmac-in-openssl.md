@@ -6,6 +6,8 @@ title: HMAC in OpenSSL
 description: HMAC SHA512 with EVP in C++
 author: Kolin Stürt
 tags : [OpenSSL, C++, hash, SHA, message digest, hmac, C, how-to]
+redirect_from:
+  - /lessons/2013/04/02/hmac_in_openssl
 ---
 {% include JB/setup %}
 
