@@ -6,6 +6,8 @@ title: HTTPS CFNetwork POST and Callback Functions
 description: Performing low level HTTPS POST requests in Core Foundation
 author: Kolin Stürt
 tags : [iOS, Networking, CFNetwork, Core Foundation, HTTPS, SSL, TLS]
+redirect_from:
+  - /lessons/2011/01/01/post_request_with_headers
 ---
 {% include JB/setup %}
 
