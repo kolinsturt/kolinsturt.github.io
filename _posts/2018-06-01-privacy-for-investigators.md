@@ -39,17 +39,14 @@ Even when you're using an https version of a site, the internet service provider
 work or home) can intercept your communications (called an interception proxy). To safeguard against
 this, use a VPN (Virtual Private Network). VPNs will conceal (encrypt) and forward all traffic from
 you over to the VPN company. Anyone trying to snoop on your traffic will not be able to see what you
-are doing. A good VPN option is [Riseup.net](https://riseup.net/en/vpn), or [LiquidVPN](https://www.liquidvpn.com/).
+are doing. A good VPN option is [ProtonVPN.com](https://protonvpn.com).
 
 Using a VPN is good for when you need to send and receive sensitive information at work or while
 connected through your internet provider. VPN would be good to use at an airport WIFI where the
 traffic is regularly monitored. It's also a good solution to thwart government censorship.
 The drawback to VPNs are that the VPN provider can see your traffic. Some VPN providers don't keep
-any records or logs whatsoever and are set up in countries that have the strongest privacy laws.
-[Riseup.net](https://riseup.net/en/vpn) is one such company and their VPN service is free. A good paid solution is [LiquidVPN](https://www.liquidvpn.com/). You should choose a VPN provider depending on the sensitivity of the work
-you're doing. If you want to hide traffic from whomever operates the WIFI hotspot you're connecting
-to, LiquidVPN is fine. While both companies state they do not keep logs, if you're worried about law enforcement obtaining a warrant from the VPN company and checking logs, Riseup would be a good choice. [Autistici](https://www.autistici.org) is an
-alternative to the Riseup.net platform.
+any records or logs whatsoever and are set up in countries that have the strongest privacy laws. You should choose a VPN provider depending on the sensitivity of the work you're doing. If you want to hide traffic from whomever operates the WIFI hotspot you're connecting
+to, LiquidVPN is fine. While both companies state they do not keep logs, if you're worried about law enforcement obtaining a warrant from the VPN company and checking logs, Riseup would be a good choice.
 
 #### [TailsOS](https://tails.boum.org)
 The above techniques protect your information in transit, but they don't protect the data saved on your
@@ -76,7 +73,7 @@ VeraCrypt also offers a feature to create a [hidden volume](https://veracrypt.co
 ### Communications
 Texting has become the most prominent form of communication. Regular cell phone texts are not
 secure. Here are the secure app alternatives:
-#### [Signal](https://whispersystems.org)
+#### [Signal](https://signal.org)
 Signal is an encrypted chat app that is available for Android, iPhone, and
 desktop computers. Messages get encrypted so that only the sender and receiver can read them. (called
 end-to-end encryption). You can also choose to have messages disappear after a specific time once
@@ -111,14 +108,13 @@ software updates. (eg [https://support.apple.com/en-ca/HT207923](https://support
 ethical, so undisclosed vulnerabilities still exist. (We saw this with the WikiLeaks “Vault 7” release).
 Because of the researchers, newer versions of the operating system are more hardened than their
 previous versions. Forensics software used by law enforcement - [ElcomSoft](https://www.elcomsoft.com)
-and [Encase](https://www.guidancesoftware.com/encase-forensic) can not break into the newer
-software, provided there is a strong passcode on the device.
+and [Encase](https://www.guidancesoftware.com/encase-forensic) can not break into the newer software, provided there is a strong passcode on the device.
 
 ### Email and Social Media
 Email, as well as most social network messaging were not designed with security in mind. It's almost
 impossible to be anonymous if you're using social media. Your posts, likes, interests, and who you
 communicate with get linked together to form a bigger picture. Consider using a separate account for
-sensitive activity. If you must use email, there's a way to encrypt it by setting up [GPG](https://gpgtools.org), but it requires work for both communicating parties to set it up. Activists involved with Black Lives Matter protests heavily use [ProtonMail](https://protonmail.com). Other groups for liberatory social change such as animal rights activits use [Riseup.net](https://riseup.net). Both [Riseup.net](https://riseup.net) and [ProtonMail](https://protonmail.com) offer
+sensitive activity. If you must use email, there's a way to encrypt it by setting up [GPG](https://gpgtools.org), but it requires work for both communicating parties to set it up. Activists involved with Black Lives Matter protests heavily use [Tutanota](https://tutanota.com/) and [ProtonMail](https://protonmail.com) offer
 solid encrypted storage, but assume emails you send out to individuals are in the clear and
 saved in multiple places. It's better to stick to secure chat apps such as Signal and Telegram for
 sensitive communications.
