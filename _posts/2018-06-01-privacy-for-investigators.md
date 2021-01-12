@@ -1,19 +1,20 @@
 ---
 layout: post
 category : lessons
-tagline: "Privacy for Activists, Investigators and Whistleblowers"
-title: Privacy for Investigators and Whistleblowers
-description: Privacy tools for activists, investigators and whistleblowers
-tags : [Signal App, VeraCrypt, TorBrowser, Tails OS, Oppression, Hong Kong Protests, Black Lives Matter, Animal Rights Activists]
+tagline: "Privacy for Investigators"
+title: Privacy for Investigators
+description: Privacy tools for investigators and researchers
+tags : [Signal App, VeraCrypt, TorBrowser, Tails OS]
 redirect_from:
   - /lessons/2018/06/01/privacy_activists_investigators
+  - /lessons/2018/06/01/privacy-activists-investigators
 ---
 {% include JB/setup %}
 
-## Privacy for Investigators and Whistleblowers
+## Privacy for Investigators
 
-This guide will discuss how to communicate, coordinate, and expose information as securely as
-possible for activists, investigators and whistleblowers. You'll read about computer security first, followed by mobile security.
+This guide will discuss how to communicate and coordinate information as securely as
+possible for investigators and researchers. You'll read about computer security first, followed by mobile security.
 
 ## Laptops and Desktops
 
