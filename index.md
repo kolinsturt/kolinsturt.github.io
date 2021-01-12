@@ -11,7 +11,7 @@ tags : [Android, Kolin, Sturt, Kolin Sturt, iOS, Core Foundation, Security, C++,
 
 <a href="{{ BASE_PATH }}/lessons/2020/02/01/working-securely-during-covid-19">Working Securely During COVID-19</a>
 
-<a href="{{ BASE_PATH }}/lessons/2018/06/01/privacy-activists-investigators">Privacy for Investigators</a>
+<a href="{{ BASE_PATH }}/lessons/2018/06/01/privacy-for-investigators">Privacy for Investigators</a>
 
 <a href="{{ BASE_PATH }}/lessons/2016/01/01/beginning-ios-forensics">iOS Forensics Part 1</a>
 
