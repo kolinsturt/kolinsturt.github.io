@@ -79,8 +79,8 @@ desktop computers. Messages get encrypted so that only the sender and receiver c
 end-to-end encryption). You can also choose to have messages disappear after a specific time once
 viewed. No one yet has broken the encryption of this app and the full code for the app is open for
 public review. The security community recommends Signal because it offers the strongest protection.
-It's not as popular as WhatsApp. WhatsApp uses the Signal technology, but WhatsApp is a for-profit company and the app is proprietary. That means that you have to trust that they haven't altered the software to include backdoors that would
-allow third parties to spy on the communications ([https://signal.org/blog/there-is-no-whatsapp-backdoor](https://signal.org/blog/there-is-no-whatsapp-backdoor)). I've worked on the Signal app so feel free to message me questions. 
+It's not as popular as WhatsApp. While WhatsApp uses the Signal technology, it's not recommended as a secure choice. That's because WhatsApp is a for-profit company, owned by Facebook and the app is proprietary. That means that you have to trust that they haven't altered the software to include backdoors that would
+allow third parties to spy on the communications ([https://signal.org/blog/there-is-no-whatsapp-backdoor](https://signal.org/blog/there-is-no-whatsapp-backdoor)). 
 
 #### [Telegram](https://telegram.org)
 Telegram is very popular. It allows you to redact a message you've sent,
@@ -119,7 +119,10 @@ solid encrypted storage, but assume emails you send out to individuals are in th
 saved in multiple places. It's better to stick to secure chat apps such as Signal and Telegram for
 sensitive communications.
 
-### Crossing The Border
+### Crossing the Border
+
+The next sections offer tips if you're an investigator travelling outside of your country and trying to keep your investigation private.
+
 If asked to unlock your device, you have to think how to respond. You can state that you do not
 consent, knowing there is a chance security will hold you for a long time and force you to unlock your
 device. There are several options available. The best is to prepare before you travel. If you have a cloud
@@ -132,7 +135,7 @@ information revealing that you have an account. Security can demand your passwor
 iCloud, and social media accounts. Make sure you don't carry any evidence of their existence. One
 option is to set your social media accounts to hidden or private while you cross the border.
 
-#### Law Enforcement
+#### Law Enforcement Outside of Your Jurisdiction
 Modern forensics software used by law enforcement can extract information from a powered on, and
 locked device. When a device gets turned off, the master keys are gone until you power on the device
 and unlock it. You should power down your device in areas where security can confiscate it. This will
@@ -141,24 +144,13 @@ button 5 times in a row to enable duress mode. During duress mode, only your pas
 device. Unlocking the phone via fingerprint or facial recognition will be unsuccessful. In a situation
 where you think there is chance of an arrest, or during a medical emergency, you should take advantage
 of this. That's because when you're arrested or passed out, law enforcement can hold your finger or face
-up to the phone to unlock it. In Canada, a police officer is not allowed to unlock your phone during a
+up to the phone to unlock it. Check the laws in the country you are travelling to. In some countries, a police officer is not allowed to ask for your passcode during a
 roadside stop. If arrested and handcuffed, an officer can take your phone and use your finger or face to
 unlock the device, so it's best to use a strong passcode in this case.
 
+#### Street Police
 
-## Protection From Infiltrators
-
-Often infiltrators are there to try to get you to break the law. An obvious sign of an infiltrator will be when someone is urging you to be destructive or violent. They may try to joke with you about an illegal activity in hopes of capturing incriminating evidence. Even if you think you're among trusted friends, it’s best not to joke about these things because you don’t know if someone is recording you. (It’s best to assume you are always being recorded). I’ve seen hypothetical posts on social media that are emotional and written in haste. For example “burn them down to the ground!”. While you might not mean it, it may be used against you in the future. Anything you put on the internet, from a comment to a photo that you liked, is very difficult to redact. Someone can put all the little pieces together to form a bigger picture and turn it against you later.
-
-You can still be honest about an upcoming event without divulging all the details until it’s necessary. To quote Robert Greene, “Always say less than necessary”. That way, you’re not tipping off an infiltrator, nor admitting specific details.
-
-Keep in mind that when you create pages or posts online and only intend on sending a few key people the link, others will still immediately know you’ve posted about them with technologies like [Google Alerts](https://www.google.ca/alerts).
-
-
-
-## Street Police
-
-You are not required to talk or answer questions to law enforcement when approached on the street. You have a right to remain silent, but it's illegal to lie or provide fake documents to a police officer. Still, it’s always best to be polite. You may ask for their badge number and what force they are from. The opposite isn't true unfortunately. A police officer can lie to you or mislead you to get you talking, for example. You are not required to show ID or provide your name or address. You're required to give your name if a police officer is ticketing you. For example, if you’re ticketed for a bicycle offense in Canada, you're required to provide both your name and address.
+In countries like the US and Canada, you are not required to talk or answer questions to law enforcement when approached on the street. You have a right to remain silent, but it's illegal to lie or provide fake documents to a police officer. Still, it’s always best to be polite. You may ask for their badge number and what force they are from. The opposite isn't true unfortunately. A police officer can lie to you or mislead you to get you talking, for example. You are not required to show ID or provide your name or address. You're required to give your name if a police officer is ticketing you. For example, if you’re ticketed for a bicycle offense in Canada, you're required to provide both your name and address.
 
 In regards to not having to show ID, there are exceptions when you’re performing a task that requires a license. A good example is when driving a car, or drinking alcohol in an establishment.
 
@@ -166,7 +158,7 @@ If you’re stopped while driving, the police are not allowed to search your car
 
 In regards to your home, you do not have to answer the door or let police into your place, unless they have a search or arrest warrant. Police can enter if there are signs of an immediate emergency in which they need to attend to.
 
-### Arrests and Detainments
+#### Arrests and Detainments
 
 To figure out if you are under arrest or detained, ask if you are under arrest, and why. If not, ask if you are free to leave, and if not, why.
 
@@ -178,9 +170,9 @@ If you are arrested, an officer can search you. You must be provided promptly wi
 
 It's helpful to memorize the number of a lawyer or important people in your life that you may need to call.
 
-Police can only attempt to search your phone on arrest, however, you do not have to give them your password to unlock the device. They may use forensic tools on it anyway but it’s not always successful. Currently the iOS 13 update had stopped much of the police force's ability to unlock the phone with their [GrayKey](https://graykey.grayshift.com/) devices. It’s a cat and mouse game. A new workaround is available and it’s only a matter of time before all the forces get the update, but by then Apple may have patched it again.
+Police can only attempt to search your phone on arrest, however, you do not have to give them your password to unlock the device. They may use forensic tools on it anyway but it’s not always successful. Currently the iOS 14 update had stopped much of the police force's ability to unlock the phone with their [GrayKey](https://graykey.grayshift.com/) devices. It’s a cat and mouse game. A new workaround is available and it’s only a matter of time before all the forces get the update, but by then Apple may have patched it again.
 
-In regards to the private messaging app Signal, you can add a lock screen on app open. If someone obtains your phone unlocked or does a data dump of the device, the signal database will still be encrypted. (I helped work on this part of the Signal App so feel free to ask me any questions about it's implementation).
+In regards to the private messaging app Signal, you can add a lock screen on app open. If someone obtains your phone unlocked or does a data dump of the device, the signal database will still be encrypted.
 
 In the event any of your electronic devices are taken from you, login to your social media account dashboards as soon as possible and sign out of all connected devices. Then change the passwords to all your accounts so they can not still be accessed.
 
@@ -188,8 +180,17 @@ For any law enforcement interaction, always remain calm and polite. Record and d
 
 And lastly, this section is for generalized information. It should not be used in place of legal advice.
 
+## Protection From Infiltrators
+
+Often infiltrators are there to try to get you to break the law. An obvious sign of an infiltrator will be when someone is urging you to be destructive or violent. They may try to joke with you about an illegal activity in hopes of capturing incriminating evidence. Even if you think you're among trusted friends, it’s best not to joke about these things because you don’t know if someone is recording you. (It’s best to assume you are always being recorded). I’ve seen hypothetical posts on social media that are emotional and written in haste. For example “burn them down to the ground!”. While you might not mean it, it may be used against you in the future. Anything you put on the internet, from a comment to a photo that you liked, is very difficult to redact. Someone can put all the little pieces together to form a bigger picture and turn it against you later.
+
+You can still be honest about an upcoming event without divulging all the details until it’s necessary. To quote Robert Greene, “Always say less than necessary”. That way, you’re not tipping off an infiltrator, nor admitting specific details.
+
+Keep in mind that when you create pages or posts online and only intend on sending a few key people the link, others will still immediately know you’ve posted about them with technologies like [Google Alerts](https://www.google.ca/alerts).
+
+
 ## Where to Go From Here
-As an investigator or whistle blower, it's important to have a secure working environment. You'll collect
+As an investigator, it's important to have a secure working environment. You'll collect
 a large amount of information during your research, and it's important to contact sources and
 informants in a safe way. Most of your data gets stored and transmitted in a digital format. Ensure that
 both your data at rest and data in transit are as safe as possible at all times.
