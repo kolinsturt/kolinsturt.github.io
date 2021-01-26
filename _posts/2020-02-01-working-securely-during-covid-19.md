@@ -47,7 +47,10 @@ Proprietary services like Google Drive and Dropbox have weakness; the companies 
 It offers common features such as presentations, sheets, notes and whiteboards. 
 
 #### [NextCloud](https://nextcloud.com) 
-NextCloud is an alternative open sourced project to CryptPad. It provides document syncing and sharing that also respects your privacy. Some of the features it includes are Contacts, Calendar, Video calls, Mail and Newsreaders. 
+NextCloud is an alternative open sourced project to CryptPad. It provides document syncing and sharing that also respects your privacy. Some of the features it includes are Contacts, Calendar, Video calls, Mail and Newsreaders.
+
+#### [Tresorit](https://send.tresorit.com)
+Tresorit is an end-to-end encrypted, zero-knowledge file sharing platform. You own your data and the company is located in Switzerland.
 
 #### Using Tor? - [OnionShare](https://onionshare.org/) 
 OnionShare is an open source tool for securely and anonymously sending and receiving files using Tor onion services. TorBrowser acts like the Firefox internet browser but hides your location from sites you’re visiting. It does this by concealing your IP address through a series of virtual tunnels. 
