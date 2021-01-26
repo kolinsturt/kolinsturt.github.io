@@ -19,17 +19,17 @@ With the COVID-19 we're all trying to continue to work with online sessions and 
 
 #### [Jitsi](https://jitsi.org)
 
-Jitsi is an encrypted, open-source group videoconferencing app available on multiple platforms such as web, Linux, macOS, Windows, iOS and Android. The Jitsi Videobridge briefly decrypts the data to pass it on, check out the [full details](https://jitsi.org/security/), but there’s a beta for a true [end-to-end encryption solution](https://jitsi.org/blog/e2ee/). You do not need to create an account to use Jitsi.
+Jitsi is an encrypted, open-source group videoconferencing app available on multiple platforms such as web, Linux, macOS, Windows, iOS and Android. The Jitsi Videobridge briefly decrypts the data to pass it on and there’s true [end-to-end encryption solution](https://jitsi.org/blog/e2ee/). You do not need to create an account to use Jitsi.
 
 ### Chat and Calling
 
 #### [Signal](https://signal.org)
-Signal is an encrypted chat app that is available for Android, iPhone, and desktop computers. It encrypts messages so that only the sender and receiver can read them, called end-to-end encryption. It offers group chat, and ont-to-one encrypted video and voice calling. You can also choose to have messages disappear after a specific time once viewed.
+Signal is an encrypted chat app that is available for Android, iPhone, and desktop computers. It encrypts messages so that only the sender and receiver can read them, called end-to-end encryption. It offers encrypted group chat, video and voice calling. You can also choose to have messages disappear after a specific time once viewed.
 
 ### Remote Collaberation
 
-#### [Riot](https://about.riot.im/)
-Riot is a secure alternative to Slack. It features end-to-end encrypted chat rooms, file sharing, video and voice calling. It is open sourced and available for desktops, iPhone and Android.
+#### [Element](https://element.io/)
+Element is a secure alternative to Slack where you're in control of your data. It features end-to-end encrypted chat rooms, file sharing, video and voice calling. It is open sourced and available for desktops, iPhone and Android.
 
 #### [Retroshare](https://retroshare.cc)
 A privacy equivalent to Slack. Offers encrypted connections between you and your acquaintances to create a network of computers. It also provides various distributed services: forums, channels, chat and mail. Retroshare is a decentralized network designed to provide security and anonymity to its users. Retroshare is free and open-source software. Open Sourced means that the full code for the program is open to the public so that security researches can audit it to make sure there are no weaknesses or back doors. 
@@ -48,9 +48,6 @@ It offers common features such as presentations, sheets, notes and whiteboards.
 
 #### [NextCloud](https://nextcloud.com) 
 NextCloud is an alternative open sourced project to CryptPad. It provides document syncing and sharing that also respects your privacy. Some of the features it includes are Contacts, Calendar, Video calls, Mail and Newsreaders. 
-
-#### [Riseup](https://riseup.net)
-Riseup is special in that it offers many collaboration features. First, users can encrypt and share files via [share.riseup.net](https://share.riseup.net). It also offers a VPN, as well as an Email service. Many activists have chosen this platform for their work. 
 
 #### Using Tor? - [OnionShare](https://onionshare.org/) 
 OnionShare is an open source tool for securely and anonymously sending and receiving files using Tor onion services. TorBrowser acts like the Firefox internet browser but hides your location from sites you’re visiting. It does this by concealing your IP address through a series of virtual tunnels. 
