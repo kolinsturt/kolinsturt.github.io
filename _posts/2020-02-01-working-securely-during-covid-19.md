@@ -84,4 +84,4 @@ One way to obtain cryptocurrency with a degree of privacy is through a bitcoin A
 ### Where To Go From Here
 That's it for now. For more information about security and privacy, see the suggestions in my <a href="https://kolinsturt.github.io/lessons/2018/06/01/privacy_activists_investigators">Privacy Tips for Investigators</a> article.
 
-If you have any questions, feel free to contact me through any of the contact options at the top of this page. Last but not least, stay safe during COVID-19. 
+If you have any questions, feel free to contact me through any of the contact options at the top of this page. Last but not least, stay safe. 
