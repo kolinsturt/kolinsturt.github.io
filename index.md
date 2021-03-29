@@ -9,10 +9,6 @@ tags : [Android, Kolin, Sturt, Kolin Sturt, iOS, Core Foundation, Security, C++,
 {% include JB/setup %}
 {% raw %}{% endraw %}
 
-<a href="{{ BASE_PATH }}/lessons/2020/02/01/working-securely-during-covid-19">Working Securely During COVID-19</a>
-
-<a href="{{ BASE_PATH }}/lessons/2018/06/01/privacy-for-investigators">Privacy for Investigators</a>
-
 <a href="{{ BASE_PATH }}/lessons/2016/01/01/beginning-ios-forensics">iOS Forensics Part 1</a>
 
 <a href="{{ BASE_PATH }}/lessons/2015/01/01/iOS-hacking">iOS Forensics Part 2 - Reverse Engineering</a>
@@ -20,8 +16,6 @@ tags : [Android, Kolin, Sturt, Kolin Sturt, iOS, Core Foundation, Security, C++,
 <a href="{{ BASE_PATH }}/lessons/2016/06/01/intercepting-network-traffic-ios">iOS Forensics Part 3 - Intercepting Network Traffic</a>
 
 <a href="{{ BASE_PATH }}/lessons/2016/12/01/reverse-engineering-android-apps">Android Forensics and Reverse Engineering</a>
-
-<a href="{{ BASE_PATH }}/lessons/2014/04/01/email-security">Email Security and Privacy</a>
 
 <a href="{{ BASE_PATH }}/lessons/2014/06/01/asn1">ASN.1 and DER</a>
     
