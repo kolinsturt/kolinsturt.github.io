@@ -79,3 +79,4 @@ tags : [Android, Kolin, Sturt, Kolin Sturt, iOS, Core Foundation, Security, C++,
 
 
 [![Contact](https://www.dev-metal.com/wp-content/uploads/2014/01/stackoverflow-80x80.jpg)](https://stackoverflow.com/users/466997/nsdestroyer)
+Copyright © 2021 Kolin Stürt.
