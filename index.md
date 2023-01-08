@@ -77,6 +77,5 @@ tags : [Android, Kolin, Sturt, Kolin Sturt, iOS, Core Foundation, Security, C++,
 
 <a href="{{ BASE_PATH }}/lessons/2013/03/01/atomic">Secure Coding with Concurrency in C++ - Atomic</a>
 
-NSDestr0yer
 [![Contact](https://www.dev-metal.com/wp-content/uploads/2014/01/stackoverflow-80x80.jpg)](https://stackoverflow.com/users/466997/nsdestroyer)
-Copyright © 2021 Kolin Stürt.
+Copyright © 2023 Kolin Stürt, NSDestr0yer.
