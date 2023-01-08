@@ -2,9 +2,9 @@
 layout: page
 title: Kolin Stürt
 author: Kolin Sturt
-description: App security articles for iOS, macOS, Android and Linux.
+description: App security articles for iOS, macOS, Android and Linux by NSDestr0yer.
 
-tags : [Android, Kolin, Sturt, Kolin Sturt, iOS, Core Foundation, Security, C++, OS X, macOS, XCode, Reverse Engineering, Secure Coding, Secure Programming, Objective-C, Hacking, Application Hardening, Privacy]
+tags : [Android, Kolin, Sturt, Kolin Sturt, iOS, Core Foundation, Security, C++, OS X, macOS, XCode, Reverse Engineering, Secure Coding, Secure Programming, Objective-C, Hacking, Application Hardening, Privacy, NSDestr0yer]
 ---
 {% include JB/setup %}
 {% raw %}{% endraw %}
@@ -77,6 +77,6 @@ tags : [Android, Kolin, Sturt, Kolin Sturt, iOS, Core Foundation, Security, C++,
 
 <a href="{{ BASE_PATH }}/lessons/2013/03/01/atomic">Secure Coding with Concurrency in C++ - Atomic</a>
 
-
+NSDestr0yer
 [![Contact](https://www.dev-metal.com/wp-content/uploads/2014/01/stackoverflow-80x80.jpg)](https://stackoverflow.com/users/466997/nsdestroyer)
 Copyright © 2021 Kolin Stürt.
